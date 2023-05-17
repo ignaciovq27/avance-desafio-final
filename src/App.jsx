@@ -1,10 +1,12 @@
+import * as React from 'react';
 import { useState } from 'react'
-import './App.css'
 
 //components
-import * as React from 'react';
 import Button from '@mui/material/Button';
-import AppNav from './assets/components/AppNav/AppNav';
+import AppNav from './components/AppNav/AppNav';
+
+//css
+import './App.css'
 
 function App() {
   const pollo = "( °)> "
