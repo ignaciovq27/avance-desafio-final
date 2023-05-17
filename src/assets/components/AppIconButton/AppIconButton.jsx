@@ -7,7 +7,7 @@ import Badge from '@mui/material/Badge';
 //css
 import './AppIconButton.css'
 
-export default function AppIconButton({ icon, to, count, onClick }) {
+export default function AppIconButton({ icon, to, count, maxCount, onClick }) {
     return (
         <Typography
             // noWrap
@@ -25,7 +25,7 @@ export default function AppIconButton({ icon, to, count, onClick }) {
                 size="large"
                 onClick={onClick}
             >
-                <Badge badgeContent={count} color="secondary">
+                <Badge badgeContent={count} max={maxCount} color="secondary">
                     {icon}
                 </Badge>
             </IconButton>

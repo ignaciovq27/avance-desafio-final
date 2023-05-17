@@ -1,8 +1,10 @@
 .button-style {
-    /* background-color: red !important */
-    border: 0px solid white;
+    /* background-color: #19609d !important; */
+    border: 0px solid white !important;
     width: 100px;
     max-width: 110px;
+    height: 47px;
+    max-height: 47px;
 }
 
 .button-style:hover {

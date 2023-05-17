@@ -50,15 +50,27 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
+    padding: theme.spacing(1, 1, 1, 1),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '10ch',
+      width: '12ch',
       '&:focus': {
-        width: '16ch',
+        width: '14ch',
+      },
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '9ch',
+      '&:focus': {
+        width: '11ch',
+      },
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '16ch',
+      '&:focus': {
+        width: '18ch',
       },
     },
   },
@@ -88,6 +100,7 @@ export default function AppNav() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  // componentes de menu en xs 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -134,6 +147,8 @@ export default function AppNav() {
     </Menu>
   );
 
+
+  //componentes dentro de menu
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -194,7 +209,7 @@ export default function AppNav() {
             aria-haspopup="true"
             // onClick={handleProfileMenuOpen}
             color="secondary"
-          ><Badge badgeContent={1} color="primary">
+          ><Badge badgeContent={10} max={9} color="primary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
@@ -250,7 +265,7 @@ export default function AppNav() {
     </Menu>
   );
 
-  //Navbar
+  //componentes de Navbar
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -266,11 +281,10 @@ export default function AppNav() {
             sx={{ display: { xs: 'flex', sm: 'flex' }, m: 0, px: 1.5 }}
           ><img src="\imgs\Logo_02.png" width="200px" />
           </Typography>
-          {/* sx={{ display: { xs: 'none', sm: 'flex' }, m: 0, p: 0 }} */}
-
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA" to="/market-boardgames" />
+            <AppButton text="ACCESORIOS" to="/market-accesories" />
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
@@ -291,7 +305,7 @@ export default function AppNav() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="DASHBOARD" to="/user-dashboard" />
             <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} />
-            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={1} />
+            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} />
             <AppIconButton icon={<AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
           </Box>
