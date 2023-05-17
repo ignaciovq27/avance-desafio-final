@@ -105,7 +105,7 @@ export default function AppNav() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      {/* Aquí se indica la info del botón "Usuario" */}
+      {/* Aquí se indica la info dentro del botón "USUARIO" */}
       <Typography
         color="secondary"
         component={Link}
@@ -133,9 +133,6 @@ export default function AppNav() {
       </Typography>
     </Menu>
   );
-
-  // component={Link}
-  //           to="/"
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
@@ -166,6 +163,7 @@ export default function AppNav() {
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
         > JUEGOS DE MESA </MenuItem>
       </Typography>
+
       <Typography
         color="secondary"
         component={Link}
@@ -178,58 +176,77 @@ export default function AppNav() {
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
         > DASHBOARD </MenuItem>
       </Typography>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 1 new notifications"
-          color="secondary"
-        >
-          <Badge badgeContent={1} color="primary">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <Typography
-          color="secondary"
-        >CARRITO
-        </Typography>
-      </MenuItem>
 
       <Typography
         color="secondary"
         component={Link}
-        to="/user-favs"
+        to="/user-cart"
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
       >
         <MenuItem
-          sx={{ display: 'block', py: 0.75, textDecoration: "none", }}
-        > <IconButton
-          size="large"
-          aria-label="show 1 new notifications"
-          aria-controls={menuId}
-          aria-haspopup="true"
-          // onClick={handleProfileMenuOpen}
-          color="secondary"
-        ><FavoriteIcon /></IconButton>
-          FAVORITOS</MenuItem>
-
+          sx={{ py: 0.75, textDecoration: "none", }}>
+          <IconButton
+            size="large"
+            aria-label="show 1 new notifications"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            // onClick={handleProfileMenuOpen}
+            color="secondary"
+          ><Badge badgeContent={1} color="primary">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          CARRITO
+        </MenuItem>
       </Typography>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="primary"
-        >
-          <AccountCircle />
-        </IconButton>
-        <Typography
-          color="primary"
-        >USUARIO
-        </Typography>
-      </MenuItem>
+
+      <Typography
+        color="secondary"
+        component={Link}
+        to="/user-favourites"
+        noWrap
+        align='center'
+        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+      >
+        <MenuItem
+          sx={{ py: 0.75, textDecoration: "none", }}>
+          <IconButton
+            size="large"
+            aria-label="show 1 new notifications"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            // onClick={handleProfileMenuOpen}
+            color="secondary">
+            <FavoriteIcon />
+          </IconButton>
+          FAVORITOS
+        </MenuItem>
+      </Typography>
+
+      <Typography
+        color="primary"
+        // component={Link}
+        // to="/user-favourites"
+        noWrap
+        align='center'
+        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+      >
+        <MenuItem
+          onClick={handleProfileMenuOpen}
+          sx={{ py: 0.75, textDecoration: "none", }}>
+          <IconButton
+            size="large"
+            aria-label="show 1 new notifications"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            color="primary">
+            <AccountCircle />
+          </IconButton>
+          USUARIO
+        </MenuItem>
+      </Typography>
     </Menu>
   );
 
@@ -273,8 +290,8 @@ export default function AppNav() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="DASHBOARD" to="/user-dashboard" />
+            <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} />
             <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={1} />
-            <AppIconButton icon={<FavoriteIcon />} to="/user-favourite" count={0} />
             <AppIconButton icon={<AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
           </Box>

@@ -14,14 +14,16 @@ function App() {
     <>
       <div>
         <AppNav />
-        <h1>{pollo} {count}</h1>
-        <Button variant="contained" onClick={() => setCount((count) => count + 1)}>
-          Counter
-        </Button>
-
-        <Button variant="contained" onClick={() => setCount((count) => count + 1)}>
-          Counter
-        </Button>
+        <div>
+          <h1>{pollo} {count}</h1>
+          <Button variant="contained" onClick={() => setCount((count) => count - 1)}>
+            Count -
+          </Button>
+          {" "}
+          <Button variant="contained" onClick={() => setCount((count) => count + 1)}>
+            Counter +
+          </Button>
+        </div>
       </div>
     </>
   )
