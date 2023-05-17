@@ -1,10 +1,10 @@
+//css
+import './AppButton.css'
+
 //components
 import { Link, NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
-//css
-import './AppButton.css'
 
 export default function AppButton({ text, to }) {
     return (

@@ -1,3 +1,7 @@
+//css
+import './AppNav.css'
+
+//components
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
@@ -17,10 +21,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AppButton from '../AppButton/AppButton';
 import AppIconButton from '../AppIconButton/AppIconButton';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 // import MoreIcon from '@mui/icons-material/MoreVert';
-
-//css
-import './AppNav.css'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -259,7 +261,8 @@ export default function AppNav() {
             color="primary">
             <AccountCircle />
           </IconButton>
-          USUARIO
+          USUARIO <ArrowDropDownIcon />
+
         </MenuItem>
       </Typography>
     </Menu>
@@ -272,19 +275,18 @@ export default function AppNav() {
         <Toolbar
           sx={{ mx: { xs: "0px", sm: "10px", md: "20px", lg: "60px" } }}
         >
-
           <Typography
             variant=""
             noWrap
             component={Link}
             to="/"
             sx={{ display: { xs: 'flex', sm: 'flex' }, m: 0, px: 1.5 }}
-          ><img src="\imgs\Logo_02.png" width="200px" />
+          ><img src="\imgs\Logo_02.png" width="200px" alt="DADOAZUL_logo" />
           </Typography>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA" to="/market-boardgames" />
-            <AppButton text="ACCESORIOS" to="/market-accesories" />
+            <AppButton text="ACCESORIOS" to="/market-accessories" />
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
@@ -315,8 +317,9 @@ export default function AppNav() {
               color="inherit"
               sx={{ m: 0, p: 0 }}
             >
-              <MenuIcon />
             </IconButton>
+            <AppIconButton icon={<MenuIcon />} xsDisplay={'flex'} smDisplay={'flex'}
+              onClick={handleMobileMenuOpen} />
           </Box>
         </Toolbar>
       </AppBar>
