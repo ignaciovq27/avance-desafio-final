@@ -64,9 +64,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       },
     },
     [theme.breakpoints.up('md')]: {
-      width: '9ch',
+      width: '8ch',
       '&:focus': {
-        width: '11ch',
+        width: '10ch',
       },
     },
     [theme.breakpoints.up('lg')]: {
@@ -102,7 +102,7 @@ export default function AppNav() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  // componentes de menu en xs 
+  // componentes de menu en XS 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -148,7 +148,6 @@ export default function AppNav() {
       </Typography>
     </Menu>
   );
-
 
   //componentes dentro de menu
   const mobileMenuId = 'primary-search-account-menu-mobile';
@@ -234,7 +233,6 @@ export default function AppNav() {
             aria-label="show 1 new notifications"
             aria-controls={menuId}
             aria-haspopup="true"
-            // onClick={handleProfileMenuOpen}
             color="secondary">
             <FavoriteIcon />
           </IconButton>
@@ -285,8 +283,8 @@ export default function AppNav() {
           </Typography>
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <AppButton text="JUEGOS DE MESA" to="/market-boardgames" />
-            <AppButton text="ACCESORIOS" to="/market-accessories" />
+            <AppButton text="JUEGOS DE MESA" to="/market-boardgames" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            <AppButton text="ACCESORIOS" to="/market-accessories" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
@@ -306,20 +304,15 @@ export default function AppNav() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="DASHBOARD" to="/user-dashboard" />
-            <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} />
-            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} />
+            <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} component={NavLink} />
             <AppIconButton icon={<AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-              sx={{ m: 0, p: 0 }}
-            >
-            </IconButton>
             <AppIconButton icon={<MenuIcon />} xsDisplay={'flex'} smDisplay={'flex'}
-              onClick={handleMobileMenuOpen} />
+              onClick={handleMobileMenuOpen}
+            />
           </Box>
         </Toolbar>
       </AppBar>

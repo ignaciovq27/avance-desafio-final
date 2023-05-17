@@ -5,8 +5,14 @@
 }
 
 .IconButton-style:hover {
+    border-radius: 25px !important;
     background-color: rgb(20, 79, 128) !important;
     /* background-color: #292829 !important; */
     /* background-color: #606060 !important; */
     /* background-color: #606060 !important; */
+}
+
+.active {
+    border-radius: 25px !important;
+    background-color: rgb(20, 79, 128) !important;
 }
