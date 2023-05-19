@@ -268,7 +268,9 @@ export default function AppNav() {
 
   //componentes de Navbar
   return (
-    <Box sx={{ flexGrow: 1 }} className="AppBar-style">
+    <Box
+      // sx={{ flexGrow: 1 }}
+      className="AppBar-style">
       <hr className="hrTop-style"></hr>
       <AppBar position="static" className="AppBar-style">
         <Toolbar

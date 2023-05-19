@@ -2,10 +2,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom';
 
-//import CssBaseline y index.css 
+//import CssBaseline
 import { CssBaseline } from "@mui/material";
-// import "../src/assets/styles/index.css"
 
 //fonts
 import { createTheme } from '@mui/material/styles';
@@ -40,7 +40,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CssBaseline />
     <ThemeProvider theme={theme}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
 )
