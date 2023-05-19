@@ -4,7 +4,7 @@
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 
-export default function AppLogoImg({ to, width, src }) {
+export default function AppImg({ to, width, src, alt, imgClass, px, py }) {
     return (
         <>
             <Typography
@@ -12,8 +12,11 @@ export default function AppLogoImg({ to, width, src }) {
                 noWrap
                 component={Link}
                 to={to}
-                sx={{ display: { xs: 'flex', sm: 'flex' }, m: 0, px: 1.5 }}
-            ><img src={src} width={width} alt="DADOAZUL_logo" />
+                paddingY={py}
+                paddingX={px}
+                align='center'
+            ><img src={src} width={width} alt={alt} className={imgClass}
+                />
             </Typography>
         </>
     )

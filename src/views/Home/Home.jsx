@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AppHeader from "../../components/AppHeader/AppHeader";
+import AppSection from "../../components/AppSection/AppSection";
 
 
 export default function Home() {
@@ -17,8 +18,9 @@ export default function Home() {
 
   return (
     <div className="home-container" id="Home">
+      <h2> HOME </h2>
       <AppHeader />
-      <h1> HOME </h1>
+      <AppSection />
       <div>
         <h1>{pollo} {count}</h1>
         <Button variant="contained" onClick={() => setCount((count) => count - 1)}>

@@ -22,7 +22,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AppButton from '../AppButton/AppButton';
 import AppIconButton from '../AppIconButton/AppIconButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import AppLogoImg from '../AppLogoImg/AppLogoImg';
+import AppImg from '../AppImg/AppImg';
 // import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
@@ -261,7 +261,6 @@ export default function AppNav() {
             <AccountCircle />
           </IconButton>
           USUARIO <ArrowDropDownIcon />
-
         </MenuItem>
       </Typography>
     </Menu>
@@ -269,13 +268,13 @@ export default function AppNav() {
 
   //componentes de Navbar
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className="AppBar-style">
       <hr className="hrTop-style"></hr>
-      <AppBar position="static">
+      <AppBar position="static" className="AppBar-style">
         <Toolbar
           sx={{ mx: { xs: "0px", sm: "10px", md: "20px", lg: "60px" } }}
         >
-          <AppLogoImg to="/" src="\imgs\Logo_02.png" width="200px" />
+          <AppImg to="/" src="\imgs\Logo_02.png" width="200px" alt="Logo_AppNav" px="10px" />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA" to="/market-boardgames" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
@@ -313,6 +312,7 @@ export default function AppNav() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      {/* <hr className="hrTop-style"></hr> */}
     </Box>
   );
 }

@@ -2,7 +2,7 @@
 import "./AppHeader.css"
 
 //components
-import AppLogoImg from "../AppLogoImg/AppLogoImg"
+import AppImg from "../AppImg/AppImg"
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ export default function AppHeader() {
     return (
         <>
             <header className="appHeader-container header-img">
-                <AppLogoImg to="/" src="\imgs\Logo_02.png" width="160px" />
+                <AppImg to="/" src="\imgs\Logo_02.png" width="160px" alt="Logo_Header" />
                 <Typography
                     variant=""
                     // noWrap
