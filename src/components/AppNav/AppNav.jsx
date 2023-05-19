@@ -22,6 +22,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import AppButton from '../AppButton/AppButton';
 import AppIconButton from '../AppIconButton/AppIconButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import AppLogoImg from '../AppLogoImg/AppLogoImg';
 // import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
@@ -269,18 +270,12 @@ export default function AppNav() {
   //componentes de Navbar
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <hr className="hrTop-style"></hr>
       <AppBar position="static">
         <Toolbar
           sx={{ mx: { xs: "0px", sm: "10px", md: "20px", lg: "60px" } }}
         >
-          <Typography
-            variant=""
-            noWrap
-            component={Link}
-            to="/"
-            sx={{ display: { xs: 'flex', sm: 'flex' }, m: 0, px: 1.5 }}
-          ><img src="\imgs\Logo_02.png" width="200px" alt="DADOAZUL_logo" />
-          </Typography>
+          <AppLogoImg to="/" src="\imgs\Logo_02.png" width="200px" />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA" to="/market-boardgames" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />

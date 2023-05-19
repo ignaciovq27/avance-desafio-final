@@ -5,9 +5,9 @@ import "../Home/Home.css"
 import { useState } from 'react'
 import Button from '@mui/material/Button';
 // import Gallery from "../../components/Gallery/Gallery";
-// import MyHeader from "../../components/MyHeader/MyHeader"
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import AppHeader from "../../components/AppHeader/AppHeader";
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="home-container" id="Home">
-      {/* <MyHeader /> */}
+      <AppHeader />
       <h1> HOME </h1>
       <div>
         <h1>{pollo} {count}</h1>
