@@ -41,9 +41,6 @@ export default function AppRegister() {
 
     return (
         <>
-            <h2 > LOGIN </h2>
-            <hr />
-
             <Box
                 component="form"
                 onSubmit={handleSubmit}
@@ -65,7 +62,7 @@ export default function AppRegister() {
                     // to="/"
                     src="\imgs\Icon_User_02.png"
                     alt="Logo_02"
-                    width="80px"
+                    width="70px"
                     display="flex"
                     py="10px"
                 />
@@ -188,7 +185,7 @@ export default function AppRegister() {
                     color="primary"
                     component={Link}
                     to="/login"
-                // className=''
+                    className="link-style"
                 >INICIAR SESIÓN
                 </Typography>
             </Box>

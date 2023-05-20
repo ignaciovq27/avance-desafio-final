@@ -13,6 +13,8 @@ export default function NotFound() {
     return (
         <div className="notFound-container" id="notFound">
             <h2>NOT FOUND</h2>
+            <hr />
+
             <h3>✧ ERROR 404 ✧</h3>
             <h4>La ruta que intentas consultar no existe.</h4>
             <Typography

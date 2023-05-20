@@ -276,7 +276,7 @@ export default function AppNav() {
         <Toolbar
           sx={{ mx: { xs: "0px", sm: "10px", md: "20px", lg: "60px" } }}
         >
-          <AppImg to="/" src="\imgs\Logo_02.png" width="200px" alt="Logo_AppNav" px="10px" display="flex" component={Link} />
+          <AppImg to="/" src="\imgs\Logo_02.png" width="200px" alt="Logo_AppNav" px="10px" display="flex" component={Link} imgClass="logoNavbar-style" />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA" to="/market-boardgames" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />

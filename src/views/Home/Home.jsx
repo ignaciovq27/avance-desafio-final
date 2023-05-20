@@ -19,6 +19,8 @@ export default function Home() {
   return (
     <div className="home-container" id="home">
       <h2> HOME </h2>
+      <hr />
+
       <AppHeader />
       <AppSection />
       <div>
