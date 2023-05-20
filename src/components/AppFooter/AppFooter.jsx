@@ -74,7 +74,7 @@ export default function AppFooter() {
                                 </Typography>
                                 <Typography
                                     component={Link}
-                                    to="/"
+                                    to="/login"
                                     sx={{
                                         m: 0,
                                         pt: 2,

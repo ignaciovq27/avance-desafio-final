@@ -17,7 +17,7 @@ export default function Home() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="home-container" id="Home">
+    <div className="home-container" id="home">
       <h2> HOME </h2>
       <AppHeader />
       <AppSection />
