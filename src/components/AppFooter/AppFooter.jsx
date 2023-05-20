@@ -146,16 +146,16 @@ export default function AppFooter() {
                                 <Box sx={{ display: { xs: 'flex', md: 'flex' }, justifyContent: "center", pb: "30px", gap: "5px" }}>
                                     <AppIconButton icon={<InstagramIcon />} backgroundColor={"rgb(29, 95, 149)"}
                                         boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
-                                        component="a" href="https://www.instagram.com/desafiolatam/" />
+                                        component="a" href="https://www.instagram.com/desafiolatam/" target={"_blank"} />
                                     <AppIconButton icon={<TwitterIcon />} backgroundColor={"rgb(29, 95, 149)"}
                                         boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
-                                        component="a" href="https://twitter.com/DesafioLatam" />
+                                        component="a" href="https://twitter.com/DesafioLatam" target={"_blank"} />
                                     <AppIconButton icon={<YouTubeIcon />} backgroundColor={"rgb(29, 95, 149)"}
                                         boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
-                                        component="a" href="https://www.youtube.com/@AcademiaDesafioLatam" />
+                                        component="a" href="https://www.youtube.com/@AcademiaDesafioLatam" target={"_blank"} />
                                     <AppIconButton icon={<FacebookIcon />} backgroundColor={"rgb(29, 95, 149)"}
                                         boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
-                                        component="a" href="https://www.facebook.com/DesafioLatam" />
+                                        component="a" href="https://www.facebook.com/DesafioLatam" target={"_blank"} />
                                 </Box>
                             </Grid >
                         </Grid>

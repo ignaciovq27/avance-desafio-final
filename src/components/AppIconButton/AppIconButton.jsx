@@ -7,13 +7,13 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 
-export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDisplay, smDisplay, component, isActive, backgroundColor, boxShadow, href }) {
+export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDisplay, smDisplay, component, isActive, backgroundColor, boxShadow, href, target }) {
     return (
         <Typography
             // noWrap
             component={component}
             href={href}
-            target="_blank"
+            target={target}
             to={to}
             className={isActive}
             sx={{
@@ -33,7 +33,6 @@ export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDi
                 className='IconButton-style'
                 size="large"
                 onClick={onClick}
-
             >
                 <Badge badgeContent={count} max={maxCount} color="secondary">
                     {icon}

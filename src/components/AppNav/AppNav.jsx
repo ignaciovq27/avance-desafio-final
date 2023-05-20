@@ -281,8 +281,8 @@ export default function AppNav() {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA"
-            to="/market-boardgames"
-            className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+              to="/market-boardgames"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="ACCESORIOS" to="/market-accessories" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="REGISTRARSE" to="/register" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
           </Box>
