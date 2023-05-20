@@ -12,8 +12,8 @@ export default function NotFound() {
 
     return (
         <div className="notFound-container" id="notFound">
-            <h1>POLLO</h1>
-            <h2>✧ ERROR 404 ✧</h2>
+            <h2>NOT FOUND</h2>
+            <h3>✧ ERROR 404 ✧</h3>
             <h4>La ruta que intentas consultar no existe.</h4>
             <Typography
                 // noWrap
@@ -25,7 +25,12 @@ export default function NotFound() {
                     textDecoration: "none",
                 }}
             >
-                <Button variant="contained">
+                <Button variant="contained"
+                    sx={{
+                        m: 0,
+                        py: 2,
+                    }}
+                >
                     IR A INICIO
                 </Button>
             </Typography>

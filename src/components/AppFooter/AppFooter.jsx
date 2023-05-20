@@ -4,7 +4,7 @@ import "./AppFooter.css"
 //components
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Box, Chip, Divider, Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import AppImg from "../AppImg/AppImg";
@@ -13,55 +13,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AppIconButton from "../AppIconButton/AppIconButton";
-
-function Copyright() {
-
-    return (
-        <>
-            <hr />
-            <Box
-                sx={{
-                }}>
-
-                <Box
-                    align="center"
-                    sx={{
-                        display: { xs: 'flex', sm: 'flex' },
-                        justifyContent: { xs: "center", md: "flex-end" },
-                        alignItems: "center",
-                        gap: "5px",
-                    }}>
-                    <Box>
-                        <Typography
-                            sx={{
-                                m: "auto",
-                                fontSize: "15px"
-                            }}
-                        >IGNACIO VARAS Q.
-                        </Typography>
-                    </Box>
-                    <Box sx={{
-                        display: { xs: "flex", sm: "flex" },
-                        gap: "5px",
-                    }}>
-                        <AppIconButton icon={<GitHubIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                            boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
-                        <AppIconButton icon={<LinkedInIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                            boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
-                    </Box>
-                </Box>
-            </Box>
-        </>
-    );
-}
+import AppFooterInfo from "./AppFooterInfo";
 
 export default function AppFooter() {
     return (
         <>
-
             <div className="appFooter-style">
                 <Box
                     component="footer"
@@ -98,7 +55,7 @@ export default function AppFooter() {
                                         display: { xs: 'flex', sm: 'flex' },
                                         gap: 0.5,
                                         mt: "10px",
-                                        mb: "10px",
+                                        // mb: "10px",
                                     }}
                                     textAlign={"center"}
                                 >¿AÚN NO ERES PARTE DE LA COMUNIDAD?
@@ -113,7 +70,7 @@ export default function AppFooter() {
                                         mt: "10px",
                                     }}
                                 // className=''
-                                >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.
+                                >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit amet loremter.
                                 </Typography>
                                 <Typography
                                     component={Link}
@@ -212,7 +169,7 @@ export default function AppFooter() {
                             {''}
                         </Typography>
                     </Box>
-                    <Copyright />
+                    <AppFooterInfo />
                 </Box>
             </div>
         </>

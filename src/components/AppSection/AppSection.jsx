@@ -84,7 +84,6 @@ export default function AppSection() {
                             textAlign: "center",
                             m: "auto",
                             mx: "2px",
-                            // my: "30px",
                         }}
                         textAlign={"center"}
                     ><AppImg
@@ -94,7 +93,6 @@ export default function AppSection() {
                             imgClass="imgBorderRadius imgShadow imgSize"
                         />
                     </Typography>
-
                 </Grid >
             </Grid>
         </Container>
