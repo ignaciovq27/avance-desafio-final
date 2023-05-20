@@ -12,7 +12,7 @@ import AppFooter from './components/AppFooter/AppFooter';
 //views
 import Home from './views/Home/Home';
 import NotFound from './views/NotFound/NotFound';
-import LogIn from './views/Login/Login';
+import Register from './views/Register/Register';
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LogIn />} />
+            <Route path="/register" element={<Register />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
 

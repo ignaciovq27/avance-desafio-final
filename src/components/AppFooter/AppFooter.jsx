@@ -4,7 +4,7 @@ import "./AppFooter.css"
 //components
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Box, Grid } from '@mui/material';
+import { Box, Divider, Grid } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import AppImg from "../AppImg/AppImg";
@@ -63,7 +63,6 @@ export default function AppFooter() {
                                 <Typography
                                     disabled={false}
                                     variant="h6"
-                                    color="white"
                                     sx={{
                                         textAlign: "justify",
                                         textJustify: "initial",
@@ -73,21 +72,24 @@ export default function AppFooter() {
                                 >Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam sit amet loremter.
                                 </Typography>
                                 <Typography
-                                    component={Link}
-                                    to="/login"
+                                    // component={Link}
+                                    // to="/login"
+                                    variant="a"
                                     sx={{
                                         m: 0,
                                         pt: 2,
                                         pb: 4,
+                                        display: "inline"
                                     }}
                                 >
-                                    <Button variant="contained"
+                                    <Button variant="contained" color="primary"
                                         sx={{
-                                            m: 0,
                                             py: 2,
                                         }}
+                                        href="https://desafiolatam.com/"
+                                        target="_blank"
                                     >
-                                        REGISTRARSE
+                                        IR A COMUNIDAD
                                     </Button>
                                 </Typography>
                             </Grid >
@@ -141,15 +143,19 @@ export default function AppFooter() {
                                     textAlign={"center"}
                                 >SÍGUENOS EN:
                                 </Typography>
-                                <Box sx={{ display: { xs: 'flex', md: 'flex' }, justifyContent: "center", pb: "20px", gap: "5px" }}>
-                                    <AppIconButton icon={<InstagramIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
-                                    <AppIconButton icon={<TwitterIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
-                                    <AppIconButton icon={<YouTubeIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
-                                    <AppIconButton icon={<FacebookIcon />} to="/" component={Link} backgroundColor={"rgb(29, 95, 149)"}
-                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"} />
+                                <Box sx={{ display: { xs: 'flex', md: 'flex' }, justifyContent: "center", pb: "30px", gap: "5px" }}>
+                                    <AppIconButton icon={<InstagramIcon />} backgroundColor={"rgb(29, 95, 149)"}
+                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
+                                        component="a" href="https://www.instagram.com/desafiolatam/" />
+                                    <AppIconButton icon={<TwitterIcon />} backgroundColor={"rgb(29, 95, 149)"}
+                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
+                                        component="a" href="https://twitter.com/DesafioLatam" />
+                                    <AppIconButton icon={<YouTubeIcon />} backgroundColor={"rgb(29, 95, 149)"}
+                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
+                                        component="a" href="https://www.youtube.com/@AcademiaDesafioLatam" />
+                                    <AppIconButton icon={<FacebookIcon />} backgroundColor={"rgb(29, 95, 149)"}
+                                        boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
+                                        component="a" href="https://www.facebook.com/DesafioLatam" />
                                 </Box>
                             </Grid >
                         </Grid>

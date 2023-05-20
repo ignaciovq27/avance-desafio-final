@@ -4,13 +4,13 @@
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 
-export default function AppImg({ to, width, src, alt, imgClass, px, py, display }) {
+export default function AppImg({ to, width, src, alt, imgClass, px, py, display, component }) {
     return (
         <>
             <Typography
                 variant=""
                 noWrap
-                component={Link}
+                component={component}
                 to={to}
                 paddingY={py}
                 paddingX={px}
