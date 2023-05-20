@@ -25,10 +25,10 @@ const theme = createTheme({
     primary: {
       main: "#1D71B8",
       // 1D71B8 blue
-      // 292829 gray
     },
     secondary: {
       main: "#292829",
+      // 292829 gray
     },
   },
 });
@@ -38,9 +38,9 @@ import '@fontsource/righteous/400.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CssBaseline />
     <ThemeProvider theme={theme}>
       <BrowserRouter>
+        <CssBaseline />
         <App />
       </BrowserRouter>
     </ThemeProvider>

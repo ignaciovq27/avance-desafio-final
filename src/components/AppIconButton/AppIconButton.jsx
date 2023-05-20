@@ -2,12 +2,12 @@
 import './AppIconButton.css'
 
 //components
-import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 
-export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDisplay, smDisplay, component, isActive }) {
+export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDisplay, smDisplay, component, isActive, backgroundColor, boxShadow }) {
     return (
         <Typography
             // noWrap
@@ -20,6 +20,11 @@ export default function AppIconButton({ icon, to, count, maxCount, onClick, xsDi
                 mx: 0.2,
                 py: 0,
                 textDecoration: "none",
+                // backgroundColor: "rgb(20, 79, 128)",
+                backgroundColor: { backgroundColor },
+                borderRadius: "50%",
+                // boxShadow: "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"
+                boxShadow: { boxShadow }
             }}
         >
             <IconButton

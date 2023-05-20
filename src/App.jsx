@@ -21,13 +21,13 @@ function App() {
         {/* <MyContext> */}
         <AppNav />
         <main>
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
 
         </main>
-
         <AppFooter />
         {/* </MyContext> */}
       </div>

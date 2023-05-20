@@ -4,7 +4,7 @@
 import Typography from '@mui/material/Typography';
 import { Link, NavLink } from 'react-router-dom';
 
-export default function AppImg({ to, width, src, alt, imgClass, px, py }) {
+export default function AppImg({ to, width, src, alt, imgClass, px, py, display }) {
     return (
         <>
             <Typography
@@ -15,6 +15,7 @@ export default function AppImg({ to, width, src, alt, imgClass, px, py }) {
                 paddingY={py}
                 paddingX={px}
                 align='center'
+                sx={{ display: { display }, justifyContent: "center", alignItems: "center", alignContent: "center" }}
             ><img src={src} width={width} alt={alt} className={imgClass}
                 />
             </Typography>

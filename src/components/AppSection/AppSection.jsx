@@ -51,6 +51,19 @@ export default function AppSection() {
                             textAlign: "justify",
                             textJustify: "initial",
                             mt: "20px",
+                            mb: "20px", fontWeight: "bold",
+                        }}
+                    // className=''
+                    >"Lorem ipsum, dolor sit amet consectetur adipisicing elit. "
+                    </Typography>
+                    <Typography
+                        disabled={false}
+                        variant="h6"
+                        color="secondary"
+                        sx={{
+                            textAlign: "justify",
+                            textJustify: "initial",
+                            mt: "20px",
                             mb: "20px",
                         }}
                     // className=''
@@ -71,13 +84,13 @@ export default function AppSection() {
                             textAlign: "center",
                             m: "auto",
                             mx: "2px",
-                            my: "30px",
+                            // my: "30px",
                         }}
                         textAlign={"center"}
                     ><AppImg
                             // to="/"
                             src="\imgs\Section_Img_01.png"
-                            alt="Logo_AppNav"
+                            alt="Section_Img_01"
                             imgClass="imgBorderRadius imgShadow imgSize"
                         />
                     </Typography>
