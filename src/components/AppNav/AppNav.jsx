@@ -279,7 +279,10 @@ export default function AppNav() {
           <AppImg to="/" src="\imgs\Logo_02.png" width="200px" alt="Logo_AppNav" px="10px" display="flex" component={Link} imgClass="logoNavbar-style" />
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <AppButton text="JUEGOS DE MESA" to="/market-boardgames" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            <AppButton text="JUEGOS DE MESA"
+            // to="/market-boardgames"
+            to="/register"
+            className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="ACCESORIOS" to="/market-accessories" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="REGISTRARSE" to="/register" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
           </Box>
