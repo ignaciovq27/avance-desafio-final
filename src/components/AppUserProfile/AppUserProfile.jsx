@@ -45,7 +45,7 @@ export default function AppUserProfile() {
     return (
         <>
             <Card
-                elevation={3}
+                elevation={5}
                 sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -78,12 +78,12 @@ export default function AppUserProfile() {
                     // noValidate
                     // autoComplete="off"
                     >
-                        <CardMedia
+                        {/* <CardMedia
                             component="img"
                             sx={{ objectFit: "fill" }}
                             image="imgs/Card_Style_01.png"
                             alt="Card_Style_00.png"
-                        />
+                        /> */}
 
                         <div className="imgContainer-style">
                             <AppImg
@@ -171,8 +171,7 @@ export default function AppUserProfile() {
                             display: "flex",
                             flexDirection: { xs: "column", sm: "row" },
                             my: "20px",
-                            px: "20px",
-                            mb: "20px"
+                            mb: "20px",
                             // pb: "20px",
                             // mx: "10px",
                             // m: "auto",
@@ -189,8 +188,10 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                mt: 2,
+                                mt: 1,
+                                mb: 1,
                                 py: 2,
+                                mx: 3,
                                 width: "200px",
                             }}
                         > MIS PUBLICACIONES </Button>
@@ -200,19 +201,21 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                mt: 2,
+                                mt: 1,
+                                mb: 1,
                                 py: 2,
+                                mx: 3,
                                 width: "200px",
                             }}
                         > MIS FAVORITOS </Button>
                     </Box>
 
-                    <CardMedia
+                    {/* <CardMedia
                         component="img"
                         sx={{ objectFit: "fill" }}
                         image="imgs/Card_Style_01.png"
                         alt="Card_Style_00.png"
-                    />
+                    /> */}
                 </CardContent>
             </Card>
 
