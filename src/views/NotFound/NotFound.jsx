@@ -6,14 +6,14 @@ import { Link } from "react-router-dom";
 
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import AppTitle from "../../components/AppTitle/AppTitle";
 
 
 export default function NotFound() {
 
     return (
         <div className="notFound-container" id="notFound">
-            <h2>NOT FOUND</h2>
-            <hr />
+            <AppTitle title="NOT FOUND" />
 
             <h3>✧ ERROR 404 ✧</h3>
             <h4>La ruta que intentas consultar no existe.</h4>

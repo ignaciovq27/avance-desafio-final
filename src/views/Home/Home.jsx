@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AppHeader from "../../components/AppHeader/AppHeader";
 import AppSection from "../../components/AppSection/AppSection";
+import AppTitle from "../../components/AppTitle/AppTitle";
 
 
 export default function Home() {
@@ -18,9 +19,7 @@ export default function Home() {
 
   return (
     <div className="home-container" id="home">
-      <h2> HOME </h2>
-      <hr />
-
+      <AppTitle title="HOME" />
       <AppHeader />
       <AppSection />
       <div>
