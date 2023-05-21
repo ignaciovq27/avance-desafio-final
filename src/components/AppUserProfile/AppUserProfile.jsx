@@ -15,8 +15,8 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
 export default function AppUserProfile() {
@@ -63,7 +63,7 @@ export default function AppUserProfile() {
                     sx={{
                         m: "0", p: "0",
                     }}
-                    className="userCard-style"
+                    // className="userCard-style"
                 >
                     <Box
                         sx={{
@@ -75,23 +75,21 @@ export default function AppUserProfile() {
                         justifyContent={"center"}
                         alignItems={"center"}
                         textAlign={"center"}
-                    // noValidate
-                    // autoComplete="off"
                     >
-                        {/* <CardMedia
-                            component="img"
-                            sx={{ objectFit: "fill" }}
-                            image="imgs/Card_Style_01.png"
-                            alt="Card_Style_00.png"
-                        /> */}
-
-                        <div className="imgContainer-style">
+                        {/* <div className="imgContainer-style">
                             <AppImg
                                 src="\imgs\User_Profile_Img_00.png"
                                 alt="User_Profile_Img_00.png"
                                 width="140px"
                             />
-                        </div>
+                        </div> */}
+
+                        <AppImg
+                            src="\imgs\User_Profile_Img_00.png"
+                            alt="User_Profile_Img_00.png"
+                            width="140px"
+                            imgClass="userProfileImg-style"
+                        />
 
                         <div>
                             <div className="divTextField-style">
@@ -209,13 +207,6 @@ export default function AppUserProfile() {
                             }}
                         > MIS FAVORITOS </Button>
                     </Box>
-
-                    {/* <CardMedia
-                        component="img"
-                        sx={{ objectFit: "fill" }}
-                        image="imgs/Card_Style_01.png"
-                        alt="Card_Style_00.png"
-                    /> */}
                 </CardContent>
             </Card>
 

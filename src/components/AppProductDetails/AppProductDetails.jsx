@@ -4,43 +4,24 @@ import "./AppProductDetails.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
-import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
+import { Box, Chip, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import { TextField } from "@mui/material";
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import EmailIcon from '@mui/icons-material/Email';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
+import { Grid } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
 export default function AppProductDetails() {
 
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
-    }
-
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
+    const pollo = "( °)> "
+    const [count, setCount] = useState(0)
 
     return (
         <>
@@ -54,171 +35,255 @@ export default function AppProductDetails() {
                     m: "auto",
                     mt: "50px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "500px", md: "600px" },
+                    maxWidth: { xs: "330px", sm: "500px", md: "1250px" },
                     borderRadius: "20px",
                 }}
-                className="userCard-style"
+
             >
                 <CardContent
-                    sx={{
-                        m: "0", p: "0",
-                    }}
-                    className="userCard-style"
+                    className="productDetailsCard-style"
                 >
-                    <Box
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
-                            display: "flex",
-                            // display: { md: 'flex' },
-                        }}
-                        flexDirection={"column"}
+
+                    <Grid container
+                        // spacing={3}
                         justifyContent={"center"}
                         alignItems={"center"}
-                        textAlign={"center"}
-                    // noValidate
-                    // autoComplete="off"
+                        alignContent={"center"}
                     >
-                        {/* <CardMedia
-                            component="img"
-                            sx={{ objectFit: "fill" }}
-                            image="imgs/Card_Style_01.png"
-                            alt="Card_Style_00.png"
-                        /> */}
+                        <Grid
+                            item
+                            // xs={12}
+                            // sm={6}
+                            md={6}
 
-                        <div className="imgContainer-style">
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                alignContent: "center",
+                                // px: { xs: 'none', sm: '0px', md: "30px" }
+                            }}
+
+                        >
                             <AppImg
-                                src="\imgs\User_Profile_Img_00.png"
-                                alt="User_Profile_Img_00.png"
-                                width="140px"
+                                src="\imgs\products\Product_01.png"
+                                alt="Product_01.png"
+                                width="500px"
+                                py="0px"
+                                px="0px"
+                                imgClass="productDetailsImg-style"
                             />
-                        </div>
+                        </Grid >
 
-                        <div>
-                            <div className="divTextField-style">
-                                <AccountCircle
-                                    color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="name"
-                                    label="Nombre de usuario"
-                                    type="text"
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingresa un nombre de usuario valido."
-                                    error={false}
-                                    // value={userName}
-                                    defaultValue='"UserName"'
-                                    onChange={(e) => setUserName(e.target.value)}
-                                    color="primary"
-                                />
-                            </div>
+                        <Grid
+                            item
+                            // xs={12}
+                            // sm={6}
+                            md={6}
 
-                            <div className="divTextField-style">
-                                <EmailIcon
-                                    color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="email"
-                                    label="Correo Electrónico"
-                                    type="email"
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingrese un correo valido."
-                                    error={false}
-                                    // value={userEmail}
-                                    defaultValue='"UserEmail"'
-                                    onChange={(e) => setUserEmail(e.target.value)}
-                                    color="primary"
-                                />
-                            </div>
+                            sx={{
+                                px: { xs: 'none', sm: '0px', md: "30px" },
+                            }}
+                        >
 
-                            <div className="divTextField-style">
-                                <VpnKeyIcon
+                            <Box
+                                sx={{
+                                    '& .MuiTextField-root': { m: 1, width: '40ch' },
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    my: "20px",
+                                    // mb: "20px",
+                                    // pb: "20px",
+                                    // mx: "10px",
+                                    // m: "auto",
+                                }}
+                            // justifyContent={"center"}
+                            // alignItems={"flex-start"}
+                            // textAlign={"center"}
+                            >
+
+                                <Typography
+                                    // variant="h6"
                                     color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="password"
-                                    label="Contraseña"
-                                    type={showPassword ? 'text' : 'password'}
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingrese un correo valido."
-                                    error={false}
-                                    // value={userPassword}
-                                    defaultValue='"UserPassword"'
-                                    onChange={(e) => setUserPassword(e.target.value)}
-                                    color="primary"
-                                />
-                                <IconButton
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="start"
+                                    sx={{
+                                        textAlign: "left",
+                                    }}
+                                // className=''
+                                >"NOMBRE PUBLICADOR"
+                                </Typography>
+                                <Typography
+                                    variant="h5"
                                     color="secondary"
+                                    sx={{
+                                        textAlign: "justify",
+                                        textJustify: "initial",
+                                        // mt: "20px",
+                                        // mb: "20px",
+                                        fontWeight: "bold",
+                                    }}
+                                // className=''
+                                >"NOMBRE PRODUCTO"
+                                </Typography>
+                                <hr className="hr-style3" />
+                                <Typography
+                                    disabled={false}
+                                    // variant="h6"
+                                    color="secondary"
+                                    sx={{
+                                        // textAlign: "left",
+                                        // mt: "5px",
+                                    }}
+                                // className=''
+                                >DESCRIPCIÓN:
+
+                                </Typography>
+                                <Typography
+                                    disabled={false}
+                                    // variant="h5"
+                                    color="secondary"
+                                    sx={{
+                                        textAlign: "justify",
+                                        textJustify: "initial",
+                                        // mt: "20px",
+                                        mt: "5px",
+                                        mb: "15px",
+                                    }}
+                                // className=''
+                                >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ipsum assumenda reprehenderit dolorem porro minus doloremque recusandae nesciunt odio cupiditate eum ullam itaque quos similique accusantium sint, nisi maxime!
+                                </Typography>
+                                <Typography
+                                    // variant="h6"
+                                    color="secondary"
+                                // className=''
+                                >DISPONIBLES: 0
+                                </Typography>
+
+                                <Box
+                                    sx={{
+                                        '& .MuiTextField-root': { m: 1, width: '40ch' },
+                                        display: "flex",
+                                        // flexDirection: "row",
+                                        // my: "20px",
+                                        // mb: "20px",
+                                        // pb: "20px",
+                                        // mx: "10px",
+                                        // m: "auto",
+                                    }}
+                                    justifyContent={"space-between"}
+                                    alignItems={"center"}
+                                    textAlign={"center"}
                                 >
-                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </div>
-                        </div>
-                        <hr className="hr-style2" />
-                    </Box>
 
-                    <Box
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: '40ch' },
-                            display: "flex",
-                            flexDirection: { xs: "column", sm: "row" },
-                            my: "20px",
-                            mb: "20px",
-                            // pb: "20px",
-                            // mx: "10px",
-                            // m: "auto",
-                        }}
-                        justifyContent={"space-around"}
-                        alignItems={"center"}
-                        textAlign={"center"}
-                    // noValidate
-                    // autoComplete="off"
-                    >
-                        <Button
-                            component={Link}
-                            to="/user-dashboard"
-                            variant="contained"
-                            size="small"
-                            sx={{
-                                mt: 1,
-                                mb: 1,
-                                py: 2,
-                                mx: 3,
-                                width: "200px",
-                            }}
-                        > MIS PUBLICACIONES </Button>
-                        <Button
-                            component={Link}
-                            to="/user-favourites"
-                            variant="contained"
-                            size="small"
-                            sx={{
-                                mt: 1,
-                                mb: 1,
-                                py: 2,
-                                mx: 3,
-                                width: "200px",
-                            }}
-                        > MIS FAVORITOS </Button>
-                    </Box>
+                                    <Typography
+                                        disabled={false}
+                                        variant="h5"
+                                        color="secondary"
+                                        sx={{
+                                            textAlign: "justify",
+                                            textJustify: "initial",
+                                            // mt: "20px",
+                                            // mb: "20px",
+                                            fontWeight: "600",
+                                            fontSize: "32px"
+                                        }}
+                                    // className=''
+                                    >$9.990
+                                    </Typography>
 
-                    {/* <CardMedia
-                        component="img"
-                        sx={{ objectFit: "fill" }}
-                        image="imgs/Card_Style_01.png"
-                        alt="Card_Style_00.png"
-                    /> */}
+                                    <Box
+                                        sx={{
+                                            display: "flex",
+                                            // flexDirection: "row",
+                                            // my: "20px",
+                                            // mb: "20px",
+                                            // pb: "10px",
+                                            // mx: "10px",
+                                            // m: "auto",
+                                        }}
+                                        justifyContent={"space-between"}
+                                        alignItems={"center"}
+                                        textAlign={"center"}
+                                    >
+                                        <Button
+                                            className="link-style2"
+                                            endIcon={<FavoriteIcon color="secondary" className="iconInfo-style" />}>
+                                            GUARDADO EN FAVORITOS
+                                        </Button>
+                                    </Box>
+                                </Box>
+
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        pt: "10px"
+                                    }}
+                                    justifyContent={"center"}
+                                    alignItems={"center"}
+                                    textAlign={"center"}
+                                >
+                                    <Box
+                                        flexGrow={1}
+                                        sx={{
+                                            display: "flex",
+
+                                        }}
+                                        justifyContent={"center"}
+                                        alignItems={"center"}
+                                        textAlign={"center"}
+                                    >
+                                        <Button variant="contained" onClick={() => setCount((count) => count - 1)}>
+                                            <RemoveIcon />
+                                        </Button>
+                                        <Typography
+                                            variant="h5"
+                                            color="secondary"
+                                            sx={{
+                                                // mt: "20px",
+                                                mx: "20px",
+                                                fontWeight: "bold",
+                                            }}
+                                        // className=''
+                                        >{count}
+                                        </Typography>
+
+                                        <Button
+                                            sx={{
+                                                // mt: 3,
+                                                // mb: 1,
+                                                // py: 1,
+                                                // px: 0.5,
+                                                // mx: 3,
+                                            }}
+                                            variant="contained" onClick={() => setCount((count) => count + 1)}>
+                                            <AddIcon />
+                                        </Button>
+                                    </Box>
+                                    <Box
+                                        flexGrow={1}
+                                    >
+                                        <Button
+                                            // component={Link}
+                                            // to="/user-favourites"
+                                            variant="contained"
+                                            startIcon={<AddShoppingCartIcon color="white" className="iconInfo-style" />}
+                                            size="small"
+                                            // fullWidth
+                                            sx={{
+                                                // mt: 3,
+                                                // mb: 1,
+                                                py: 1,
+                                                // mx: 3,
+                                                width: "260px",
+                                            }}
+                                        >AÑADIR AL CARRITO
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Grid >
+                    </Grid>
                 </CardContent>
             </Card>
-
         </>
     );
 }
