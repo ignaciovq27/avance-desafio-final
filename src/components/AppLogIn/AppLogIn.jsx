@@ -138,8 +138,6 @@ export default function AppLogIn() {
             </Box>
 
             <Box
-                component="form"
-                onSubmit={handleSubmit}
                 sx={{
                     '& .MuiTextField-root': { m: 1, width: '40ch' },
                     display: "flex",
