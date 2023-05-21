@@ -1,5 +1,5 @@
 //css
-import "./AppRegister.css"
+import "./AppLogIn.css"
 
 //components
 import { Link, NavLink } from 'react-router-dom';
@@ -13,8 +13,6 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
-
-
 
 export default function AppRegister() {
 
@@ -60,7 +58,7 @@ export default function AppRegister() {
             >
                 <AppImg
                     // to="/"
-                    src="\imgs\Icon_User_02.png"
+                    src="\imgs\Icon_User_01.png"
                     alt="Logo_02"
                     width="70px"
                     display="flex"
@@ -71,7 +69,7 @@ export default function AppRegister() {
                     variant="h4"
                     color="primary"
                 // className=''
-                >CREA TU CUENTA
+                >¡BIENVENIDO!
                 </Typography>
                 <Typography
                     variant="h6"
@@ -80,10 +78,10 @@ export default function AppRegister() {
                     sx={{
                         pb: "20px"
                     }}
-                >REGISTRA TUS DATOS
+                >INICIA SESIÓN
                 </Typography>
                 <div>
-                    <div className="divTextField-style">
+                    {/* <div className="divTextField-style">
                         <AccountCircle
                             color="primary"
                             sx={{ my: 0.5 }} />
@@ -99,7 +97,7 @@ export default function AppRegister() {
                             onChange={(e) => setUserName(e.target.value)}
                             color="primary"
                         />
-                    </div>
+                    </div> */}
 
                     <div className="divTextField-style">
                         <EmailIcon
@@ -156,7 +154,7 @@ export default function AppRegister() {
                         py: 2,
                         width: "200px",
                     }}
-                > REGISTRARSE </Button>
+                > INGRESAR </Button>
             </Box>
 
             <Box
@@ -185,15 +183,15 @@ export default function AppRegister() {
                     variant="h6"
                     color="secondary"
                 // className=''
-                >¿YA TIENES UNA CUENTA?
+                >¿AÚN NO TIENES UNA CUENTA?
                 </Typography>
                 <Typography
                     variant="h5"
                     color="primary"
                     component={Link}
-                    to="/login"
+                    to="/register"
                     className="link-style"
-                >INICIAR SESIÓN
+                >REGISTRARSE
                 </Typography>
             </Box>
         </>
