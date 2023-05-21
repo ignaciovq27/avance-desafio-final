@@ -11,6 +11,7 @@ import { Grid } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 import Card from '@mui/material/Card';
@@ -35,7 +36,7 @@ export default function AppProductDetails() {
                     m: "auto",
                     mt: "50px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "500px", md: "1250px" },
+                    maxWidth: { xs: "330px", sm: "600px", md: "940px", lg: "980px" },
                     borderRadius: "20px",
                 }}
 
@@ -45,68 +46,64 @@ export default function AppProductDetails() {
                 >
 
                     <Grid container
-                        // spacing={3}
+                        spacing={3}
                         justifyContent={"center"}
                         alignItems={"center"}
                         alignContent={"center"}
                     >
                         <Grid
                             item
-                            // xs={12}
-                            // sm={6}
+                            xs={12}
+                            sm={12}
                             md={6}
-
                             sx={{
                                 display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                alignContent: "center",
-                                // px: { xs: 'none', sm: '0px', md: "30px" }
                             }}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            alignContent={"center"}
 
                         >
-                            <AppImg
-                                src="\imgs\products\Product_01.png"
+                            <CardMedia
+                                component="img"
+                                sx={{ width: { xs: 260, sm: 300, md: 360, lg: 400 }, mx: "auto" }}
+                                image="\imgs\products\Product_01.png"
                                 alt="Product_01.png"
-                                width="500px"
-                                py="0px"
-                                px="0px"
-                                imgClass="productDetailsImg-style"
+                                className="productDetailsImg-style"
                             />
+
                         </Grid >
 
                         <Grid
                             item
-                            // xs={12}
-                            // sm={6}
+                            xs={12}
+                            sm={12}
                             md={6}
 
                             sx={{
-                                px: { xs: 'none', sm: '0px', md: "30px" },
+                                px: { xs: 'none', sm: '0px', md: "5px" },
                             }}
                         >
 
                             <Box
                                 sx={{
-                                    '& .MuiTextField-root': { m: 1, width: '40ch' },
                                     display: "flex",
                                     flexDirection: "column",
-                                    my: "20px",
+                                    // my: "20px",
                                     // mb: "20px",
                                     // pb: "20px",
                                     // mx: "10px",
                                     // m: "auto",
-                                }}
-                            // justifyContent={"center"}
-                            // alignItems={"flex-start"}
-                            // textAlign={"center"}
-                            >
+                                    maxWidth: { xs: "300px", sm: "500px", md: "940px", lg: "980px" },
 
+                                }}
+                                alignItems={"space-between"}
+                            >
                                 <Typography
                                     // variant="h6"
                                     color="primary"
                                     sx={{
-                                        textAlign: "left",
+                                        textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
                                 // className=''
                                 >"NOMBRE PUBLICADOR"
@@ -115,11 +112,12 @@ export default function AppProductDetails() {
                                     variant="h5"
                                     color="secondary"
                                     sx={{
-                                        textAlign: "justify",
-                                        textJustify: "initial",
+                                        // textAlign: "justify",
+                                        // textJustify: "initial",
                                         // mt: "20px",
                                         // mb: "20px",
                                         fontWeight: "bold",
+                                        textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
                                 // className=''
                                 >"NOMBRE PRODUCTO"
@@ -132,6 +130,8 @@ export default function AppProductDetails() {
                                     sx={{
                                         // textAlign: "left",
                                         // mt: "5px",
+                                        textAlign: { xs: "center", sm: "left", md: "left" }
+
                                     }}
                                 // className=''
                                 >DESCRIPCIÓN:
@@ -154,7 +154,10 @@ export default function AppProductDetails() {
                                 <Typography
                                     // variant="h6"
                                     color="secondary"
-                                // className=''
+                                    // className=''
+                                    sx={{
+                                        textAlign: { xs: "center", sm: "left", md: "left" }
+                                    }}
                                 >DISPONIBLES: 0
                                 </Typography>
 
@@ -162,6 +165,7 @@ export default function AppProductDetails() {
                                     sx={{
                                         '& .MuiTextField-root': { m: 1, width: '40ch' },
                                         display: "flex",
+                                        flexDirection: { xs: "column", sm: "row", md: "row" },
                                         // flexDirection: "row",
                                         // my: "20px",
                                         // mb: "20px",
@@ -206,8 +210,9 @@ export default function AppProductDetails() {
                                     >
                                         <Button
                                             className="link-style2"
-                                            endIcon={<FavoriteIcon color="secondary" className="iconInfo-style" />}>
-                                            GUARDADO EN FAVORITOS
+                                            disabled
+                                            endIcon={<FavoriteBorderIcon color="white" className="iconInfo-style" />}>
+                                            GUARDAR EN FAVORITOS
                                         </Button>
                                     </Box>
                                 </Box>
@@ -215,19 +220,19 @@ export default function AppProductDetails() {
                                 <Box
                                     sx={{
                                         display: "flex",
+                                        flexDirection: { xs: "column", sm: "row", md: "row" },
                                         pt: "10px"
                                     }}
-                                    justifyContent={"center"}
+                                    justifyContent={"space-between"}
                                     alignItems={"center"}
                                     textAlign={"center"}
                                 >
                                     <Box
-                                        flexGrow={1}
                                         sx={{
                                             display: "flex",
 
                                         }}
-                                        justifyContent={"center"}
+                                        justifyContent={"space-between"}
                                         alignItems={"center"}
                                         textAlign={"center"}
                                     >
@@ -259,7 +264,7 @@ export default function AppProductDetails() {
                                         </Button>
                                     </Box>
                                     <Box
-                                        flexGrow={1}
+                                    // flexGrow={1}
                                     >
                                         <Button
                                             // component={Link}
@@ -269,11 +274,12 @@ export default function AppProductDetails() {
                                             size="small"
                                             // fullWidth
                                             sx={{
+                                                mt: { xs: 2, sm: 0, md: 0 },
                                                 // mt: 3,
                                                 // mb: 1,
                                                 py: 1,
                                                 // mx: 3,
-                                                width: "260px",
+                                                width: "200px",
                                             }}
                                         >AÑADIR AL CARRITO
                                         </Button>
