@@ -14,6 +14,7 @@ import Home from './views/Home/Home';
 import NotFound from './views/NotFound/NotFound';
 import Register from './views/Register/Register';
 import LogIn from './views/LogIn/LogIn';
+import UserProfile from './views/UserProfile/UserProfile';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/user-profile" element={<UserProfile />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
 

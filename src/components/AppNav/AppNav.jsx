@@ -125,8 +125,7 @@ export default function AppNav() {
       <Typography
         color="secondary"
         component={Link}
-        // to="/user-profile"
-        to="/register"
+        to="/user-profile"
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
@@ -134,6 +133,19 @@ export default function AppNav() {
         <MenuItem
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
         > VER PERFIL </MenuItem>
+      </Typography>
+
+      <Typography
+        color="secondary"
+        component={Link}
+        to="/register"
+        noWrap
+        align='center'
+        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+      >
+        <MenuItem
+          sx={{ py: 2, textDecoration: "none", }}
+        > REGISTRARSE </MenuItem>
       </Typography>
 
       <Typography
@@ -284,7 +296,7 @@ export default function AppNav() {
               to="/market-boardgames"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="ACCESORIOS" to="/market-accessories" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
-            <AppButton text="REGISTRARSE" to="/register" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            {/* <AppButton text="REGISTRARSE" to="/register" className={({ isActive }) => (isActive ? 'active' : 'inactive')} /> */}
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
@@ -295,8 +307,6 @@ export default function AppNav() {
 
             <StyledInputBase
               sx={{
-                fontWeight: "400",
-                fontFamily: 'Montserrat, sans-serif',
               }}
               placeholder="Buscar…"
             />

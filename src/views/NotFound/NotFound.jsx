@@ -3,7 +3,6 @@ import "../NotFound/NotFound.css"
 
 //components
 import { Link } from "react-router-dom";
-
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AppTitle from "../../components/AppTitle/AppTitle";

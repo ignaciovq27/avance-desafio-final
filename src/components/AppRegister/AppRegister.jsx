@@ -129,7 +129,7 @@ export default function AppRegister() {
                             type={showPassword ? 'text' : 'password'}
                             variant="outlined"
                             required
-                            // helperText="Ingrese un correo valido."
+                            // helperText="La contraseña no es correcta."
                             error={false}
                             value={userPassword}
                             onChange={(e) => setUserPassword(e.target.value)}

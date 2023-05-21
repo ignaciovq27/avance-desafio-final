@@ -1,20 +1,22 @@
 //css
-import "./AppLogIn.css"
+import "./AppUserProfile.css"
 
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
+import AccountCircle from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 
-export default function AppLogIn() {
+export default function AppUserProfile() {
 
+    const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
 
@@ -43,6 +45,7 @@ export default function AppLogIn() {
                 sx={{
                     '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
                     display: "flex",
+                    // display: { md: 'flex' },
                     my: "20px",
                     mb: "40px",
                 }}
@@ -78,6 +81,23 @@ export default function AppLogIn() {
                 >INICIA SESIÓN
                 </Typography>
                 <div>
+                    {/* <div className="divTextField-style">
+                        <AccountCircle
+                            color="primary"
+                            sx={{ my: 0.5 }} />
+                        <TextField
+                            id="name"
+                            label="Nombre de usuario"
+                            type="text"
+                            variant="outlined"
+                            required
+                            // helperText="Ingresa un nombre de usuario valido."
+                            error={false}
+                            value={userName}
+                            onChange={(e) => setUserName(e.target.value)}
+                            color="primary"
+                        />
+                    </div> */}
 
                     <div className="divTextField-style">
                         <EmailIcon
@@ -107,7 +127,7 @@ export default function AppLogIn() {
                             type={showPassword ? 'text' : 'password'}
                             variant="outlined"
                             required
-                            // helperText="La contraseña no es correcta."
+                            // helperText="Ingrese un correo valido."
                             error={false}
                             value={userPassword}
                             onChange={(e) => setUserPassword(e.target.value)}
