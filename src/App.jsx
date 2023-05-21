@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 // import { MyContext } from "./MyContext";
 
 import AppNav from './components/AppNav/AppNav';
-import AppFooter from './components/AppFooter/AppFooter';
+// import AppFooter from './components/AppFooter/AppFooter';
 
 //views
 import Home from './views/Home/Home';
@@ -15,6 +15,8 @@ import NotFound from './views/NotFound/NotFound';
 import Register from './views/Register/Register';
 import LogIn from './views/LogIn/LogIn';
 import UserProfile from './views/UserProfile/UserProfile';
+
+import ProductDetails from './views/ProductDetails/ProductDetails';
 
 function App() {
 
@@ -30,8 +32,11 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/user-profile" element={<UserProfile />} />
+
+            <Route path="/product-details" element={<ProductDetails />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
+
 
         </main>
         {/* <AppFooter /> */}

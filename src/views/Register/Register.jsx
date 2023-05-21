@@ -2,7 +2,6 @@
 import "../Register/Register.css"
 
 //components
-import { useState } from 'react'
 import AppRegister from "../../components/AppRegister/AppRegister";
 import AppTitle from "../../components/AppTitle/AppTitle";
 

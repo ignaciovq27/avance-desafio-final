@@ -2,7 +2,6 @@
 import "../UserProfile/UserProfile.css"
 
 //components
-import { useState } from 'react'
 import AppTitle from "../../components/AppTitle/AppTitle";
 import AppUserProfile from "../../components/AppUserProfile/AppUserProfile";
 

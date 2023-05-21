@@ -2,7 +2,6 @@
 import "../LogIn/LogIn.css"
 
 //components
-import { useState } from 'react'
 import AppLogIn from "../../components/AppLogIn/AppLogIn";
 import AppTitle from "../../components/AppTitle/AppTitle";
 
