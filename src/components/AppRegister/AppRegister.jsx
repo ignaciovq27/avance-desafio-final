@@ -138,7 +138,7 @@ export default function AppRegister() {
                         <IconButton
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
-                            edge="end"
+                            edge="start"
                             color="secondary"
                         >
                             {showPassword ? <VisibilityOff /> : <Visibility />}

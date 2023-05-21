@@ -54,7 +54,7 @@ export default function AppUserProfile() {
                     m: "auto",
                     mt: "50px",
                     mb: "40px",
-                    maxWidth: { xs: "320px", sm: "500px", md: "600px" },
+                    maxWidth: { xs: "330px", sm: "500px", md: "600px" },
                     borderRadius: "20px",
                 }}
                 className="userCard-style"
@@ -155,7 +155,7 @@ export default function AppUserProfile() {
                                 <IconButton
                                     onClick={handleClickShowPassword}
                                     onMouseDown={handleMouseDownPassword}
-                                    edge="end"
+                                    edge="start"
                                     color="secondary"
                                 >
                                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -170,7 +170,7 @@ export default function AppUserProfile() {
                             '& .MuiTextField-root': { m: 1, width: '40ch' },
                             display: "flex",
                             flexDirection: { xs: "column", sm: "row" },
-                            // my: "20px",
+                            my: "20px",
                             px: "20px",
                             mb: "20px"
                             // pb: "20px",

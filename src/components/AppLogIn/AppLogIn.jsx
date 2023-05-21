@@ -116,7 +116,7 @@ export default function AppLogIn() {
                         <IconButton
                             onClick={handleClickShowPassword}
                             onMouseDown={handleMouseDownPassword}
-                            edge="end"
+                            edge="start"
                             color="secondary"
                         >
                             {showPassword ? <VisibilityOff /> : <Visibility />}
