@@ -10,6 +10,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AppHeader from "../../components/AppHeader/AppHeader";
 import AppSection from "../../components/AppSection/AppSection";
 import AppTitle from "../../components/AppTitle/AppTitle";
+import AppFooter from "../../components/AppFooter/AppFooter";
 
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
           <AddIcon />
         </Button>
       </div>
+      <AppFooter />
     </div>
   );
 }

@@ -34,7 +34,7 @@ function App() {
           </Routes>
 
         </main>
-        <AppFooter />
+        {/* <AppFooter /> */}
         {/* </MyContext> */}
       </div>
     </>
