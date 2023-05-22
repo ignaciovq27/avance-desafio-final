@@ -2,8 +2,8 @@
 import "../Register/Register.css"
 
 //components
-import AppRegister from "../../components/AppRegister/AppRegister";
 import AppTitle from "../../components/AppTitle/AppTitle";
+import AppRegister from "../../components/AppRegister/AppRegister";
 
 export default function Register() {
 

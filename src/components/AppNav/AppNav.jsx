@@ -184,7 +184,7 @@ export default function AppNav() {
       <Typography
         color="secondary"
         component={Link}
-        to="/market-boardgames"
+        to="/gallery-boardgames"
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
@@ -293,10 +293,11 @@ export default function AppNav() {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <AppButton text="JUEGOS DE MESA"
-              to="/market-boardgames"
+              to="/gallery-boardgames"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
-            <AppButton text="ACCESORIOS" to="/market-accessories" className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
-            {/* <AppButton text="REGISTRARSE" to="/register" className={({ isActive }) => (isActive ? 'active' : 'inactive')} /> */}
+            <AppButton text="ACCESORIOS"
+              to="/gallery-accessories"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}

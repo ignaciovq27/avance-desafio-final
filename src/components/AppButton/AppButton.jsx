@@ -1,7 +1,5 @@
 //css
 import './AppButton.css'
-// import FavoriteIcon from '@mui/icons-material/Favorite';
-
 
 //components
 import { Link, NavLink } from 'react-router-dom';
@@ -27,10 +25,11 @@ export default function AppButton({ text, to, isActive }) {
             <Button
                 // startIcon={<FavoriteIcon />}
                 disabled={false}
-                variant="outlined"
+                // variant="outlined"
                 color="inherit"
                 size="small"
                 className='button-style'
+                // className={isActive}
                 sx={{
                     mx: 0,
                     px: 1,

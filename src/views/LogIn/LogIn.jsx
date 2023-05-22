@@ -2,8 +2,8 @@
 import "../LogIn/LogIn.css"
 
 //components
-import AppLogIn from "../../components/AppLogIn/AppLogIn";
 import AppTitle from "../../components/AppTitle/AppTitle";
+import AppLogIn from "../../components/AppLogIn/AppLogIn";
 
 export default function Register() {
 

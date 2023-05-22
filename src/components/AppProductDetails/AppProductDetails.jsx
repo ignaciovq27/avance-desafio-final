@@ -71,7 +71,6 @@ export default function AppProductDetails() {
                                 alt="Product_01.png"
                                 className="productDetailsImg-style"
                             />
-
                         </Grid >
 
                         <Grid

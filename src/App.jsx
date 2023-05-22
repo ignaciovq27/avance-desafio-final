@@ -15,6 +15,9 @@ import NotFound from './views/NotFound/NotFound';
 import Register from './views/Register/Register';
 import LogIn from './views/LogIn/LogIn';
 import UserProfile from './views/UserProfile/UserProfile';
+import UserFavourites from './views/UserFavourites/UserFavourites';
+import GalleryBoardgames from './views/GalleryBoardgames/GalleryBoardgames';
+
 
 import ProductDetails from './views/ProductDetails/ProductDetails';
 
@@ -32,6 +35,10 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/user-favourites" element={<UserFavourites />} />
+
+
+            <Route path="/gallery-boardgames" element={<GalleryBoardgames />} />
 
             <Route path="/product-details" element={<ProductDetails />} />
             <Route path='*' element={<NotFound />} />

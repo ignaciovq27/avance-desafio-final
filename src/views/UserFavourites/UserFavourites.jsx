@@ -1,5 +1,5 @@
 // css
-import "../NotFound/NotFound.css"
+import "../UserFavourites/UserFavourites.css"
 
 //components
 import { Link } from "react-router-dom";
@@ -7,13 +7,15 @@ import AppTitle from "../../components/AppTitle/AppTitle";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-export default function NotFound() {
-    return (
-        <div className="notFound-container" id="notFound">
-            <AppTitle title="NOT FOUND" />
 
-            <h3>✧ ERROR 404 ✧</h3>
-            <h4>La ruta que intentas consultar no existe.</h4>
+export default function UserFavourites() {
+
+    return (
+        <div className="userFavourites-container" id="userFavourites">
+            <AppTitle title="USER FAVOURITES" />
+
+            <h3>✧ MIS FAVORITOS ✧</h3>
+            {/* <h4>La ruta que intentas consultar no existe.</h4> */}
             <Typography
                 // noWrap
                 component={Link}
