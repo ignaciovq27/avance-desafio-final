@@ -21,6 +21,8 @@ export default function AppCardDashboard({ dashboardProductImg }) {
     return (
         <>
             <Card
+                elevation={0}
+
                 sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -39,21 +41,28 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                     sx={{
                         display: "flex",
                         flexDirection: { xs: "column", sm: "row" },
-                        width: "840px",
+                        // width: "840px",
+                        maxWidth: { xs: "280px", sm: "700px", md: "880px", lg: "1040px" },
                     }}
-                    className="dasboardCard-style "
+                    className="dasboardCard-style"
                 >
                     <Box
                         sx={{
                             display: "flex",
-                            flexDirection: { sm: "row" }
+                            flexDirection: { xs: "column", sm: "row" },
+                            maxWidth: { xs: "280px", sm: "600px", md: "880px", lg: "1040px" },
                         }}
-                        className="boxContainer-style"
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        textAlign={"center"}
+                    // className="boxContainer-style"
                     >
                         <Box
                             sx={{
                                 display: "flex",
                                 flexDirection: { xs: "column", sm: "row" },
+                                maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
+                                m: "auto",
                             }}
                             justifyContent={"center"}
                             alignItems={"center"}
@@ -61,7 +70,10 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                         >
                             <CardMedia
                                 component="img"
-                                sx={{ width: { xs: 100, sm: 100, md: 100, lg: 100 }, mx: "auto" }}
+                                sx={{
+                                    width: { xs: "130px", sm: "130px", md: 100, lg: 100 },
+                                    mx: "auto"
+                                }}
                                 image={dashboardProductImg}
                                 alt="Product_01.png"
                                 className="productDetailsImg-style"
@@ -72,9 +84,13 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 sx={{
                                     fontWeight: "bold",
                                     fontSize: "18px",
-                                    mr: 10,
-                                    ml: 2,
-                                    width: "260px"
+                                    // mr: 10,
+                                    // ml: 2,
+                                    py: 1,
+                                    px: 1,
+                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
+                                    width: { xs: "240px", sm: "280px", md: "280px", lg: "360px" },
+                                    mx: "auto"
                                 }}
                                 className="productName-style"
                             >
@@ -84,7 +100,9 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                         <Box
                             sx={{
                                 display: "flex",
-                                flexDirection: { xs: "row", sm: "row" },
+                                flexDirection: { xs: "column", sm: "row" },
+                                justifyContent: "center",
+                                alignItems: "center,"
                                 // my: "20px",
                                 // mb: "20px",
                                 // pb: "20px",
@@ -98,11 +116,8 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 variant="contained"
                                 size="small"
                                 sx={{
-                                    // mt: 1,
-                                    // mb: 1,
-                                    // px: 8,
-                                    // mr: 3,
-                                    mx: 2,
+                                    my: 1,
+                                    mx: { xs: 0, sm: 1, md: 1, lg: 1 },
                                     py: 1.5,
                                     width: "160px",
                                 }}
@@ -114,9 +129,11 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 variant="outlined"
                                 size="small"
                                 sx={{
-                                    // mt: 1,
-                                    // mb: 1,
+                                    my: 1,
+                                    mx: { xs: 0, sm: 1, md: 1, lg: 1 },
+
                                     py: 1.5,
+                                    width: { xs: "160px", sm: "140px", md: "140px", lg: "140px" },
                                 }}
                                 endIcon={<DeleteIcon />}> ELIMINAR
                             </Button>

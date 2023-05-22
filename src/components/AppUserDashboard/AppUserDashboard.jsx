@@ -38,10 +38,11 @@ export default function AppUserDashboard() {
                     m: "auto",
                     mt: "10px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "500px", md: "1000px" },
+                    pb: "35px",
+                    maxWidth: { xs: "330px", sm: "700px", md: "880px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
-                className="userCard-style"
+                // className="userCard-style"
             >
                 <CardContent
                     sx={{
@@ -53,7 +54,7 @@ export default function AppUserDashboard() {
                         sx={{
                             my: 1,
                             display: "flex",
-                            justifyContent: "flex-end",
+                            justifyContent: "center",
                             alignItems: "center",
                             alignContent: "center",
                         }}

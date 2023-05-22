@@ -280,7 +280,7 @@ export default function AppProductDetails() {
                                                 mt: { xs: 2, sm: 0, md: 0 },
                                                 // mt: 3,
                                                 // mb: 1,
-                                                py: 1,
+                                                py: 1.5,
                                                 // mx: 3,
                                                 width: "200px",
                                             }}
