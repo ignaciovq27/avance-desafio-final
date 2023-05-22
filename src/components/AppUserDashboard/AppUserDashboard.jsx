@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import AppImg from "../AppImg/AppImg";
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,6 +16,18 @@ export default function AppUserDashboard() {
 
     return (
         <>
+            <Typography
+                disabled={false}
+                variant="h4"
+                color="primary"
+                sx={{
+                    textAlign: "center",
+                    py: "20px",
+                    fontSize: { xs: "28px", sm: "30px", md: "34px" }
+                }}
+            // className=''
+            >✧ MIS PUBLICACIONES ✧
+            </Typography>
             <Card
                 elevation={5}
                 sx={{
@@ -24,7 +36,7 @@ export default function AppUserDashboard() {
                     alignItems: "center",
                     alignContent: "center",
                     m: "auto",
-                    mt: "50px",
+                    mt: "10px",
                     mb: "40px",
                     maxWidth: { xs: "330px", sm: "500px", md: "1000px" },
                     borderRadius: "20px",
@@ -37,23 +49,35 @@ export default function AppUserDashboard() {
                     }}
                 // className="userCard-style"
                 >
-                    <Button
-                        component={Link}
-                        to="/user-profile"
-                        variant="contained"
-                        size="small"
-                        color="secondary"
+                    <Box
                         sx={{
-                            mt: 1,
-                            mb: 1,
-                            py: 1,
-                            mx: 3,
-                            width: "140px",
+                            my: 1,
+                            display: "flex",
+                            justifyContent: "flex-end",
+                            alignItems: "center",
+                            alignContent: "center",
                         }}
-                    > EDITAR PERFIL
-                    </Button>
+                    >
+                        <Button
+                            component={Link}
+                            to="/user-dashboard"
+                            variant="contained"
+                            size="small"
+                            color="secondary"
+                            sx={{
+                                mt: 1,
+                                mb: 1,
+                                py: 1,
+                                mx: 3,
+                                // width: "200px",
+                                // whiteSpace: "nowrap",
+                            }}
+                            endIcon={<AutoAwesomeIcon />}> CREAR PUBLICACIÓN
+                        </Button>
+                    </Box>
                     <hr />
-                    <AppCardDashboard />
+                    <AppCardDashboard dashboardProductImg="\imgs\products\Product_01.png" />
+                    <AppCardDashboard dashboardProductImg="\imgs\products\Product_06.png" />
                 </CardContent>
             </Card>
         </>

@@ -4,22 +4,16 @@ import "./AppCardDashboard.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
-import { Box, Chip, IconButton, InputAdornment, Typography } from "@mui/material";
+import { Box, Chip, IconButton, InputAdornment, Typography, autocompleteClasses } from "@mui/material";
 import { Button } from "@mui/material";
-import AppImg from "../AppImg/AppImg";
-import { Grid } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import CardActions from '@mui/material/CardActions';
 
-export default function AppCardDashboard() {
+export default function AppCardDashboard({ dashboardProductImg }) {
 
     const pollo = "( °)> "
     const [count, setCount] = useState(0)
@@ -27,47 +21,48 @@ export default function AppCardDashboard() {
     return (
         <>
             <Card
-                // elevation={2}
                 sx={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
                     alignContent: "center",
                     m: "auto",
-                    mt: "50px",
-                    mb: "40px",
-                    maxWidth: { xs: "330px", sm: "600px", md: "940px", lg: "800px" },
-                    borderRadius: "20px",
+                    mt: "20px",
+                    // mx: 20,
+                    // mb: "40px",
+                    // Width: { xs: "330px", sm: "600px", md: "700px", lg: "1200px" },
+                    borderRadius: "10px",
                 }}
 
             >
                 <CardContent
-                    className="dasboardCard-style productDetailsImg-style2"
+                    sx={{
+                        display: "flex",
+                        flexDirection: { xs: "column", sm: "row" },
+                        width: "840px",
+                    }}
+                    className="dasboardCard-style "
                 >
-
-                    <Grid container
-                        // spacing={3}
-                        justifyContent={"center"}
-                        alignItems={"center"}
-                        alignContent={"center"}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: { sm: "row" }
+                        }}
+                        className="boxContainer-style"
                     >
-                        <Grid
-                            item
-                            // xs={12}
-                            // sm={12}
-                            md={6}
+                        <Box
                             sx={{
                                 display: "flex",
+                                flexDirection: { xs: "column", sm: "row" },
                             }}
                             justifyContent={"center"}
                             alignItems={"center"}
-                            alignContent={"center"}
-
+                            textAlign={"center"}
                         >
                             <CardMedia
                                 component="img"
-                                sx={{ width: { xs: 120, sm: 120, md: 120, lg: 120 }, mx: "auto" }}
-                                image="\imgs\products\Product_01.png"
+                                sx={{ width: { xs: 100, sm: 100, md: 100, lg: 100 }, mx: "auto" }}
+                                image={dashboardProductImg}
                                 alt="Product_01.png"
                                 className="productDetailsImg-style"
                             />
@@ -76,72 +71,57 @@ export default function AppCardDashboard() {
                                 color="secondary"
                                 sx={{
                                     fontWeight: "bold",
-                                    textAlign: { xs: "center", sm: "center", md: "center" },
-                                    fontSize: "22px"
+                                    fontSize: "18px",
+                                    mr: 10,
+                                    ml: 2,
+                                    width: "260px"
                                 }}
-                            // className=''
-                            >"NOMBRE PRODUCTO"
+                                className="productName-style"
+                            >
+                                "NOMBRE PRODUCTO"
                             </Typography>
-                        </Grid >
-
-                        <Grid
-                            item
-                            // xs={12}
-                            // sm={12}
-                            md={6}
-
+                        </Box>
+                        <Box
                             sx={{
-                                // px: { xs: 'none', sm: '0px', md: "5px" },
+                                display: "flex",
+                                flexDirection: { xs: "row", sm: "row" },
+                                // my: "20px",
+                                // mb: "20px",
+                                // pb: "20px",
+                                // mx: "10px",
+                                // m: "auto",
                             }}
                         >
-
-                            <Box
+                            <Button
+                                component={Link}
+                                to="/user-dashboard"
+                                variant="contained"
+                                size="small"
                                 sx={{
-                                    display: "flex",
-                                    flexDirection: { xs: "column", sm: "row" },
-                                    my: "20px",
-                                    mb: "20px",
-                                    // pb: "20px",
-                                    // mx: "10px",
-                                    // m: "auto",
+                                    // mt: 1,
+                                    // mb: 1,
+                                    // px: 8,
+                                    // mr: 3,
+                                    mx: 2,
+                                    py: 1.5,
+                                    width: "160px",
                                 }}
-                                justifyContent={"space-around"}
-                                alignItems={"center"}
-                                textAlign={"center"}
-                            // noValidate
-                            // autoComplete="off"
-                            >
-                                <Button
-                                    component={Link}
-                                    to="/user-favourites"
-                                    variant="contained"
-                                    size="small"
-                                    sx={{
-                                        // mt: 1,
-                                        mb: 1,
-                                        py: 2,
-                                        mx: 3,
-                                        width: "200px",
-                                    }}
-                                > EDITAR
-                                </Button>
-                                <Button
-                                    component={Link}
-                                    to="/user-favourites"
-                                    variant="outlined"
-                                    size="small"
-                                    sx={{
-                                        // mt: 1,
-                                        mb: 1,
-                                        py: 2,
-                                        mx: 3,
-                                        width: "200px",
-                                    }}
-                                > ELIMINAR
-                                </Button>
-                            </Box>
-                        </Grid >
-                    </Grid>
+                                endIcon={<EditIcon />}> EDITAR
+                            </Button>
+                            <Button
+                                component={Link}
+                                to="/user-dashboard"
+                                variant="outlined"
+                                size="small"
+                                sx={{
+                                    // mt: 1,
+                                    // mb: 1,
+                                    py: 1.5,
+                                }}
+                                endIcon={<DeleteIcon />}> ELIMINAR
+                            </Button>
+                        </Box>
+                    </Box>
                 </CardContent>
             </Card>
         </>

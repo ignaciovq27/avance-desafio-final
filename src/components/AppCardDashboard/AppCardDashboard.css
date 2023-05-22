@@ -1,13 +1,8 @@
-.productDetailsImg-style2 {
-    /* background-color: white; */
-    border-radius: 20px;
-    border: solid 2px rgb(232, 234, 235);
-    /* border: solid 2px #545353; */
-    /* overflow: hidden; */
-    /* margin-top: 25px; */
-    /* margin-bottom: 5px; */
-    /* box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.01); */
-    /* background-color:  rgba(232, 234, 235, 0.846); */
+.boxContainer-style {
+    display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin: auto !important;
 }
 
 .dasboardCard-style {
@@ -15,6 +10,15 @@
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     margin: 0 !important;
+    border: solid 2px rgb(232, 234, 235);
+    border-radius: 10px;
     /* margin: 0 !important; */
     /* background-color: black; */
 }
+
+.productName-style {
+    width: 200px; /* Establece el ancho deseado para el typography */
+    overflow: hidden; /* Oculta el texto si se desborda del ancho */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos (...) si el texto se desborda */
+  }
