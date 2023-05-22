@@ -37,8 +37,12 @@ export default function AppCardProduct({ productImg }) {
                     }}
                     textAlign={"right"}
                 >
-                    <IconButton color="primary">
+                    <IconButton
+                    color="primary"
+                    // color="secondary"
+                    >
                         <FavoriteIcon size="large" />
+                        {/* <FavoriteBorderIcon size="large" /> */}
                     </IconButton>
                 </Box>
                 <Typography

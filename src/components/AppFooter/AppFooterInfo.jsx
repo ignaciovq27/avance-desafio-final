@@ -42,7 +42,7 @@ export default function AppFooterInfo() {
                             boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}
                             component="a"
                             // href="https://github.com/ignaciovq27?tab=repositories" />
-                            href="https://github.com/ignaciovq27/avance-desafio-final" target={"_blank"} />
+                            href="https://github.com/ignaciovq27" target={"_blank"} />
 
                         <AppIconButton icon={<LinkedInIcon />} backgroundColor={"rgb(29, 95, 149)"}
                             boxShadow={"0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.5)"}

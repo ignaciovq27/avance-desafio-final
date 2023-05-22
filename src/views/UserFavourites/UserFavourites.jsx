@@ -15,13 +15,31 @@ export default function UserFavourites() {
         <div className="userFavourites-container" id="userFavourites">
             <AppTitle title="USER FAVOURITES" />
             <AppUserFavourites />
-
+            <Typography
+                // noWrap
+                component={Link}
+                to="/gallery-boardgames"
+                sx={{
+                    mx: 2,
+                    py: 0,
+                    textDecoration: "none",
+                }}
+            >
+                <Button variant="contained"
+                    sx={{
+                        // py: 2,
+                        my: 2,
+                        mb: 6,
+                    }}
+                >VER <br></br>JUEGOS DE MESA
+                </Button>
+            </Typography>
             <Typography
                 // noWrap
                 component={Link}
                 to="/"
                 sx={{
-                    m: 0,
+                    mx: 2,
                     py: 0,
                     textDecoration: "none",
                 }}
@@ -32,8 +50,7 @@ export default function UserFavourites() {
                         my: 2,
                         mb: 6,
                     }}
-                >
-                    IR A INICIO
+                >INICIO
                 </Button>
             </Typography>
         </div>
