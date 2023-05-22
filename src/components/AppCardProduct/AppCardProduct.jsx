@@ -1,5 +1,5 @@
 //css
-import './AppCard.css'
+import './AppCardProduct.css'
 
 //components
 import { Link, NavLink } from 'react-router-dom';
@@ -14,7 +14,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
-export default function AppCard( {productImg}) {
+export default function AppCardProduct( {productImg}) {
     return (
         <>
 

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
-import AppCard from "../AppCard/AppCard";
+import AppCardProduct from "../AppCardProduct/AppCardProduct";
 import AppFilters from "../AppFilters/AppFilters";
 
 export default function AppUserFavourites() {
@@ -50,8 +50,8 @@ export default function AppUserFavourites() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        <AppCard productImg="\imgs\products\Product_01.png" />
-                        <AppCard productImg="\imgs\products\Product_00.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_01.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_00.png" />
                     </Grid >
                 </Grid>
             </Container >

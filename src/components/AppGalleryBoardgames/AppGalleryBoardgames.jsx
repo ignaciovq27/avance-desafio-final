@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
-import AppCard from "../AppCard/AppCard";
+import AppCardProduct from "../AppCardProduct/AppCardProduct";
 import AppFilters from "../AppFilters/AppFilters";
 
 export default function AppGalleryBoardgames() {
@@ -50,16 +50,16 @@ export default function AppGalleryBoardgames() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        <AppCard productImg="\imgs\products\Product_01.png" />
-                        <AppCard productImg="\imgs\products\Product_02.png" />
-                        <AppCard productImg="\imgs\User_Profile_Img_00.png" />
-                        <AppCard productImg="\imgs\products\Product_07.png" />
-                        <AppCard productImg="\imgs\products\Product_03.png" />
-                        <AppCard productImg="\imgs\products\Product_06.png" />
-                        <AppCard productImg="\imgs\products\Product_05.png" />
-                        <AppCard productImg="\imgs\products\Product_04.png" />
-                        <AppCard productImg="\imgs\products\Product_00.png" />
-                        <AppCard productImg="\imgs\products\Product_08.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_01.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_02.png" />
+                        <AppCardProduct productImg="\imgs\User_Profile_Img_00.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_07.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_03.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_06.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_05.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_04.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_00.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_08.png" />
                     </Grid >
                 </Grid>
             </Container >

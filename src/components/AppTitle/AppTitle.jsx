@@ -26,7 +26,7 @@ export default function AppTitle({ title }) {
                     sx={{
                         fontSize: "18px"
                     }}
-                >{title}
+                >VIEW: {title}
                 </Typography>
             </Box>
         </>

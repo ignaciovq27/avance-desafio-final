@@ -269,7 +269,11 @@ export default function AppProductDetails() {
                                             // component={Link}
                                             // to="/user-favourites"
                                             variant="contained"
-                                            startIcon={<AddShoppingCartIcon color="white" className="iconInfo-style" />}
+                                            // color="primary"
+                                            color="warning"
+                                            startIcon={<AddShoppingCartIcon
+                                                color="white"
+                                                className="iconInfo-style" />}
                                             size="small"
                                             // fullWidth
                                             sx={{
