@@ -1,5 +1,5 @@
 //css
-import "./AppGalleryBoardgames.css"
+import "./AppUserFavourites.css"
 
 //components
 import { useState } from "react";
@@ -9,7 +9,7 @@ import { Grid } from '@mui/material';
 import AppCard from "../AppCard/AppCard";
 import AppFilters from "../AppFilters/AppFilters";
 
-export default function AppGalleryBoardgames() {
+export default function AppUserFavourites() {
 
     return (
         <>
@@ -23,7 +23,7 @@ export default function AppGalleryBoardgames() {
                     fontSize: { xs: "28px", sm: "30px", md: "34px" }
                 }}
             // className=''
-            >✧ JUEGOS DE MESA ✧
+            >✧ MIS FAVORITOS ✧
             </Typography>
 
             <AppFilters />
@@ -51,19 +51,10 @@ export default function AppGalleryBoardgames() {
                         alignContent={"center"}
                     >
                         <AppCard productImg="\imgs\products\Product_01.png" />
-                        <AppCard productImg="\imgs\products\Product_02.png" />
-                        <AppCard productImg="\imgs\User_Profile_Img_00.png" />
-                        <AppCard productImg="\imgs\products\Product_07.png" />
-                        <AppCard productImg="\imgs\products\Product_03.png" />
-                        <AppCard productImg="\imgs\products\Product_06.png" />
-                        <AppCard productImg="\imgs\products\Product_05.png" />
-                        <AppCard productImg="\imgs\products\Product_04.png" />
                         <AppCard productImg="\imgs\products\Product_00.png" />
-                        <AppCard productImg="\imgs\products\Product_08.png" />
                     </Grid >
                 </Grid>
             </Container >
-
         </>
     );
 }

@@ -63,7 +63,7 @@ export default function AppUserProfile() {
                     sx={{
                         m: "0", p: "0",
                     }}
-                    // className="userCard-style"
+                // className="userCard-style"
                 >
                     <Box
                         sx={{
@@ -186,7 +186,7 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                mt: 1,
+                                // mt: 1,
                                 mb: 1,
                                 py: 2,
                                 mx: 3,
@@ -199,7 +199,7 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                mt: 1,
+                                // mt: 1,
                                 mb: 1,
                                 py: 2,
                                 mx: 3,
@@ -207,6 +207,22 @@ export default function AppUserProfile() {
                             }}
                         > MIS FAVORITOS </Button>
                     </Box>
+                    <hr className="hr-style2" />
+                    <Button
+                        component={Link}
+                        to="/user-profile"
+                        variant="contained"
+                        size="small"
+                        color="secondary"
+                        sx={{
+                            mt: 1,
+                            mb: 1,
+                            py: 1,
+                            mx: 3,
+                            width: "140px",
+                        }}
+                    > EDITAR PERFIL
+                    </Button>
                 </CardContent>
             </Card>
 

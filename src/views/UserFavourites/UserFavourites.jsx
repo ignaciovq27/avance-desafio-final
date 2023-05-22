@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import AppTitle from "../../components/AppTitle/AppTitle";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import AppUserFavourites from "../../components/AppUserFavourites/AppUserFavourites";
 
 
 export default function UserFavourites() {
@@ -13,9 +14,8 @@ export default function UserFavourites() {
     return (
         <div className="userFavourites-container" id="userFavourites">
             <AppTitle title="USER FAVOURITES" />
+            <AppUserFavourites />
 
-            <h3>✧ MIS FAVORITOS ✧</h3>
-            {/* <h4>La ruta que intentas consultar no existe.</h4> */}
             <Typography
                 // noWrap
                 component={Link}
@@ -28,8 +28,9 @@ export default function UserFavourites() {
             >
                 <Button variant="contained"
                     sx={{
-                        m: 0,
                         py: 2,
+                        my: 2,
+                        mb: 6,
                     }}
                 >
                     IR A INICIO

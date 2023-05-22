@@ -295,9 +295,9 @@ export default function AppNav() {
             <AppButton text="JUEGOS DE MESA"
               to="/gallery-boardgames"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
-            <AppButton text="ACCESORIOS"
+            {/* <AppButton text="ACCESORIOS"
               to="/gallery-accessories"
-              className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')} /> */}
           </Box>
           <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
