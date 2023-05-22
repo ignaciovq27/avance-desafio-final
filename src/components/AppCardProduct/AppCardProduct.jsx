@@ -107,7 +107,8 @@ export default function AppCardProduct({ productImg }) {
                             variant="h5"
                             color="primary"
                             sx={{
-                                fontWeight: "bold",
+                                // fontWeight: "bold",
+                                fontWeight: "600",
                                 textAlign: { xs: "center", sm: "center", md: "center" },
                                 fontSize: "30px"
                             }}

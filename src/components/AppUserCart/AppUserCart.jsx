@@ -4,13 +4,13 @@ import "./AppUserCart.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import AppProductCart from "../AppProductCart/AppProductCart";
 import { Box, Typography } from "@mui/material";
 import { Button } from "@mui/material";
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import AppProductCart from "../AppProductCart/AppProductCart";
 
 export default function AppUserCart() {
 
@@ -32,13 +32,14 @@ export default function AppUserCart() {
                 elevation={5}
                 sx={{
                     display: "flex",
+                    flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
                     alignContent: "center",
                     m: "auto",
                     mt: "10px",
                     mb: "40px",
-                    pb: "35px",
+                    pb: "40px",
                     maxWidth: { xs: "330px", sm: "700px", md: "880px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
@@ -64,6 +65,30 @@ export default function AppUserCart() {
                     <AppProductCart dashboardProductImg="\imgs\products\Product_01.png" />
                     <AppProductCart dashboardProductImg="\imgs\products\Product_06.png" />
                 </CardContent>
+                <Box
+                >
+                    <Button
+                        // component={Link}
+                        // to="/user-favourites"
+                        variant="contained"
+                        // color="primary"
+                        color="warning"
+                        startIcon={<ShoppingCartCheckoutIcon
+                            color="white"
+                            className="iconInfo-style" />}
+                        size="small"
+                        // fullWidth
+                        sx={{
+                            mt: { xs: 2, sm: 0, md: 0 },
+                            mt: 2,
+                            // mb: 1,
+                            // mx: 3,
+                            py: 2,
+                            // width: "200px",
+                        }}
+                    >CONTINUAR COMPRA
+                    </Button>
+                </Box>
             </Card>
         </>
     );

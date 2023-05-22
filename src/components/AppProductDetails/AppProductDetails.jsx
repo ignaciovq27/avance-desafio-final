@@ -180,7 +180,8 @@ export default function AppProductDetails() {
                                     <Typography
                                         disabled={false}
                                         variant="h5"
-                                        color="secondary"
+                                        color="primary"
+                                        // color="secondary"
                                         sx={{
                                             textAlign: "justify",
                                             textJustify: "initial",
@@ -235,7 +236,11 @@ export default function AppProductDetails() {
                                         alignItems={"center"}
                                         textAlign={"center"}
                                     >
-                                        <Button variant="contained" onClick={() => setCount((count) => count - 1)}>
+                                        <Button variant="contained" onClick={() => setCount((count) => count - 1)}
+                                            sx={{
+                                                minWidth: "40px",
+                                            }}
+                                        >
                                             <RemoveIcon />
                                         </Button>
                                         <Typography
@@ -245,25 +250,22 @@ export default function AppProductDetails() {
                                                 // mt: "20px",
                                                 mx: "20px",
                                                 fontWeight: "bold",
+                                                minWidth: "35px",
                                             }}
                                         // className=''
                                         >{count}
                                         </Typography>
 
                                         <Button
+                                            variant="contained" onClick={() => setCount((count) => count + 1)}
                                             sx={{
-                                                // mt: 3,
-                                                // mb: 1,
-                                                // py: 1,
-                                                // px: 0.5,
-                                                // mx: 3,
+                                                minWidth: "40px",
                                             }}
-                                            variant="contained" onClick={() => setCount((count) => count + 1)}>
+                                        >
                                             <AddIcon />
                                         </Button>
                                     </Box>
                                     <Box
-                                    // flexGrow={1}
                                     >
                                         <Button
                                             // component={Link}
@@ -280,8 +282,8 @@ export default function AppProductDetails() {
                                                 mt: { xs: 2, sm: 0, md: 0 },
                                                 // mt: 3,
                                                 // mb: 1,
-                                                py: 1.5,
                                                 // mx: 3,
+                                                py: 1.5,
                                                 width: "200px",
                                             }}
                                         >AÑADIR AL CARRITO
