@@ -22,7 +22,6 @@ export default function AppCardDashboard({ dashboardProductImg }) {
         <>
             <Card
                 elevation={0}
-
                 sx={{
                     display: "flex",
                     justifyContent: "center",

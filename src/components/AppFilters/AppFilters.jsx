@@ -31,15 +31,28 @@ export default function AppFilters({ }) {
                 alignItems={"center"}
                 textAlign={"center"}
             >
-                <Typography
-                    // variant="h6"
-                    color="secondary"
-                    // className=''
+                <Box
                     sx={{
-                        // pb: "20px"
+                        display: "flex",
+                        alignItems: "center"
                     }}
-                >PUBLICACIONES: 99
-                </Typography>
+                >
+                    <Typography
+                        // variant="h6"
+                        color="secondary"
+                        // className=''
+                        sx={{
+                            px: 1
+                        }}
+                    >
+                        PUBLICACIONES:
+                    </Typography>
+                    <Typography
+                        color="primary"
+                        sx={{ fontWeight: "600", fontSize: "20px" }}
+                    >9
+                    </Typography>
+                </Box>
                 <div className="divTextField-style">
                     <Typography
                         // variant="h6"
@@ -99,7 +112,7 @@ export default function AppFilters({ }) {
                         {/* <FormHelperText>Without label</FormHelperText> */}
                     </FormControl>
                 </div>
-            </Box>
+            </Box >
         </>
     )
 }

@@ -15,6 +15,7 @@ export default function AppSection() {
                 m: "auto",
                 p: 3,
                 py: 5,
+                pt: 7,
             }}
         >
             <Grid container

@@ -132,6 +132,11 @@ export default function AppNav() {
       >
         <MenuItem
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
+          // onClick={{handleMenuClose, handleMobileMenuClose}}
+          onClick={() => {
+            handleMenuClose();
+            handleMobileMenuClose();
+          }}
         > VER PERFIL </MenuItem>
       </Typography>
 
@@ -142,9 +147,14 @@ export default function AppNav() {
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+        onClick={() => {
+          handleMenuClose();
+          handleMobileMenuClose();
+        }}
       >
         <MenuItem
           sx={{ py: 2, textDecoration: "none", }}
+          onClick={handleMenuClose}
         > REGISTRARSE </MenuItem>
       </Typography>
 
@@ -155,9 +165,14 @@ export default function AppNav() {
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+        onClick={() => {
+          handleMenuClose();
+          handleMobileMenuClose();
+        }}
       >
         <MenuItem
           sx={{ py: 2, textDecoration: "none", }}
+          onClick={handleMenuClose}
         > CERRAR SESIÓN </MenuItem>
       </Typography>
     </Menu>
@@ -191,6 +206,7 @@ export default function AppNav() {
       >
         <MenuItem
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
         > JUEGOS DE MESA </MenuItem>
       </Typography>
 
@@ -204,6 +220,7 @@ export default function AppNav() {
       >
         <MenuItem
           sx={{ display: 'block', py: 2, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
         > DASHBOARD </MenuItem>
       </Typography>
 
@@ -216,7 +233,9 @@ export default function AppNav() {
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
       >
         <MenuItem
-          sx={{ py: 0.75, textDecoration: "none", }}>
+          sx={{ py: 0.75, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
+        >
           <IconButton
             size="large"
             aria-label="show 1 new notifications"
@@ -241,7 +260,9 @@ export default function AppNav() {
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
       >
         <MenuItem
-          sx={{ py: 0.75, textDecoration: "none", }}>
+          sx={{ py: 0.75, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
+        >
           <IconButton
             size="large"
             aria-label="show 1 new notifications"
@@ -256,8 +277,6 @@ export default function AppNav() {
 
       <Typography
         color="primary"
-        // component={Link}
-        // to="/user-favourites"
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}

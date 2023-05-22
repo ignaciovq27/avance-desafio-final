@@ -42,7 +42,7 @@ export default function AppUserDashboard() {
                     maxWidth: { xs: "330px", sm: "700px", md: "880px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
-                // className="userCard-style"
+            // className="userCard-style"
             >
                 <CardContent
                     sx={{

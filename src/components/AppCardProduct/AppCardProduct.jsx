@@ -14,19 +14,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
-export default function AppCardProduct( {productImg}) {
+export default function AppCardProduct({ productImg }) {
     return (
         <>
 
-            <Card sx={{
-                maxWidth: 300,
-                borderRadius: "8px",
-                transition: "0.15s",
-                "&:hover": {
-                    transform: "scale(1.05)",
-                    boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, #0e5895 0px 0px 0px 2px, rgba(60, 64, 67, 0.3) 0px 2px 6px 2px",
-                }
-            }}>
+            <Card
+                elevation={2}
+                sx={{
+                    maxWidth: 300,
+                    borderRadius: "8px",
+                    transition: "0.15s",
+                    "&:hover": {
+                        transform: "scale(1.05)",
+                        boxShadow: "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, #0e5895 0px 0px 0px 2px, rgba(60, 64, 67, 0.3) 0px 2px 6px 2px",
+                    }
+                }}>
                 <Box
                     sx={{
                         px: 1,
