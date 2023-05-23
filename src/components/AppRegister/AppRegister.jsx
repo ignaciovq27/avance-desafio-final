@@ -13,6 +13,7 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 
 
@@ -151,12 +152,13 @@ export default function AppRegister() {
                     type="submit"
                     variant="contained"
                     size="small"
+                    color="warning"
                     sx={{
                         mt: 1,
                         py: 2,
                         width: "200px",
                     }}
-                > REGISTRARSE </Button>
+                    endIcon={<PersonAddIcon />}> REGISTRARSE </Button>
             </Box>
 
             <Box

@@ -1,5 +1,5 @@
 //css
-import "./AppUserProfile.css"
+import "./AppUserProfileEdit.css"
 
 //components
 import { Link, NavLink } from 'react-router-dom';
@@ -13,14 +13,13 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
-import EditIcon from '@mui/icons-material/Edit';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
-export default function AppUserProfile() {
+export default function AppUserProfileEdit() {
 
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -55,7 +54,7 @@ export default function AppUserProfile() {
                     fontSize: { xs: "28px", sm: "30px", md: "34px" }
                 }}
             // className=''
-            >✧ MI PERFIL ✧
+            >✧ EDITAR PERFIL ✧
             </Typography>
             <Card
                 elevation={5}
@@ -221,12 +220,12 @@ export default function AppUserProfile() {
                         > MIS FAVORITOS </Button>
                     </Box>
                     <hr className="hr-style2" />
-                    {/* <Button
+                    <Button
                         component={Link}
-                        to="/user-profile-edit"
+                        to="/user-profile"
                         variant="contained"
                         size="small"
-                        color="warning"
+                        color="secondary"
                         sx={{
                             mt: 1,
                             mb: 1,
@@ -235,20 +234,21 @@ export default function AppUserProfile() {
                             width: "140px",
                         }}
                     > EDITAR PERFIL
-                    </Button> */}
+                    </Button>
                     <Button
                         component={Link}
-                        to="/user-profile-edit"
+                        to="/user-profile"
                         variant="contained"
                         size="small"
-                        color="warning"
+                        color="secondary"
                         sx={{
-                            my: 1,
-                            mx: { xs: 0, sm: 1, md: 1, lg: 1 },
-                            py: 1.5,
-                            width: "160px",
+                            mt: 1,
+                            mb: 1,
+                            py: 1,
+                            mx: 3,
+                            width: "140px",
                         }}
-                        endIcon={<EditIcon />}> EDITAR
+                    > EDITAR PERFIL
                     </Button>
                 </CardContent>
             </Card>

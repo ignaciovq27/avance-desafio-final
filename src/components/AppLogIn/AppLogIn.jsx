@@ -12,6 +12,8 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
+import LoginIcon from '@mui/icons-material/Login';
+
 
 export default function AppLogIn() {
 
@@ -129,12 +131,13 @@ export default function AppLogIn() {
                     type="submit"
                     variant="contained"
                     size="small"
+                    color="warning"
                     sx={{
                         mt: 1,
                         py: 2,
                         width: "200px",
                     }}
-                > INGRESAR </Button>
+                    endIcon={<LoginIcon />}> INGRESAR </Button>
             </Box>
 
             <Box

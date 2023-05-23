@@ -14,6 +14,7 @@ import Home from './views/Home/Home';
 import Register from './views/Register/Register';
 import LogIn from './views/LogIn/LogIn';
 import UserProfile from './views/UserProfile/UserProfile';
+import UserProfileEdit from './views/UserProfileEdit/UserProfileEdit';
 import UserDashboard from './views/UserDashboard/UserDashboard';
 import UserFavourites from './views/UserFavourites/UserFavourites';
 import UserCart from './views/UserCart/UserCart';
@@ -37,6 +38,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/user-profile-edit" element={<UserProfileEdit />} />
             <Route path="/user-dashboard" element={<UserDashboard />} />
             <Route path="/user-favourites" element={<UserFavourites />} />
             <Route path="/user-cart" element={<UserCart />} />
