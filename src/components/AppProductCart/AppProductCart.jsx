@@ -76,7 +76,8 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 component="img"
                                 sx={{
                                     width: { xs: "130px", sm: "130px", md: 100, lg: 100 },
-                                    mx: "auto"
+                                    mx: "auto",
+                                    my: { xs: 1, sm: 0, md: 0, lg: 0 },
                                 }}
                                 image={dashboardProductImg}
                                 alt="Product_01.png"
@@ -86,18 +87,16 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 sx={{
                                     display: "flex",
                                     flexDirection: "column",
-                                    // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
+                                    justifyContent: { xs: "center", sm: "center", md: "center", lg: "flex-start" },
+                                    alignItems: { xs: "center", sm: "flex-start", md: "flex-start", lg: "flex-start" },
                                     pl: 1,
                                 }}
-                                justifyContent={"flex-start"}
-                                alignItems={"flex-start"}
-                                textAlign={"center"}
                             >
                                 <Typography
                                     // variant="h6"
                                     color="primary"
                                     sx={{
-                                        textAlign: { xs: "center", sm: "center", md: "left", lg: "left" },
+                                        textAlign: { xs: "center", sm: "left", md: "left", lg: "left" },
                                         fontSize: "14px",
                                     }}
                                 // className=''
@@ -113,11 +112,11 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                         // ml: 2,
                                         py: 0.5,
                                         // px: 1,
-                                        textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
-                                        width: { xs: "240px", sm: "280px", md: "280px", lg: "300px" },
+                                        textAlign: { xs: "center", sm: "left", md: "left", lg: "left" },
+                                        width: { xs: "240px", sm: "200px", md: "240px", lg: "300px" },
                                         mx: "auto"
                                     }}
-                                // className="productName-style"
+                                    className="productName-style"
                                 >"NOMBRE PRODUCTO"
                                 </Typography>
 
@@ -142,7 +141,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             display: "flex",
                             flexDirection: "column",
                             // pt: "10px"
-                            px: 6,
+                            px: { xs: 6, sm: 4, md: 6, lg: 6 },
 
                         }}
                         justifyContent={"center"}
@@ -153,14 +152,14 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             sx={{
                                 display: "flex",
                                 pt: 3.1,
-
+                                pb: { xs: 0.5, sm: 0, md: 0, lg: 0 },
+                                // py: { xs: 2, sm: 50, md: 0, lg: 0 },
                             }}
                             alignItems={"center"}
                         >
                             <Button variant="contained" onClick={() => setCount((count) => count - 1)}
                                 sx={{
                                     minWidth: "40px",
-
                                 }}
                             >
                                 <RemoveIcon />
@@ -216,8 +215,8 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 // fontWeight: "bold",
                                 fontWeight: "600",
                                 textAlign: { xs: "center", sm: "center", md: "center", lg: "center" },
-                                fontSize: "26px",
-                                pb: 1,
+                                fontSize: "24px",
+                                // pb: 1,
                             }}
                         // className=''
                         >$ 9.990

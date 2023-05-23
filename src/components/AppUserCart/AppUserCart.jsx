@@ -67,86 +67,72 @@ export default function AppUserCart() {
                     <AppProductCart dashboardProductImg="\imgs\products\Product_06.png" />
 
                 </CardContent>
-                <Box
-                >
+                <Box>
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "column",
                             // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
-                            pl: 1,
-                            py: 4,
+                            // pr: { xs: 0, sm: 8, md: 8, lg: 8 },
+                            py: 2,
                         }}
                         justifyContent={"center"}
                         alignItems={"center"}
                         textAlign={"center"}
                     >
-                        {/* <Typography
-                            // variant="h6"
-                            color="primary"
-                            sx={{
-                                textAlign: { xs: "center", sm: "center", md: "left", lg: "left" },
-                                fontSize: "14px",
-                            }}
-                        // className=''
-                        >"NOMBRE PUBLICADOR"
-                        </Typography> */}
-                        <Box
 
+                        <Box
                             sx={{
                                 display: "flex",
-                                // flexDirection: "row",
+                                flexDirection: "row",
+                                flexDirection: { xs: "column", sm: "row" },
                                 // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
-                                pl: 1,
+                                // pl: 1,
                             }}
                             justifyContent={"center"}
                             alignItems={"center"}
                             textAlign={"center"}
                         >
                             <Typography
-                                variant="h5"
+                                // variant="h6"
                                 color="secondary"
+                                variant="h5"
                                 sx={{
                                     fontWeight: "bold",
                                     fontSize: "18px",
-                                    // mr: 10,
-                                    // ml: 2,
-                                    py: 0.5,
-                                    pr: 5,
-                                    // px: 1,
-                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "right" },
-                                    width: { xs: "240px", sm: "280px", md: "280px", lg: "400px" },
-                                    mx: "auto"
+                                    // textAlign: { xs: "center", sm: "center", md: "left", lg: "center" },
+                                    fontSize: "14px",
                                 }}
-                            // className="productName-style"
+                            // className=''
                             >CANTIDAD DE PRODUCTOS:
                             </Typography>
                             <Typography
                                 variant="h5"
-                                color="secondary"
+                                color="primary"
+                                // color="secondary"
                                 sx={{
-                                    fontWeight: "bold",
-                                    fontSize: "24px",
+                                    // fontWeight: "bold",
+                                    // fontSize: "24px",
                                     // mr: 10,
                                     // ml: 2,
-                                    py: 0.5,
-                                    // px: 1,
-                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
-                                    width: { xs: "240px", sm: "280px", md: "280px", lg: "300px" },
+                                    // py: 0.5,
+                                    px: 1,
+                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "center" },
+                                    // width: { xs: "0", sm: "0", md: "280px", lg: "100px" },
                                     mx: "auto"
                                 }}
                             // className="productName-style"
-                            >999999
+                            >5
                             </Typography>
                         </Box>
 
                         <Box
-
                             sx={{
                                 display: "flex",
-                                // flexDirection: "row",
+                                flexDirection: "row",
+                                flexDirection: { xs: "column", sm: "row" },
                                 // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
-                                pl: 1,
+                                // pl: 1,
                             }}
                             justifyContent={"center"}
                             alignItems={"center"}
@@ -161,10 +147,10 @@ export default function AppUserCart() {
                                     // mr: 10,
                                     // ml: 2,
                                     py: 0.5,
-                                    pr: 5,
+                                    // pr: { xs: 0, sm: 2, md: 5, lg: 1 },
                                     // px: 1,
-                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "right" },
-                                    width: { xs: "240px", sm: "280px", md: "280px", lg: "400px" },
+                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "center" },
+                                    // width: { xs: 0, sm: 0, md: 0, lg: "270px" },
                                     mx: "auto"
                                 }}
                             // className="productName-style"
@@ -172,20 +158,17 @@ export default function AppUserCart() {
                             </Typography>
                             <Typography
                                 variant="h5"
-                                color="secondary"
+                                color="primary"
                                 sx={{
-                                    fontWeight: "bold",
+                                    // fontWeight: "bold",
+                                    fontWeight: "600",
+                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "center" },
                                     fontSize: "24px",
-                                    // mr: 10,
-                                    // ml: 2,
-                                    py: 0.5,
-                                    // px: 1,
-                                    textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
-                                    width: { xs: "240px", sm: "280px", md: "280px", lg: "300px" },
-                                    mx: "auto"
+                                    px: 1,
+                                    // pb: 1,
                                 }}
-                            // className="productName-style"
-                            >$999.999
+                            // className=''
+                            >$9.990
                             </Typography>
                         </Box>
 
