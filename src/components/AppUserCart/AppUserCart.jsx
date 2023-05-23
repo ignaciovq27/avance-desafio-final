@@ -84,10 +84,10 @@ export default function AppUserCart() {
                         <Box
                             sx={{
                                 display: "flex",
-                                flexDirection: "row",
+                                // flexDirection: "row",
                                 flexDirection: { xs: "column", sm: "row" },
                                 // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
-                                // pl: 1,
+                                pt: 1.5,
                             }}
                             justifyContent={"center"}
                             alignItems={"center"}
@@ -101,7 +101,7 @@ export default function AppUserCart() {
                                     fontWeight: "bold",
                                     fontSize: "18px",
                                     // textAlign: { xs: "center", sm: "center", md: "left", lg: "center" },
-                                    fontSize: "14px",
+                                    // fontSize: "14px",
                                 }}
                             // className=''
                             >CANTIDAD DE PRODUCTOS:
@@ -129,7 +129,7 @@ export default function AppUserCart() {
                         <Box
                             sx={{
                                 display: "flex",
-                                flexDirection: "row",
+                                // flexDirection: "row",
                                 flexDirection: { xs: "column", sm: "row" },
                                 // maxWidth: { xs: "280px", sm: "280px", md: "880px", lg: "1040px" },
                                 // pl: 1,
