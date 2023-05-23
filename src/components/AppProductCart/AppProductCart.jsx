@@ -169,9 +169,10 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 color="secondary"
                                 sx={{
                                     // mt: "20px",
-                                    mx: "20px",
+                                    mx: "10px",
                                     fontWeight: "bold",
-                                    minWidth: "35px",
+                                    minWidth: "50px",
+                                    textAlign: "center",
                                 }}
                             // className=''
                             >{count}
