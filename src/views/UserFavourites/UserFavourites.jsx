@@ -46,7 +46,7 @@ export default function UserFavourites() {
             >
                 <Button variant="contained"
                     sx={{
-                        py: 2,
+                        py: 2.282,
                         my: 2,
                         mb: 6,
                     }}

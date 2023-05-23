@@ -30,7 +30,9 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                     alignItems: "center",
                     alignContent: "center",
                     m: "auto",
-                    mt: "20px",
+                    mt: "10px",
+                    mb: "10px",
+                    // pt: "5px",
                     // mx: 20,
                     // mb: "40px",
                     // Width: { xs: "330px", sm: "600px", md: "700px", lg: "1200px" },
@@ -42,10 +44,11 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                     sx={{
                         display: "flex",
                         flexDirection: { xs: "column", sm: "row" },
-                        // width: "840px",
-                        maxWidth: { xs: "280px", sm: "700px", md: "880px", lg: "1040px" },
+                        // px: 40,
+                        // width: "1000px",
+                        maxWidth: { xs: "280px", sm: "700px", md: "880px", lg: "1100px" },
                     }}
-                // className="productCart-style"
+                    className="productCart2-style"
                 >
                     <Box
                         sx={{
@@ -111,7 +114,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                         py: 0.5,
                                         // px: 1,
                                         textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
-                                        width: { xs: "240px", sm: "280px", md: "280px", lg: "360px" },
+                                        width: { xs: "240px", sm: "280px", md: "280px", lg: "300px" },
                                         mx: "auto"
                                     }}
                                 // className="productName-style"
@@ -133,11 +136,14 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             </Box>
                         </Box>
                     </Box>
+
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "column",
                             // pt: "10px"
+                            px: 6,
+
                         }}
                         justifyContent={"center"}
                         alignItems={"center"}
@@ -146,6 +152,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                         <Box
                             sx={{
                                 display: "flex",
+                                pt: 3.1,
 
                             }}
                             alignItems={"center"}
@@ -153,6 +160,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             <Button variant="contained" onClick={() => setCount((count) => count - 1)}
                                 sx={{
                                     minWidth: "40px",
+
                                 }}
                             >
                                 <RemoveIcon />
@@ -185,10 +193,12 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             // className=''
                             sx={{
                                 // textAlign: { xs: "center", sm: "center", md: "center" }
+                                pt: 1,
                             }}
                         >DISPONIBLES: 0
                         </Typography>
                     </Box>
+
                     <Box
                         sx={{
                             display: "flex",
@@ -205,8 +215,9 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             sx={{
                                 // fontWeight: "bold",
                                 fontWeight: "600",
-                                textAlign: { xs: "center", sm: "center", md: "center", lg: "left" },
-                                fontSize: "30px"
+                                textAlign: { xs: "center", sm: "center", md: "center", lg: "center" },
+                                fontSize: "26px",
+                                pb: 1,
                             }}
                         // className=''
                         >$ 9.990
@@ -214,7 +225,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                     </Box>
                 </CardContent>
             </Card>
-            <hr />
+            <hr className="hr4-style" />
         </>
     );
 }
