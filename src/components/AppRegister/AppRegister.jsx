@@ -145,7 +145,6 @@ export default function AppRegister() {
                             {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                     </div>
-
                 </div>
 
                 <Button

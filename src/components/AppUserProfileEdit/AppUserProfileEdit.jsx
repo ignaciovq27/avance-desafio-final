@@ -5,6 +5,8 @@ import "./AppUserProfileEdit.css"
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
 import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
+import { Container } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -13,6 +15,8 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CheckIcon from '@mui/icons-material/Check';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -66,7 +70,7 @@ export default function AppUserProfileEdit() {
                     m: "auto",
                     mt: "10px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "500px", md: "600px" },
+                    maxWidth: { xs: "330px", sm: "500px", md: "600px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
                 className="userCard-style"
@@ -75,151 +79,154 @@ export default function AppUserProfileEdit() {
                     sx={{
                         m: "0", p: "0",
                     }}
-                // className="userCard-style"
                 >
-                    <Box
+                    <Typography
+                        variant="h6"
+                        color="secondary"
+                        // className=''
                         sx={{
-                            '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
-                            display: "flex",
-                            // display: { md: 'flex' },
+                            pt: "30px",
+                            // pb: "20px",
                         }}
-                        flexDirection={"column"}
+                    >ACTUALIZA TUS DATOS:
+                    </Typography>
+
+                    <Grid container
+                        // spacing={3}
                         justifyContent={"center"}
                         alignItems={"center"}
-                        textAlign={"center"}
+                        alignContent={"center"}
                     >
-                        {/* <div className="imgContainer-style">
-                            <AppImg
-                                src="\imgs\User_Profile_Img_00.png"
-                                alt="User_Profile_Img_00.png"
-                                width="140px"
-                            />
-                        </div> */}
+                        <Grid
+                            item
+                            // xs={12}
+                            // sm={6}
+                            md={6}
 
-                        <AppImg
-                            src="\imgs\User_Profile_Img_00.png"
-                            alt="User_Profile_Img_00.png"
-                            width="140px"
-                            imgClass="userProfileImg-style"
-                        />
+                            sx={{
+                                pr: { xs: 'none', sm: '0px', md: "30px" },
+                            }}
+                        >
+                            <Box
+                                component="form"
+                                onSubmit={handleSubmit}
+                                sx={{
+                                    '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
+                                    display: "flex",
+                                    // display: { md: 'flex' },
+                                    my: "20px",
+                                    mb: "40px",
+                                }}
+                                flexDirection={"column"}
+                                justifyContent={"center"}
+                                alignItems={"center"}
+                                textAlign={"center"}
+                            >
+                                <div>
+                                    <div className="divTextField-style">
+                                        <AccountCircle
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="name"
+                                            label="Nombre de usuario"
+                                            type="text"
+                                            variant="outlined"
+                                            required
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            error={false}
+                                            value={userName}
+                                            onChange={(e) => setUserName(e.target.value)}
+                                            color="primary"
+                                        />
+                                    </div>
+                                    <div className="divTextField-style">
+                                        <EmailIcon
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="email"
+                                            label="Correo Electrónico"
+                                            type="email"
+                                            variant="outlined"
+                                            required
+                                            // helperText="Ingrese un correo valido."
+                                            error={false}
+                                            value={userEmail}
+                                            onChange={(e) => setUserEmail(e.target.value)}
+                                            color="primary"
+                                        />
+                                    </div>
 
-                        <div>
-                            <div className="divTextField-style">
-                                <AccountCircle
-                                    color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="name"
-                                    label="Nombre de usuario"
-                                    type="text"
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingresa un nombre de usuario valido."
-                                    error={false}
-                                    // value={userName}
-                                    defaultValue='"UserName"'
-                                    onChange={(e) => setUserName(e.target.value)}
-                                    color="primary"
-                                />
-                            </div>
+                                    <div className="divTextField-style">
+                                        <VpnKeyIcon
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="password"
+                                            label="Contraseña"
+                                            type={showPassword ? 'text' : 'password'}
+                                            variant="outlined"
+                                            required
+                                            // helperText="La contraseña no es correcta."
+                                            error={false}
+                                            value={userPassword}
+                                            onChange={(e) => setUserPassword(e.target.value)}
+                                            color="primary"
+                                        />
+                                        <IconButton
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="start"
+                                            color="secondary"
+                                        >
+                                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </div>
+                                </div>
+                            </Box>
+                        </Grid>
 
-                            <div className="divTextField-style">
-                                <EmailIcon
-                                    color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="email"
-                                    label="Correo Electrónico"
-                                    type="email"
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingrese un correo valido."
-                                    error={false}
-                                    // value={userEmail}
-                                    defaultValue='"UserEmail"'
-                                    onChange={(e) => setUserEmail(e.target.value)}
-                                    color="primary"
-                                />
-                            </div>
-
-                            <div className="divTextField-style">
-                                <VpnKeyIcon
-                                    color="primary"
-                                    sx={{ my: 0.5 }} />
-                                <TextField
-                                    id="password"
-                                    label="Contraseña"
-                                    type={showPassword ? 'text' : 'password'}
-                                    variant="outlined"
-                                    // required
-                                    disabled
-                                    // helperText="Ingrese un correo valido."
-                                    error={false}
-                                    // value={userPassword}
-                                    defaultValue='"UserPassword"'
-                                    onChange={(e) => setUserPassword(e.target.value)}
-                                    color="primary"
-                                />
-                                <IconButton
-                                    onClick={handleClickShowPassword}
-                                    onMouseDown={handleMouseDownPassword}
-                                    edge="start"
+                        <Grid
+                            item
+                            // xs={12}
+                            // sm={6}
+                            md={6}
+                            sx={{
+                                pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    // display: { md: 'flex' },
+                                }}
+                                flexDirection={"column"}
+                                justifyContent={"center"}
+                                alignItems={"center"}
+                                textAlign={"center"}
+                            >
+                                <Typography
+                                    // variant="h4"
                                     color="secondary"
-                                >
-                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                </IconButton>
-                            </div>
-                        </div>
-                        <hr className="hr-style2" />
-                    </Box>
+                                    // className=''
+                                    sx={{
+                                        // textAlign: { xs: "center", sm: "center", md: "center" }
+                                    }}
+                                >IMAGEN DE PERFÍL:
+                                </Typography>
+                                <AppImg
+                                    src="\imgs\User_Profile_Img_00.png"
+                                    alt="User_Profile_Img_00.png"
+                                    width="140px"
+                                    imgClass="userProfileImg-style"
+                                />
+                            </Box>
+                        </Grid>
+                    </Grid>
 
-                    <Box
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: '40ch' },
-                            display: "flex",
-                            flexDirection: { xs: "column", sm: "row" },
-                            my: "20px",
-                            mb: "20px",
-                            // pb: "20px",
-                            // mx: "10px",
-                            // m: "auto",
-                        }}
-                        justifyContent={"space-around"}
-                        alignItems={"center"}
-                        textAlign={"center"}
-                    // noValidate
-                    // autoComplete="off"
-                    >
-                        <Button
-                            component={Link}
-                            to="/user-dashboard"
-                            variant="contained"
-                            size="small"
-                            sx={{
-                                // mt: 1,
-                                mb: 1,
-                                py: 2,
-                                mx: 3,
-                                width: "200px",
-                            }}
-                        > MIS PUBLICACIONES </Button>
-                        <Button
-                            component={Link}
-                            to="/user-favourites"
-                            variant="contained"
-                            size="small"
-                            sx={{
-                                // mt: 1,
-                                mb: 1,
-                                py: 2,
-                                mx: 3,
-                                width: "200px",
-                            }}
-                        > MIS FAVORITOS </Button>
-                    </Box>
-                    <hr className="hr-style2" />
+
+                    <hr className="hr-style3" />
                     <Button
                         component={Link}
                         to="/user-profile"
@@ -229,26 +236,26 @@ export default function AppUserProfileEdit() {
                         sx={{
                             mt: 1,
                             mb: 1,
-                            py: 1,
+                            py: 1.5,
                             mx: 3,
-                            width: "140px",
+                            width: "160px",
                         }}
-                    > EDITAR PERFIL
+                        startIcon={<ArrowBackIcon />}>CANCELAR
                     </Button>
                     <Button
                         component={Link}
                         to="/user-profile"
                         variant="contained"
                         size="small"
-                        color="secondary"
+                        color="warning"
                         sx={{
                             mt: 1,
                             mb: 1,
-                            py: 1,
+                            py: 1.5,
                             mx: 3,
-                            width: "140px",
+                            width: "160px",
                         }}
-                    > EDITAR PERFIL
+                        endIcon={<CheckIcon />}>CONFIRMAR
                     </Button>
                 </CardContent>
             </Card>

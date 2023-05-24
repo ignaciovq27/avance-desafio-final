@@ -79,6 +79,7 @@ export default function AppUserDashboard() {
                     <hr />
                     <AppCardDashboard dashboardProductImg="\imgs\products\Product_01.png" />
                     <AppCardDashboard dashboardProductImg="\imgs\products\Product_06.png" />
+
                 </CardContent>
             </Card>
         </>

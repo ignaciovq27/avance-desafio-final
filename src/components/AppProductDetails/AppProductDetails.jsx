@@ -26,6 +26,18 @@ export default function AppProductDetails() {
 
     return (
         <>
+            <Typography
+                disabled={false}
+                variant="h4"
+                color="primary"
+                sx={{
+                    textAlign: "center",
+                    py: "20px",
+                    fontSize: { xs: "28px", sm: "30px", md: "34px" }
+                }}
+            // className=''
+            >✧ DETALLE DE PRODUCTO ✧
+            </Typography>
             <Card
                 elevation={5}
                 sx={{
@@ -34,9 +46,9 @@ export default function AppProductDetails() {
                     alignItems: "center",
                     alignContent: "center",
                     m: "auto",
-                    mt: "50px",
+                    mt: "10px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "600px", md: "940px", lg: "980px" },
+                    maxWidth: { xs: "330px", sm: "600px", md: "940px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
 

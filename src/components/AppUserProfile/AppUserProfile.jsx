@@ -89,14 +89,6 @@ export default function AppUserProfile() {
                         alignItems={"center"}
                         textAlign={"center"}
                     >
-                        {/* <div className="imgContainer-style">
-                            <AppImg
-                                src="\imgs\User_Profile_Img_00.png"
-                                alt="User_Profile_Img_00.png"
-                                width="140px"
-                            />
-                        </div> */}
-
                         <AppImg
                             src="\imgs\User_Profile_Img_00.png"
                             alt="User_Profile_Img_00.png"

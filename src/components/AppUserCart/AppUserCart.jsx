@@ -66,6 +66,7 @@ export default function AppUserCart() {
                     <AppProductCart dashboardProductImg="\imgs\products\Product_01.png" />
                     <AppProductCart dashboardProductImg="\imgs\products\Product_06.png" />
 
+
                 </CardContent>
                 <Box>
                     <Box
