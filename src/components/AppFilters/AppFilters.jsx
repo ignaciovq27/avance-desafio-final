@@ -14,7 +14,7 @@ export default function AppFilters({ }) {
     const [searchOrder, setsearchOrder] = useState(0);
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setsearchOrder(event.target.value);
     };
     return (
         <>

@@ -1,22 +1,22 @@
 //css
-import "./AppUserProfileEdit.css"
+import "./AppUserDashboardEdit.css"
 
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
-import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
+import { Box, FormControl, IconButton, Typography, MenuItem } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import EmailIcon from '@mui/icons-material/Email';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
+import SortIcon from '@mui/icons-material/Sort';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -24,28 +24,29 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
-export default function AppUserProfileEdit() {
+export default function AppUserDashboardEdit() {
 
-    const [userName, setUserName] = useState('"UserName"');
-    const [userEmail, setUserEmail] = useState('"UserMail"');
-    const [userPassword, setUserPassword] = useState('"UserPassword"');
+    const [productName, setProductName] = useState("");
+    const [productCategory, setProductCategory] = useState(["JUEGOS DE MESA", "ACCESORIOS"]);
+    const [productPrice, setProductPrice] = useState("");
+    const [productDescription, setProductDescription] = useState("");
 
+    // const [searchOrder, setsearchOrder] = (0);
+    // const [searchOrder, setsearchOrder] = useState(0);
+
+    // const handleChange = (event) => {
+    //     setsearchOrder(event.target.value);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault()
         // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
+        console.log(productName)
+        console.log(productCategory)
+        console.log(productPrice)
+        console.log(productDescription)
+
     }
-
-    const [showPassword, setShowPassword] = useState(false);
-
-    const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
 
     return (
         <>
@@ -56,10 +57,10 @@ export default function AppUserProfileEdit() {
                 sx={{
                     textAlign: "center",
                     py: "20px",
-                    fontSize: { xs: "28px", sm: "30px", md: "34px" }
+                    fontSize: { xs: "26px", sm: "30px", md: "34px" }
                 }}
             // className=''
-            >✧ EDITAR PERFIL ✧
+            >✧ CREAR PUBLICACIÓN ✧
             </Typography>
             <Card
                 elevation={5}
@@ -89,7 +90,7 @@ export default function AppUserProfileEdit() {
                             pt: "30px",
                             pb: "10px",
                         }}
-                    >ACTUALIZA TUS DATOS:
+                    >REGISTRA LOS DATOS DE LA PUBLICACIÓN:
                     </Typography>
 
                     <Grid container
@@ -105,7 +106,7 @@ export default function AppUserProfileEdit() {
                             item
                             xs={12}
                             // sm={6}
-                            md={9}
+                            md={8}
                             sx={{
                                 // pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
                                 display: "flex",
@@ -135,63 +136,126 @@ export default function AppUserProfileEdit() {
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
-                                            id="name"
-                                            label="Nombre de usuario"
+                                            id="productName"
+                                            label="NOMBRE DEL PRODUCTO"
                                             type="text"
                                             variant="outlined"
                                             required
                                             // disabled
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
-                                            value={userName}
+                                            value={productName}
                                             // defaultValue={userName}
-                                            onChange={(e) => setUserName(e.target.value)}
+                                            onChange={(e) => setProductName(e.target.value)}
                                             color="primary"
+                                        // placeholder=""
                                         />
                                     </div>
                                     <div className="divTextField-style">
-                                        <EmailIcon
+                                        <AccountCircle
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
-                                            id="email"
-                                            label="Correo Electrónico"
-                                            type="email"
+                                            sx={{ minWidth: "220px" }}
+                                            value={0}
+                                            label="CATEGORÍA"
+                                            required
+                                            error={false}
+                                            select
+                                            // onChange={handleChange}
+                                            onChange={(e) => setProductCategory(e.target.value)}
+                                        >
+                                            <MenuItem value={0}>JUEGOS DE MESA</MenuItem>
+                                            <MenuItem value={1} disabled>ACCESORIOS</MenuItem>
+
+                                        </TextField>
+                                        {/* <FormHelperText>Without label</FormHelperText> */}
+                                    </div>
+
+
+                                    <div className="divTextField-style">
+                                        <AccountCircle
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            sx={{ maxWidth: { xs: "220px", sm: "270px", md: "400px" } }}
+                                            id="productPrice"
+                                            label="PRECIO"
+                                            type="number"
                                             variant="outlined"
                                             required
-                                            // helperText="Ingrese un correo valido."
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
-                                            value={userEmail}
-                                            onChange={(e) => setUserEmail(e.target.value)}
+                                            value={productPrice}
+                                            onChange={(e) => setProductPrice(e.target.value)}
                                             color="primary"
+                                            placeholder="9.990"
+                                            InputProps={{
+                                                startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                            }}
+                                        />
+                                    </div>
+                                    {/* <div className="divTextField-style">
+                                        <AccountCircle
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="name"
+                                            label="Descripción"
+                                            type="text"
+                                            variant="outlined"
+                                            required
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            error={false}
+                                            value={productDescription}
+                                            // defaultValue={userName}
+                                            onChange={(e) => setProductDescription(e.target.value)}
+                                            color="primary"
+                                        />
+                                    </div> */}
+
+                                    <div className="divTextField-style">
+                                        <AccountCircle
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        {/* <TextField
+                                            id="productDescription"
+                                            label="Descripción"
+                                            type="text"
+                                            variant="outlined"
+                                            required
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            error={false}
+                                            value={productDescription}
+                                            // defaultValue={userName}
+                                            onChange={(e) => setProductDescription(e.target.value)}
+                                            color="primary"
+                                        /> */}
+                                        <TextField
+                                            id="outlined-multiline-static"
+                                            label="DESCRIPCIÓN"
+                                            type="text"
+                                            variant="outlined"
+                                            required
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            error={false}
+                                            value={productDescription}
+                                            // defaultValue={userName}
+                                            onChange={(e) => setProductDescription(e.target.value)}
+                                            color="primary"
+                                            multiline
+                                            rows={4}
+                                        // placeholder=""
+                                        // minRows={4}
+                                        // maxRows={4}
+                                        // defaultValue="Default Value"
                                         />
                                     </div>
 
-                                    <div className="divTextField-style">
-                                        <VpnKeyIcon
-                                            color="primary"
-                                            sx={{ my: 0.5 }} />
-                                        <TextField
-                                            id="password"
-                                            label="Contraseña"
-                                            type={showPassword ? 'text' : 'password'}
-                                            variant="outlined"
-                                            required
-                                            // helperText="La contraseña no es correcta."
-                                            error={false}
-                                            value={userPassword}
-                                            onChange={(e) => setUserPassword(e.target.value)}
-                                            color="primary"
-                                        />
-                                        <IconButton
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="start"
-                                            color="secondary"
-                                        >
-                                            {showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </div>
                                 </div>
                             </Box>
                         </Grid>
@@ -200,7 +264,7 @@ export default function AppUserProfileEdit() {
                             item
                             xs={12}
                             // sm={6}
-                            md={3}
+                            md={4}
                             sx={{
                                 // pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
                                 display: "flex",
@@ -227,8 +291,9 @@ export default function AppUserProfileEdit() {
                                     color="secondary"
                                     // className=''
                                     sx={{
+                                        minWidth: "250px"
                                     }}
-                                >IMAGEN DE PERFÍL:
+                                >IMAGEN DEL PRODUCTO:
                                 </Typography>
                                 <AppImg
                                     src="\imgs\User_Profile_Img_00.png"
@@ -253,7 +318,7 @@ export default function AppUserProfileEdit() {
 
                         <Button
                             component={Link}
-                            to="/user-profile"
+                            to="/user-dashboard"
                             variant="contained"
                             size="small"
                             color="secondary"
@@ -268,7 +333,7 @@ export default function AppUserProfileEdit() {
                         </Button>
                         <Button
                             component={Link}
-                            to="/user-profile"
+                            to="/user-dashboard"
                             variant="contained"
                             size="small"
                             color="warning"

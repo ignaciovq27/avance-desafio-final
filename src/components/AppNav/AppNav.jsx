@@ -161,7 +161,7 @@ export default function AppNav() {
       <Typography
         color="secondary"
         component={Link}
-        to="/logout"
+        to="/"
         noWrap
         align='center'
         sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}

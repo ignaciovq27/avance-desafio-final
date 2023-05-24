@@ -16,6 +16,7 @@ import LogIn from './views/LogIn/LogIn';
 import UserProfile from './views/UserProfile/UserProfile';
 import UserProfileEdit from './views/UserProfileEdit/UserProfileEdit';
 import UserDashboard from './views/UserDashboard/UserDashboard';
+import UserDashboardEdit from './views/UserDashboardEdit/UserDashboardEdit';
 import UserFavourites from './views/UserFavourites/UserFavourites';
 import UserCart from './views/UserCart/UserCart';
 
@@ -40,6 +41,7 @@ function App() {
             <Route path="/user-profile" element={<UserProfile />} />
             <Route path="/user-profile-edit" element={<UserProfileEdit />} />
             <Route path="/user-dashboard" element={<UserDashboard />} />
+            <Route path="/user-dashboard-edit" element={<UserDashboardEdit />} />
             <Route path="/user-favourites" element={<UserFavourites />} />
             <Route path="/user-cart" element={<UserCart />} />
 
