@@ -22,12 +22,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
+import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
 export default function AppUserProfileEdit() {
 
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
+    const [userName, setUserName] = useState('"UserName"');
+    const [userEmail, setUserEmail] = useState('"UserMail"');
+    const [userPassword, setUserPassword] = useState('"UserPassword"');
 
 
     const handleSubmit = (e) => {
@@ -70,7 +71,7 @@ export default function AppUserProfileEdit() {
                     m: "auto",
                     mt: "10px",
                     mb: "40px",
-                    maxWidth: { xs: "330px", sm: "500px", md: "600px", lg: "1040px" },
+                    maxWidth: { xs: "330px", sm: "600px", md: "880px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
                 className="userCard-style"
@@ -92,20 +93,27 @@ export default function AppUserProfileEdit() {
                     </Typography>
 
                     <Grid container
-                        // spacing={3}
+                        spacing={3}
                         justifyContent={"center"}
                         alignItems={"center"}
                         alignContent={"center"}
+                        sx={{
+                            mb: { xs: 0, sm: 3, md: 2, lg: 3 }
+                        }}
                     >
                         <Grid
                             item
-                            // xs={12}
+                            xs={12}
                             // sm={6}
-                            md={6}
-
+                            md={9}
                             sx={{
-                                pr: { xs: 'none', sm: '0px', md: "30px" },
+                                // pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
+                                display: "flex",
                             }}
+                            flexDirection={"column"}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            textAlign={"center"}
                         >
                             <Box
                                 component="form"
@@ -115,7 +123,6 @@ export default function AppUserProfileEdit() {
                                     display: "flex",
                                     // display: { md: 'flex' },
                                     my: "20px",
-                                    mb: "40px",
                                 }}
                                 flexDirection={"column"}
                                 justifyContent={"center"}
@@ -133,9 +140,11 @@ export default function AppUserProfileEdit() {
                                             type="text"
                                             variant="outlined"
                                             required
+                                            // disabled
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
                                             value={userName}
+                                            // defaultValue={userName}
                                             onChange={(e) => setUserName(e.target.value)}
                                             color="primary"
                                         />
@@ -189,17 +198,24 @@ export default function AppUserProfileEdit() {
 
                         <Grid
                             item
-                            // xs={12}
+                            xs={12}
                             // sm={6}
-                            md={6}
+                            md={3}
                             sx={{
-                                pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
+                                // pl: { xs: 'none', sm: '0px', md: "0px", lg: "30px" },
+                                display: "flex",
                             }}
+                            flexDirection={"column"}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            textAlign={"center"}
                         >
                             <Box
                                 sx={{
                                     display: "flex",
                                     // display: { md: 'flex' },
+                                    mb: { xs: "40px", sm: "40px", md: "0px", lg: 0 },
+
                                 }}
                                 flexDirection={"column"}
                                 justifyContent={"center"}
@@ -211,7 +227,6 @@ export default function AppUserProfileEdit() {
                                     color="secondary"
                                     // className=''
                                     sx={{
-                                        // textAlign: { xs: "center", sm: "center", md: "center" }
                                     }}
                                 >IMAGEN DE PERFÍL:
                                 </Typography>
@@ -219,44 +234,54 @@ export default function AppUserProfileEdit() {
                                     src="\imgs\User_Profile_Img_00.png"
                                     alt="User_Profile_Img_00.png"
                                     width="140px"
-                                    imgClass="userProfileImg-style"
+                                    imgClass="userProfileImg2-style"
                                 />
+                                <AppButtonUpload />
                             </Box>
                         </Grid>
                     </Grid>
 
+                    <hr className="hr-style4" />
 
-                    <hr className="hr-style3" />
-                    <Button
-                        component={Link}
-                        to="/user-profile"
-                        variant="contained"
-                        size="small"
-                        color="secondary"
+                    <Box
                         sx={{
-                            mt: 1,
-                            mb: 1,
-                            py: 1.5,
-                            mx: 3,
-                            width: "160px",
-                        }}
-                        startIcon={<ArrowBackIcon />}>CANCELAR
-                    </Button>
-                    <Button
-                        component={Link}
-                        to="/user-profile"
-                        variant="contained"
-                        size="small"
-                        color="warning"
-                        sx={{
-                            mt: 1,
-                            mb: 1,
-                            py: 1.5,
-                            mx: 3,
-                            width: "160px",
-                        }}
-                        endIcon={<CheckIcon />}>CONFIRMAR
-                    </Button>
+                            // display: "flex",
+                            // display: { md: 'flex' },
+                            mb: { xs: 2, sm: 2, md: 2, lg: 2 },
+                        }}>
+
+
+                        <Button
+                            component={Link}
+                            to="/user-profile"
+                            variant="contained"
+                            size="small"
+                            color="secondary"
+                            sx={{
+                                mt: 1,
+                                mb: 1,
+                                py: 1.5,
+                                mx: 3,
+                                width: "160px",
+                            }}
+                            startIcon={<ArrowBackIcon />}>CANCELAR
+                        </Button>
+                        <Button
+                            component={Link}
+                            to="/user-profile"
+                            variant="contained"
+                            size="small"
+                            color="warning"
+                            sx={{
+                                mt: 1,
+                                mb: 1,
+                                py: 1.5,
+                                mx: 3,
+                                width: "160px",
+                            }}
+                            endIcon={<CheckIcon />}>CONFIRMAR
+                        </Button>
+                    </Box>
                 </CardContent>
             </Card>
 

@@ -240,7 +240,7 @@ export default function AppUserProfile() {
                             py: 1.5,
                             width: "160px",
                         }}
-                        endIcon={<EditIcon />}> EDITAR
+                        endIcon={<EditIcon />}> EDITAR PERFIL
                     </Button>
                 </CardContent>
             </Card>
