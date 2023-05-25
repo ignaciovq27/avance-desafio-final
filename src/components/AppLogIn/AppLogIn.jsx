@@ -4,6 +4,10 @@ import "./AppLogIn.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+
 import { Box, IconButton, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -14,19 +18,25 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import LoginIcon from '@mui/icons-material/Login';
 
-
 export default function AppLogIn() {
 
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
+    const { logIn } = useContext(ContextUser);
+    // console.log(user)
 
+    const [userEmail, setUserEmail] = useState("test@test.cl");
+    const [userPassword, setUserPassword] = useState("test");
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
+        console.log("mail ingresado: " + userEmail)
+        console.log("password ingresado: " + userPassword)
+
+        const user = await logIn(userEmail, userPassword)
+        if (user) {
+            return navigate("/user-profile")
+        }
+        alert("error de datos.")
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +49,7 @@ export default function AppLogIn() {
 
     return (
         <>
+            {/* <AppTest /> */}
             <Box
                 component="form"
                 onSubmit={handleSubmit}
@@ -87,7 +98,9 @@ export default function AppLogIn() {
                             sx={{ my: 0.5 }} />
                         <TextField
                             id="email"
-                            label="Correo Electrónico"
+                            // label="Correo Electrónico"
+                            label="CORREO ELECTRÓNICO"
+
                             type="email"
                             variant="outlined"
                             required
@@ -105,7 +118,8 @@ export default function AppLogIn() {
                             sx={{ my: 0.5 }} />
                         <TextField
                             id="password"
-                            label="Contraseña"
+                            // label="Contraseña"
+                            label="CONTRASEÑA"
                             type={showPassword ? 'text' : 'password'}
                             variant="outlined"
                             required

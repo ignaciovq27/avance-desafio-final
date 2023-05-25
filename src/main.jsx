@@ -4,6 +4,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 
+//context
+// import { MyContext } from "./MyContext";
+import { UserContext } from './context/UserContext.jsx';
+
 //import CssBaseline
 import { CssBaseline } from "@mui/material";
 
@@ -37,12 +41,16 @@ export default theme;
 import '@fontsource/righteous/400.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
+  // <React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <UserContext>
+      {/* <MyContext> */}
       <BrowserRouter>
         <CssBaseline />
         <App />
       </BrowserRouter>
-    </ThemeProvider>
-  </React.StrictMode>,
+      {/* </MyContext> */}
+    </UserContext>
+  </ThemeProvider>
+  // </React.StrictMode>,
 )

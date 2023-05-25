@@ -90,7 +90,8 @@ export default function AppRegister() {
                             sx={{ my: 0.5 }} />
                         <TextField
                             id="name"
-                            label="Nombre de usuario"
+                            // label="Nombre de usuario"
+                            label="NOMBRE DE USUARIO"
                             type="text"
                             variant="outlined"
                             required
@@ -108,7 +109,8 @@ export default function AppRegister() {
                             sx={{ my: 0.5 }} />
                         <TextField
                             id="email"
-                            label="Correo Electrónico"
+                            // label="Correo Electrónico"
+                            label="CORREO ELECTRÓNICO"
                             type="email"
                             variant="outlined"
                             required
@@ -126,7 +128,8 @@ export default function AppRegister() {
                             sx={{ my: 0.5 }} />
                         <TextField
                             id="password"
-                            label="Contraseña"
+                            // label="Contraseña"
+                            label="CONTRASEÑA"
                             type={showPassword ? 'text' : 'password'}
                             variant="outlined"
                             required

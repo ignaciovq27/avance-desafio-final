@@ -10,6 +10,10 @@ import { Grid } from '@mui/material';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import LabelIcon from '@mui/icons-material/Label';
+import CategoryIcon from '@mui/icons-material/Category';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import DescriptionIcon from '@mui/icons-material/Description';
 import AppImg from "../AppImg/AppImg";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
@@ -132,7 +136,7 @@ export default function AppUserDashboardEdit() {
                             >
                                 <div>
                                     <div className="divTextField-style">
-                                        <AccountCircle
+                                        <LabelIcon
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
@@ -152,7 +156,7 @@ export default function AppUserDashboardEdit() {
                                         />
                                     </div>
                                     <div className="divTextField-style">
-                                        <AccountCircle
+                                        <CategoryIcon
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
@@ -174,7 +178,7 @@ export default function AppUserDashboardEdit() {
 
 
                                     <div className="divTextField-style">
-                                        <AccountCircle
+                                        <MonetizationOnIcon
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
@@ -196,44 +200,12 @@ export default function AppUserDashboardEdit() {
                                             }}
                                         />
                                     </div>
-                                    {/* <div className="divTextField-style">
-                                        <AccountCircle
-                                            color="primary"
-                                            sx={{ my: 0.5 }} />
-                                        <TextField
-                                            id="name"
-                                            label="Descripción"
-                                            type="text"
-                                            variant="outlined"
-                                            required
-                                            // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
-                                            error={false}
-                                            value={productDescription}
-                                            // defaultValue={userName}
-                                            onChange={(e) => setProductDescription(e.target.value)}
-                                            color="primary"
-                                        />
-                                    </div> */}
 
                                     <div className="divTextField-style">
-                                        <AccountCircle
+                                        <DescriptionIcon
                                             color="primary"
-                                            sx={{ my: 0.5 }} />
-                                        {/* <TextField
-                                            id="productDescription"
-                                            label="Descripción"
-                                            type="text"
-                                            variant="outlined"
-                                            required
-                                            // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
-                                            error={false}
-                                            value={productDescription}
-                                            // defaultValue={userName}
-                                            onChange={(e) => setProductDescription(e.target.value)}
-                                            color="primary"
-                                        /> */}
+                                            sx={{ mb: 9, }}
+                                        />
                                         <TextField
                                             id="outlined-multiline-static"
                                             label="DESCRIPCIÓN"
