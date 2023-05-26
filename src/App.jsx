@@ -32,7 +32,6 @@ function App() {
   return (
     <>
       <div className="app">
-        {/* <MyContext> */}
         <AppNav />
         <main>
           <Routes>
@@ -58,22 +57,22 @@ function App() {
 
             <Route
               path="/user-profile-edit"
-              element={<UserProfileEdit />}
+              element={user ? <UserProfileEdit /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/user-dashboard"
-              element={<UserDashboard />}
+              element={user ? <UserDashboard /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/user-dashboard-edit"
-              element={<UserDashboardEdit />}
+              element={user ? <UserDashboardEdit /> : <Navigate to="/login" />}
             />
 
             <Route
               path="/user-favourites"
-              element={<UserFavourites />}
+              element={user ? <UserFavourites /> : <Navigate to="/login" />}
             />
 
             <Route
@@ -96,7 +95,6 @@ function App() {
 
         </main>
         {/* <AppFooter /> */}
-        {/* </MyContext> */}
       </div>
     </>
   )

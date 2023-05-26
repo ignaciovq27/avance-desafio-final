@@ -43,19 +43,6 @@ export default function AppLogIn() {
             return navigate("/user-profile")
         }
         compararInfoUsuarLogIn(userEmail, userPassword, setUserEmailError, setUserPasswordError)
-
-        // if (userEmail !== user.email) {
-        //     alert("Error de datos de email.")
-        //     setUserEmailError(true);
-        //     console.log(email)
-        //     console.log(user[0].email)
-        // }
-        // if (userPassword !== user.password) {
-        //     alert("Error de datos de contraseña.")
-        //     setUserPasswordError(true);
-        //     console.log(password)
-        //     console.log(user[0].password)
-        // }
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -68,7 +55,6 @@ export default function AppLogIn() {
 
     return (
         <>
-            {/* <AppTest /> */}
             <Box
                 component="form"
                 onSubmit={handleSubmit}

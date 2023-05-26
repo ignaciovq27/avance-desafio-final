@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "La Isla prohibida",
+        "category": "Juegos de mesa",
+        "price": "16.990",
+        "img": "public/imgs/products/Product_01.png",
+        "user": "Devir Chile",
+        "quantity": 1,
+        "description": "La Isla Prohibida es un juego de supervivencia pensado para 4 jugadores que podrán encarnar a 6 distintos aventureros que viajaron e la Isla en busca de 4 grandes tesoros. La Isla está compuesta de distintos escenarios donde los jugadores obtendrán los tesoros o la ruta de salida de la isla, pero cada turno los lugares de la isla se irán hundiendo, por lo que si los jugadores no logran salvar los tesoros antes que se hundan estos perderán."
+    }
+]

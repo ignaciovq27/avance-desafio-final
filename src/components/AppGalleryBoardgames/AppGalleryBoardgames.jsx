@@ -44,10 +44,11 @@ export default function AppGalleryBoardgames() {
                         xs={12}
                         // sm={6}
                         // md={12}
-                        sx={{ display: "flex", flexDirection: { xs: 'column', sm: 'row' },
-                        gap: 4,
-                        pb: 8
-                    }}
+                        sx={{
+                            display: "flex", flexDirection: { xs: 'column', sm: 'row' },
+                            gap: 4,
+                            pb: 8
+                        }}
                         flexWrap={"wrap"}
                         justifyContent={"center"}
                         alignItems={"center"}
@@ -63,6 +64,8 @@ export default function AppGalleryBoardgames() {
                         <AppCardProduct productImg="\imgs\products\Product_04.png" />
                         <AppCardProduct productImg="\imgs\products\Product_00.png" />
                         <AppCardProduct productImg="\imgs\products\Product_08.png" />
+                        <AppCardProduct productImg="\imgs\products\Product_09.png" />
+
                     </Grid >
                 </Grid>
             </Container >
