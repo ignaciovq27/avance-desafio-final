@@ -13,6 +13,8 @@ import LabelIcon from '@mui/icons-material/Label';
 import CategoryIcon from '@mui/icons-material/Category';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DescriptionIcon from '@mui/icons-material/Description';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AppImg from "../AppImg/AppImg";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
@@ -153,7 +155,7 @@ export default function AppUserDashboardEdit() {
                                         // placeholder=""
                                         />
                                     </div>
-                                    
+
                                     <div className="divTextField-style">
                                         <CategoryIcon
                                             color="primary"
@@ -201,6 +203,27 @@ export default function AppUserDashboardEdit() {
                                     </div>
 
                                     <div className="divTextField-style">
+                                        <ShoppingCartIcon
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="productName"
+                                            label="CANTIDAD"
+                                            type="number"
+                                            variant="outlined"
+                                            required
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            error={false}
+                                            value={productName}
+                                            // defaultValue={userName}
+                                            onChange={(e) => setProductName(e.target.value)}
+                                            color="primary"
+                                        // placeholder=""
+                                        />
+                                    </div>
+
+                                    <div className="divTextField-style">
                                         <DescriptionIcon
                                             color="primary"
                                             sx={{ mb: 9, }}
@@ -226,6 +249,8 @@ export default function AppUserDashboardEdit() {
                                         // defaultValue="Default Value"
                                         />
                                     </div>
+
+
 
                                 </div>
                             </Box>

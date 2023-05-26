@@ -40,6 +40,8 @@ export default function AppLogIn() {
 
         const user = await logIn(userEmail, userPassword)
         if (user) {
+            setUserEmail(""); //resetear info de user mail
+            setUserPassword(""); //resetear info de user password
             return navigate("/user-profile")
         }
         compararInfoUsuarLogIn(userEmail, userPassword, setUserEmailError, setUserPasswordError)

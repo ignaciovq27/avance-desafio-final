@@ -29,6 +29,7 @@ export default function AppUserProfileEdit() {
     const [userName, setUserName] = useState('"UserName"');
     const [userEmail, setUserEmail] = useState('"UserMail"');
     const [userPassword, setUserPassword] = useState('"UserPassword"');
+    const [userPasswordRepeat, setUserPasswordRepeat] = useState('"UserPasswordRepeat"');
 
 
     const handleSubmit = (e) => {
@@ -40,12 +41,19 @@ export default function AppUserProfileEdit() {
     }
 
     const [showPassword, setShowPassword] = useState(false);
+    const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleClickShowPasswordRepeat = () => setShowPasswordRepeat((show) => !show);
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+    const handleMouseDownPasswordRepeat = (event) => {
+        event.preventDefault();
+    };
+
 
     return (
         <>
@@ -193,6 +201,33 @@ export default function AppUserProfileEdit() {
                                             color="secondary"
                                         >
                                             {showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                    </div>
+
+                                    <div className="divTextField-style">
+                                        <VpnKeyIcon
+                                            color="primary"
+                                            sx={{ my: 0.5 }} />
+                                        <TextField
+                                            id="passwordRepeat"
+                                            // label="Contraseña"
+                                            label="REPETIR CONTRASEÑA"
+                                            type={showPasswordRepeat ? 'text' : 'password'}
+                                            variant="outlined"
+                                            required
+                                            // helperText="La contraseña no es correcta."
+                                            error={false}
+                                            value={userPasswordRepeat}
+                                            onChange={(e) => setUserPasswordRepeat(e.target.value)}
+                                            color="primary"
+                                        />
+                                        <IconButton
+                                            onClick={handleClickShowPasswordRepeat}
+                                            onMouseDown={handleMouseDownPasswordRepeat}
+                                            edge="start"
+                                            color="secondary"
+                                        >
+                                            {showPasswordRepeat ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
                                     </div>
                                 </div>

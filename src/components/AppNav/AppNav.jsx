@@ -372,15 +372,13 @@ export default function AppNav() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {user ? (
-              <AppButton text="PRODUCT DETAILS" to="/product-details" />
-            ) : null}
+              <>
+                <AppButton text="PRODUCT DETAILS" to="/product-details" />
 
-            {user ? (
-              <AppButton text="DASHBOARD" to="/user-dashboard" />
-            ) : null}
+                <AppButton text="DASHBOARD" to="/user-dashboard" />
 
-            {user ? (
-              <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+                <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+              </>
             ) : null}
 
             <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} component={NavLink} />

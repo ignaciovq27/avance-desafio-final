@@ -138,5 +138,9 @@ export function UserContext({ children }) {
         }
     };
 
+    // 8) Funcion para register de usuario
+    const register = async () => {
+    }
+
     return <ContextUser.Provider value={{ user, logIn, logOut, compararInfoUsuarLogIn }}>{children}</ContextUser.Provider>
 }
