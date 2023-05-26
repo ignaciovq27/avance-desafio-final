@@ -26,6 +26,18 @@ const getUsersData = async () => {
     }
 }
 
+
+// 3) Usar localStorage para guardar datos de usuario
+// ------------------------------------------------------------------
+//setItem = Guardar item con "key" y "string"
+// localStorage.setItem("user", "si existe")
+
+//getItem = Acceder item con "key"
+// const testStorage = localStorage.getItem("user")
+// console.log(testStorage)
+// ------------------------------------------------------------------
+
+
 export function UserContext({ children }) {
     const [user, setUser] = useState(null) //estado inicial del usuario = null
 
@@ -42,11 +54,11 @@ export function UserContext({ children }) {
             console.log("usuario encontrado: ");
             console.log(userDB);
             setUser(userDB);
-            return userDB; //devuelve el usuario encontrado (se llama en AppLogIn)
         } else {
             setUser(null)
             console.log("usuario no encontrado -----");
         }
+        return userDB; //devuelve el usuario encontrado (se llama en AppLogIn)
     }
 
     return <ContextUser.Provider value={{ user, logIn }}>{children}</ContextUser.Provider>
