@@ -20,11 +20,17 @@ import LoginIcon from '@mui/icons-material/Login';
 
 export default function AppLogIn() {
 
-    const { logIn } = useContext(ContextUser);
+    const { logIn, compararInfoUsuarLogIn } = useContext(ContextUser);
     // console.log(user)
 
     const [userEmail, setUserEmail] = useState("test@test.cl");
     const [userPassword, setUserPassword] = useState("test");
+    // const [userEmail, setUserEmail] = useState("");
+    // const [userPassword, setUserPassword] = useState("");
+
+    const [userEmailError, setUserEmailError] = useState(false);
+    const [userPasswordError, setUserPasswordError] = useState(false);
+
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -36,7 +42,20 @@ export default function AppLogIn() {
         if (user) {
             return navigate("/user-profile")
         }
-        alert("error de datos.")
+        compararInfoUsuarLogIn(userEmail, userPassword, setUserEmailError, setUserPasswordError)
+
+        // if (userEmail !== user.email) {
+        //     alert("Error de datos de email.")
+        //     setUserEmailError(true);
+        //     console.log(email)
+        //     console.log(user[0].email)
+        // }
+        // if (userPassword !== user.password) {
+        //     alert("Error de datos de contraseña.")
+        //     setUserPasswordError(true);
+        //     console.log(password)
+        //     console.log(user[0].password)
+        // }
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -104,8 +123,10 @@ export default function AppLogIn() {
                             type="email"
                             variant="outlined"
                             required
-                            // helperText="Ingrese un correo valido."
-                            error={false}
+                            helperText={userEmailError
+                                ? ("Ingrese un correo valido.")
+                                : null}
+                            error={userEmailError}
                             value={userEmail}
                             onChange={(e) => setUserEmail(e.target.value)}
                             color="primary"
@@ -124,7 +145,10 @@ export default function AppLogIn() {
                             variant="outlined"
                             required
                             // helperText="La contraseña no es correcta."
-                            error={false}
+                            helperText={userPasswordError
+                                ? ("La contraseña no es correcta.")
+                                : null}
+                            error={userPasswordError}
                             value={userPassword}
                             onChange={(e) => setUserPassword(e.target.value)}
                             color="primary"
@@ -146,6 +170,7 @@ export default function AppLogIn() {
                     variant="contained"
                     size="small"
                     color="warning"
+                    disabled={(userEmail !== "" && userPassword !== "") ? false : true}
                     sx={{
                         mt: 1,
                         py: 2,

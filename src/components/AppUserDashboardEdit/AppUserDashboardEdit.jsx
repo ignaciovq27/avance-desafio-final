@@ -9,7 +9,6 @@ import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import LabelIcon from '@mui/icons-material/Label';
 import CategoryIcon from '@mui/icons-material/Category';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
@@ -49,7 +48,6 @@ export default function AppUserDashboardEdit() {
         console.log(productCategory)
         console.log(productPrice)
         console.log(productDescription)
-
     }
 
     return (
@@ -155,6 +153,7 @@ export default function AppUserDashboardEdit() {
                                         // placeholder=""
                                         />
                                     </div>
+                                    
                                     <div className="divTextField-style">
                                         <CategoryIcon
                                             color="primary"

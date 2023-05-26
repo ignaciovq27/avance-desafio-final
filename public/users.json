@@ -7,8 +7,8 @@
     },
     {
         "id": 2,
-        "name": "Ignacio",
-        "email": "ignacio@gmail.com",
+        "name": "ignacio",
+        "email": "ignacio@test.cl",
         "password": "ignacio"
     }
 ]

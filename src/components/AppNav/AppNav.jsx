@@ -3,6 +3,8 @@ import './AppNav.css'
 
 //components
 import * as React from 'react';
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
 import { Link, NavLink } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -81,6 +83,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 // export component
 export default function AppNav() {
+  const { user, logOut } = useContext(ContextUser);
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -103,7 +108,7 @@ export default function AppNav() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  // componentes de menu en XS 
+  // componentes de menu "usuario" en XS 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -122,63 +127,92 @@ export default function AppNav() {
       onClose={handleMenuClose}
     >
       {/* Aquí se indica la info dentro del botón "USUARIO" */}
-      <Typography
-        color="secondary"
-        component={Link}
-        to="/user-profile"
-        noWrap
-        align='center'
-        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
-      >
-        <MenuItem
-          sx={{ display: 'block', py: 2, textDecoration: "none", }}
-          // onClick={{handleMenuClose, handleMobileMenuClose}}
+      {user ? (
+
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/user-profile"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+        >
+          <MenuItem
+            sx={{ display: 'block', py: 2, textDecoration: "none", }}
+            // onClick={{handleMenuClose, handleMobileMenuClose}}
+            onClick={() => {
+              handleMenuClose();
+              handleMobileMenuClose();
+            }}
+          > VER PERFIL </MenuItem>
+        </Typography>
+      ) : null}
+
+      {user ? (
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/login"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+          onClick={() => {
+            handleMenuClose();
+            handleMobileMenuClose();
+            logOut();
+          }}
+        >
+          <MenuItem
+            sx={{ py: 2, textDecoration: "none", }}
+          // onClick={handleMenuClose}
+          > CERRAR SESIÓN </MenuItem>
+        </Typography>
+      ) : null}
+
+      {!user ? (
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/register"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
           onClick={() => {
             handleMenuClose();
             handleMobileMenuClose();
           }}
-        > VER PERFIL </MenuItem>
-      </Typography>
+        >
+          <MenuItem
+            sx={{ py: 2, textDecoration: "none", }}
+            onClick={handleMenuClose}
+          > REGISTRARSE </MenuItem>
+        </Typography>
+      ) : null}
 
-      <Typography
-        color="secondary"
-        component={Link}
-        to="/register"
-        noWrap
-        align='center'
-        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
-        onClick={() => {
-          handleMenuClose();
-          handleMobileMenuClose();
-        }}
-      >
-        <MenuItem
-          sx={{ py: 2, textDecoration: "none", }}
-          onClick={handleMenuClose}
-        > REGISTRARSE </MenuItem>
-      </Typography>
-
-      <Typography
-        color="secondary"
-        component={Link}
-        to="/"
-        noWrap
-        align='center'
-        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
-        onClick={() => {
-          handleMenuClose();
-          handleMobileMenuClose();
-        }}
-      >
-        <MenuItem
-          sx={{ py: 2, textDecoration: "none", }}
-          onClick={handleMenuClose}
-        > CERRAR SESIÓN </MenuItem>
-      </Typography>
+      {!user ? (
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/login"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+          onClick={() => {
+            handleMenuClose();
+            handleMobileMenuClose();
+            logOut();
+          }}
+        >
+          <MenuItem
+            sx={{ py: 2, textDecoration: "none", }}
+          // onClick={handleMenuClose}
+          > INICIAR SESIÓN </MenuItem>
+        </Typography>
+      ) : null}
     </Menu>
   );
 
-  //componentes dentro de menu
+  //componentes dentro de menu hamburguesa
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -210,19 +244,21 @@ export default function AppNav() {
         > JUEGOS DE MESA </MenuItem>
       </Typography>
 
-      <Typography
-        color="secondary"
-        component={Link}
-        to="/user-dashboard"
-        noWrap
-        align='center'
-        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
-      >
-        <MenuItem
-          sx={{ display: 'block', py: 2, textDecoration: "none", }}
-          onClick={handleMobileMenuClose}
-        > DASHBOARD </MenuItem>
-      </Typography>
+      {user ? (
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/user-dashboard"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+        >
+          <MenuItem
+            sx={{ display: 'block', py: 2, textDecoration: "none", }}
+            onClick={handleMobileMenuClose}
+          > DASHBOARD </MenuItem>
+        </Typography>
+      ) : null}
 
       <Typography
         color="secondary"
@@ -251,29 +287,31 @@ export default function AppNav() {
         </MenuItem>
       </Typography>
 
-      <Typography
-        color="secondary"
-        component={Link}
-        to="/user-favourites"
-        noWrap
-        align='center'
-        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
-      >
-        <MenuItem
-          sx={{ py: 0.75, textDecoration: "none", }}
-          onClick={handleMobileMenuClose}
+      {user ? (
+        <Typography
+          color="secondary"
+          component={Link}
+          to="/user-favourites"
+          noWrap
+          align='center'
+          sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
         >
-          <IconButton
-            size="large"
-            aria-label="show 1 new notifications"
-            aria-controls={menuId}
-            aria-haspopup="true"
-            color="secondary">
-            <FavoriteIcon />
-          </IconButton>
-          FAVORITOS
-        </MenuItem>
-      </Typography>
+          <MenuItem
+            sx={{ py: 0.75, textDecoration: "none", }}
+            onClick={handleMobileMenuClose}
+          >
+            <IconButton
+              size="large"
+              aria-label="show 1 new notifications"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              color="secondary">
+              <FavoriteIcon />
+            </IconButton>
+            FAVORITOS
+          </MenuItem>
+        </Typography>
+      ) : null}
 
       <Typography
         color="primary"
@@ -333,9 +371,18 @@ export default function AppNav() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <AppButton text="PRODUCT DETAILS" to="/product-details" />
-            <AppButton text="DASHBOARD" to="/user-dashboard" />
-            <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            {user ? (
+              <AppButton text="PRODUCT DETAILS" to="/product-details" />
+            ) : null}
+
+            {user ? (
+              <AppButton text="DASHBOARD" to="/user-dashboard" />
+            ) : null}
+
+            {user ? (
+              <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+            ) : null}
+
             <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} component={NavLink} />
             <AppIconButton icon={<AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
