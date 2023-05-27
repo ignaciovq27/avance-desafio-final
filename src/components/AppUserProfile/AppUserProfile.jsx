@@ -4,6 +4,8 @@ import "./AppUserProfile.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
 import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -21,24 +23,10 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
 export default function AppUserProfile() {
-
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
-    }
+    const { user } = useContext(ContextUser);
 
     const [showPassword, setShowPassword] = useState(false);
-
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
@@ -90,7 +78,8 @@ export default function AppUserProfile() {
                         textAlign={"center"}
                     >
                         <AppImg
-                            src="\imgs\User_Profile_Img_00.png"
+                            // src="\imgs\User_Profile_Img_00.png"
+                            src={user.profileImg}
                             alt="User_Profile_Img_00.png"
                             width="140px"
                             imgClass="userProfileImg-style"
@@ -103,17 +92,13 @@ export default function AppUserProfile() {
                                     sx={{ my: 0.5 }} />
                                 <TextField
                                     id="name"
-                                    // label="Nombre de usuario"
                                     label="NOMBRE DE USUARIO"
                                     type="text"
                                     variant="outlined"
-                                    // required
                                     disabled
-                                    // helperText="Ingresa un nombre de usuario valido."
                                     error={false}
-                                    // value={userName}
-                                    defaultValue='"UserName"'
-                                    onChange={(e) => setUserName(e.target.value)}
+                                    // value={userName} 
+                                    defaultValue={user.name}
                                     color="primary"
                                 />
                             </div>
@@ -124,17 +109,14 @@ export default function AppUserProfile() {
                                     sx={{ my: 0.5 }} />
                                 <TextField
                                     id="email"
-                                    // label="Correo Electrónico"
                                     label="CORREO ELECTRÓNICO"
                                     type="email"
                                     variant="outlined"
                                     // required
                                     disabled
-                                    // helperText="Ingrese un correo valido."
                                     error={false}
                                     // value={userEmail}
-                                    defaultValue='"UserEmail"'
-                                    onChange={(e) => setUserEmail(e.target.value)}
+                                    defaultValue={user.email}
                                     color="primary"
                                 />
                             </div>
@@ -145,17 +127,13 @@ export default function AppUserProfile() {
                                     sx={{ my: 0.5 }} />
                                 <TextField
                                     id="password"
-                                    // label="Contraseña"
                                     label="CONTRASEÑA"
                                     type={showPassword ? 'text' : 'password'}
                                     variant="outlined"
-                                    // required
                                     disabled
-                                    // helperText="Ingrese un correo valido."
                                     error={false}
                                     // value={userPassword}
-                                    defaultValue='"UserPassword"'
-                                    onChange={(e) => setUserPassword(e.target.value)}
+                                    defaultValue={user.password}
                                     color="primary"
                                 />
                                 <IconButton
@@ -178,15 +156,10 @@ export default function AppUserProfile() {
                             flexDirection: { xs: "column", sm: "row" },
                             my: "20px",
                             mb: "20px",
-                            // pb: "20px",
-                            // mx: "10px",
-                            // m: "auto",
                         }}
                         justifyContent={"space-around"}
                         alignItems={"center"}
                         textAlign={"center"}
-                    // noValidate
-                    // autoComplete="off"
                     >
                         <Button
                             component={Link}
@@ -194,7 +167,6 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                // mt: 1,
                                 mb: 1,
                                 py: 2,
                                 mx: 3,
@@ -207,7 +179,6 @@ export default function AppUserProfile() {
                             variant="contained"
                             size="small"
                             sx={{
-                                // mt: 1,
                                 mb: 1,
                                 py: 2,
                                 mx: 3,
@@ -216,21 +187,6 @@ export default function AppUserProfile() {
                         > MIS FAVORITOS </Button>
                     </Box>
                     <hr className="hr-style2" />
-                    {/* <Button
-                        component={Link}
-                        to="/user-profile-edit"
-                        variant="contained"
-                        size="small"
-                        color="warning"
-                        sx={{
-                            mt: 1,
-                            mb: 1,
-                            py: 1,
-                            mx: 3,
-                            width: "140px",
-                        }}
-                    > EDITAR PERFIL
-                    </Button> */}
                     <Button
                         component={Link}
                         to="/user-profile-edit"

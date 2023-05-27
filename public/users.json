@@ -1,16 +1,14 @@
 [
     {
-        "id": 1,
         "name": "test",
         "email": "test@test.cl",
         "password": "test",
-        "avatar": "avatar_01"
+        "profileImg": "public/imgs/User_Profile_Img_00.png"
     },
     {
-        "id": 2,
         "name": "ignacio",
         "email": "ignacio@test.cl",
         "password": "ignacio",
-        "avatar": "avatar_02"
+        "profileImg": "public/imgs/User_Profile_Img_01.png"
     }
 ]

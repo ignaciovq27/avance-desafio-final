@@ -20,31 +20,28 @@ import LoginIcon from '@mui/icons-material/Login';
 
 export default function AppLogIn() {
 
-    const { logIn, compararInfoUsuarLogIn } = useContext(ContextUser);
+    const { email, setEmail, password, setPassword, logIn, compararInfoUsuarLogIn } = useContext(ContextUser);
+    const navigate = useNavigate()
     // console.log(user)
 
-    const [userEmail, setUserEmail] = useState("test@test.cl");
-    const [userPassword, setUserPassword] = useState("test");
-    // const [userEmail, setUserEmail] = useState("");
-    // const [userPassword, setUserPassword] = useState("");
+    setEmail("test@test.cl"); //resetear info de user mail
+    setPassword("test"); //resetear info de user password
 
-    const [userEmailError, setUserEmailError] = useState(false);
-    const [userPasswordError, setUserPasswordError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
-    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("mail ingresado: " + userEmail)
-        console.log("password ingresado: " + userPassword)
-
-        const user = await logIn(userEmail, userPassword)
+        console.log("mail ingresado: " + email)
+        console.log("password ingresado: " + password)
+        const user = await logIn(email, password)
         if (user) {
-            setUserEmail(""); //resetear info de user mail
-            setUserPassword(""); //resetear info de user password
+            // setEmail(""); //resetear info de user mail
+            // setPassword(""); //resetear info de user password
             return navigate("/user-profile")
         }
-        compararInfoUsuarLogIn(userEmail, userPassword, setUserEmailError, setUserPasswordError)
+        compararInfoUsuarLogIn(email, password, setEmailError, setPasswordError)
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -111,12 +108,12 @@ export default function AppLogIn() {
                             type="email"
                             variant="outlined"
                             required
-                            helperText={userEmailError
+                            helperText={emailError
                                 ? ("Ingrese un correo valido.")
                                 : null}
-                            error={userEmailError}
-                            value={userEmail}
-                            onChange={(e) => setUserEmail(e.target.value)}
+                            error={emailError}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             color="primary"
                         />
                     </div>
@@ -133,12 +130,12 @@ export default function AppLogIn() {
                             variant="outlined"
                             required
                             // helperText="La contraseña no es correcta."
-                            helperText={userPasswordError
+                            helperText={passwordError
                                 ? ("La contraseña no es correcta.")
                                 : null}
-                            error={userPasswordError}
-                            value={userPassword}
-                            onChange={(e) => setUserPassword(e.target.value)}
+                            error={passwordError}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             color="primary"
                         />
                         <IconButton
@@ -158,7 +155,7 @@ export default function AppLogIn() {
                     variant="contained"
                     size="small"
                     color="warning"
-                    disabled={(userEmail !== "" && userPassword !== "") ? false : true}
+                    disabled={(email !== "" && password !== "") ? false : true}
                     sx={{
                         mt: 1,
                         py: 2,

@@ -59,28 +59,36 @@ const initialStateUser = localStorage.getItem("user")
 
 export function UserContext({ children }) {
     // const [user, setUser] = useState(null) //estado inicial del usuario = null
+
     const [user, setUser] = useState(initialStateUser) //si el usuario existe, el estado del user pasa a ser el usuario  inicial  (initialStateUser) encontrado.
 
     // ------------------------------------------------------------------
     // Usar useEffect para guardar información del usario (todo la información del usuario)
     // 5) Usar useEffect para estar pendiente de los datos que cambien del usuario "user"
-    // useEffect(() => {
-    //     if (user) {
-    //         localStorage.setItem("user", JSON.stringify(user)) //se guardan todos los datos del usuario ingresado.
-    //     }
-    // }, [user])
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        if (!storedUser && user) { // Comprobar si existe el user antes de guardar la variable
+            localStorage.setItem("user", JSON.stringify(user)); // Guardar "user" en localStorage
+        } else if (storedUser && !user) {
+            localStorage.removeItem("user"); // Eliminar el "user" del localStorage si no existe en el estado
+        }
+    }, [user]);
     // ------------------------------------------------------------------
 
     // 5) Guardar email del usuario en el localStore
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (user) {
-            const { email } = user; // Obtener el email del usuario
-            localStorage.setItem("user", JSON.stringify({ email })); // Guardar solo el email en el localStorage
-        } else {
-            localStorage.removeItem("user");
-        }
-    }, [user]);
+    //     if (user) {
+    //         // const { email } = user; // Obtener el email del usuario
+    //         // localStorage.setItem("user", JSON.stringify({ email })); // Guardar solo el email en el localStorage
+    //         // const { userEmail } = user; // Obtener el email del usuario
+    //         localStorage.setItem("user", JSON.stringify({ user })); // Guardar solo el email en el localStorage
+    //     } else {
+    //         localStorage.removeItem("user");
+    //     }
+    // }, [user]);
+
+
 
     // 2) Funcion para logIn (se llama en AppLogIn)
     const logIn = async (userEmail, userPassword) => {
@@ -110,27 +118,27 @@ export function UserContext({ children }) {
     }
 
     // 7) Funcion para comparar información ingresada en el logIn con la del JSON de usuario (se llama en AppLogIn)
-    const compararInfoUsuarLogIn = async (userEmail, userPassword, setUserEmailError, setUserPasswordError) => {
+    const compararInfoUsuarLogIn = async (email, password, setEmailError, setPasswordError) => {
         try {
             const usersData = await getUsersData()
             console.log(usersData)
             const user = usersData[0]; //info de usuario[0]
 
-            if (userEmail !== user.email) {
+            if (email !== user.email) {
                 alert("Error de datos de email.");
-                setUserEmailError(true);
+                setEmailError(true);
 
-            } if (userEmail === user.email) {
-                setUserEmailError(false);
+            } if (email === user.email) {
+                setEmailError(false);
             }
 
-            if (userPassword !== user.password) {
+            if (password !== user.password) {
                 alert("Error de datos de contraseña.");
-                setUserPasswordError(true);
+                setPasswordError(true);
             }
 
-            else if (userPassword === user.password) {
-                setUserPasswordError(false);
+            else if (password === user.password) {
+                setPasswordError(false);
             }
 
         } catch (error) {
@@ -139,8 +147,26 @@ export function UserContext({ children }) {
     };
 
     // 8) Funcion para register de usuario
-    const register = async () => {
+
+    const register = async (user) => {
+        setUser(user)
     }
 
-    return <ContextUser.Provider value={{ user, logIn, logOut, compararInfoUsuarLogIn }}>{children}</ContextUser.Provider>
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    return <ContextUser.Provider value={{
+        user,
+        name,
+        setName,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        logIn,
+        logOut,
+        compararInfoUsuarLogIn,
+        register
+    }}>{children}</ContextUser.Provider>
 }

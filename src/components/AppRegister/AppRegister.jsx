@@ -4,6 +4,10 @@ import "./AppRegister.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+
 import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -14,24 +18,49 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-
-
+import defaultProfileImg from '../../../public/imgs/User_Profile_Img_00.png';
 
 export default function AppRegister() {
 
-    const [userName, setUserName] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] = useState("");
-    const [userPasswordRepeat, setUserPasswordRepeat] = useState("");
+    const {
+        user,
+        name,
+        setName,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        register } = useContext(ContextUser);
+    const navigate = useNavigate()
 
-
+    // const [userName, setUserName] = useState("");
+    // const [userEmail, setUserEmail] = useState("");
+    // const [userPassword, setUserPassword] = useState("");
+    const [passwordRepeat, setPasswordRepeat] = useState("");
+    const [profileImg, setpProfileImg] = useState(defaultProfileImg);
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (password !== passwordRepeat) {
+            return alert("error: No coinciden las contraseñas.")
+        }
+
         // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
+        console.log("userName: " + name)
+        console.log("userEmail: " + email)
+        console.log("userPassword: " + password)
+        console.log("userPasswordRepeat: " + passwordRepeat)
+        console.log("userProfileImg: " + profileImg)
+
+        register({
+            name,
+            email,
+            password,
+            profileImg,
+        })
+        console.log(user)
+        return navigate("/login")
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -107,8 +136,8 @@ export default function AppRegister() {
                             required
                             // helperText="Ingresa un nombre de usuario valido."
                             error={false}
-                            value={userName}
-                            onChange={(e) => setUserName(e.target.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             color="primary"
                         />
                     </div>
@@ -126,8 +155,8 @@ export default function AppRegister() {
                             required
                             // helperText="Ingrese un correo valido."
                             error={false}
-                            value={userEmail}
-                            onChange={(e) => setUserEmail(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             color="primary"
                         />
                     </div>
@@ -145,8 +174,8 @@ export default function AppRegister() {
                             required
                             // helperText="La contraseña no es correcta."
                             error={false}
-                            value={userPassword}
-                            onChange={(e) => setUserPassword(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             color="primary"
                         />
                         <IconButton
@@ -172,8 +201,8 @@ export default function AppRegister() {
                             required
                             // helperText="La contraseña no es correcta."
                             error={false}
-                            value={userPasswordRepeat}
-                            onChange={(e) => setUserPasswordRepeat(e.target.value)}
+                            value={passwordRepeat}
+                            onChange={(e) => setPasswordRepeat(e.target.value)}
                             color="primary"
                         />
                         <IconButton
