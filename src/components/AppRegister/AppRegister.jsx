@@ -31,6 +31,7 @@ export default function AppRegister() {
         passwordRepeat,
         setPasswordRepeat,
         profileImg,
+        setProfileImg,
         register } = useContext(ContextUser);
     const navigate = useNavigate()
     const [nameError, setNameError] = useState(false);
@@ -52,6 +53,7 @@ export default function AppRegister() {
             email,
             password,
             profileImg,
+            id: Date.now(),
         })
         return navigate("/login")
     }

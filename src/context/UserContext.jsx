@@ -58,6 +58,8 @@ const initialStateUser = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user")) //si el usuario de la key "user" existe, se transforma el STRINGJSON a array
     : null; //si no existe usuario, el estado inicial de usuario es "null"
 
+
+
 export function UserContext({ children }) {
     // const [user, setUser] = useState(null) //estado inicial del usuario = null
 
@@ -130,7 +132,7 @@ export function UserContext({ children }) {
         setEmail("")
         setPassword("")
         setPasswordRepeat("")
-        setProfileImg("")
+        setProfileImg("/imgs/User_Profile_Img_00.png")
         console.log("userStates cleaned")
         setUser(null)  //se setea el estado "user" a null.
         console.log("user logOut.")
@@ -166,7 +168,6 @@ export function UserContext({ children }) {
     };
 
     // 8) Funcion para register de usuario
-
     const register = async (user) => {
         setUser(user)
     }
@@ -187,6 +188,7 @@ export function UserContext({ children }) {
             setName(user.name)
             setEmail(user.email)
             setPassword(user.password)
+            setProfileImg(user.profileImg)
             console.log("userStates loaded")
         }
     }

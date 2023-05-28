@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 
-//context
+//contexts
 // import { MyContext } from "./MyContext";
 import { UserContext } from './context/UserContext.jsx';
+import { ProductContext } from './context/ProductContext.jsx';
+
 
 //import CssBaseline
 import { CssBaseline } from "@mui/material";
@@ -44,12 +46,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
   <ThemeProvider theme={theme}>
     <UserContext>
-      {/* <MyContext> */}
-      <BrowserRouter>
-        <CssBaseline />
-        <App />
-      </BrowserRouter>
-      {/* </MyContext> */}
+      <ProductContext>
+        <BrowserRouter>
+          <CssBaseline />
+          <App />
+        </BrowserRouter>
+      </ProductContext>
     </UserContext>
   </ThemeProvider>
   // </React.StrictMode>,
