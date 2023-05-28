@@ -126,12 +126,14 @@ export function UserContext({ children }) {
 
     // 3) Funcion para logOut
     const logOut = async () => {
-        setUser(null)  //se setea el estado "user" a null.
         setName("")
         setEmail("")
         setPassword("")
         setPasswordRepeat("")
         setProfileImg("")
+        console.log("userStates cleaned")
+        setUser(null)  //se setea el estado "user" a null.
+        console.log("user logOut.")
     }
 
     // 7) Funcion para comparar información ingresada en el logIn con la del JSON de usuario (se llama en AppLogIn)
@@ -189,16 +191,6 @@ export function UserContext({ children }) {
         }
     }
 
-    // limpiar los states del user al realizar logout
-    const cleanUserStates = async (e) => {
-        if (user) {
-            setName("")
-            setEmail("")
-            setPassword("")
-            console.log("userStates cleaned")
-        }
-    }
-
     return <ContextUser.Provider value={{
         user,
         name,
@@ -217,6 +209,5 @@ export function UserContext({ children }) {
         register,
         editProfile,
         setUserStates,
-        cleanUserStates,
     }}>{children}</ContextUser.Provider>
 }

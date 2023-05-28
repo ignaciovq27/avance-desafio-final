@@ -83,7 +83,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 // export component
 export default function AppNav() {
-  const { user, logOut, cleanUserStates } = useContext(ContextUser);
+  const { user, logOut } = useContext(ContextUser);
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
