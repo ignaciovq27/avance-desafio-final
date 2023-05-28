@@ -4,6 +4,8 @@ import "./AppUserProfileEdit.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
 import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -26,10 +28,17 @@ import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
 export default function AppUserProfileEdit() {
 
-    const [userName, setUserName] = useState('"UserName"');
-    const [userEmail, setUserEmail] = useState('"UserMail"');
-    const [userPassword, setUserPassword] = useState('"UserPassword"');
-    const [userPasswordRepeat, setUserPasswordRepeat] = useState('"UserPasswordRepeat"');
+    const { user,
+        setName,
+        setEmail,
+        setPassword,
+        passwordRepeat,
+        setPasswordRepeat,
+        setProfileImg, } = useContext(ContextUser);
+
+    // const [userName, setUserName] = useState('"UserName"');
+    // const [userEmail, setUserEmail] = useState('"UserMail"');
+    // const [userPassword, setUserPassword] = useState('"UserPassword"');
 
 
     const handleSubmit = (e) => {
@@ -152,9 +161,9 @@ export default function AppUserProfileEdit() {
                                             // disabled
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
-                                            value={userName}
-                                            // defaultValue={userName}
-                                            onChange={(e) => setUserName(e.target.value)}
+                                            // value={user.name}
+                                            defaultValue={user.name}
+                                            onChange={(e) => setName(e.target.value)}
                                             color="primary"
                                         />
                                     </div>
@@ -171,8 +180,9 @@ export default function AppUserProfileEdit() {
                                             required
                                             // helperText="Ingrese un correo valido."
                                             error={false}
-                                            value={userEmail}
-                                            onChange={(e) => setUserEmail(e.target.value)}
+                                            // value={user.email}
+                                            defaultValue={user.email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             color="primary"
                                         />
                                     </div>
@@ -190,8 +200,8 @@ export default function AppUserProfileEdit() {
                                             required
                                             // helperText="La contraseña no es correcta."
                                             error={false}
-                                            value={userPassword}
-                                            onChange={(e) => setUserPassword(e.target.value)}
+                                            // value={""}
+                                            onChange={(e) => setPassword(e.target.value)}
                                             color="primary"
                                         />
                                         <IconButton
@@ -217,8 +227,8 @@ export default function AppUserProfileEdit() {
                                             required
                                             // helperText="La contraseña no es correcta."
                                             error={false}
-                                            value={userPasswordRepeat}
-                                            onChange={(e) => setUserPasswordRepeat(e.target.value)}
+                                            // value={""}
+                                            onChange={(e) => setPasswordRepeat(e.target.value)}
                                             color="primary"
                                         />
                                         <IconButton

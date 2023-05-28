@@ -156,7 +156,9 @@ export function UserContext({ children }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordRepeat, setPasswordRepeat] = useState("");
     const [profileImg, setProfileImg] = useState("/imgs/User_Profile_Img_00.png");
+
 
     return <ContextUser.Provider value={{
         user,
@@ -166,6 +168,8 @@ export function UserContext({ children }) {
         setEmail,
         password,
         setPassword,
+        passwordRepeat,
+        setPasswordRepeat,
         profileImg,
         setProfileImg,
         logIn,

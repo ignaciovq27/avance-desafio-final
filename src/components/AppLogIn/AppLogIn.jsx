@@ -41,6 +41,7 @@ export default function AppLogIn() {
             // setPassword(""); //resetear info de user password
             return navigate("/user-profile")
         }
+
         compararInfoUsuarLogIn(email, password, setEmailError, setPasswordError)
     }
 

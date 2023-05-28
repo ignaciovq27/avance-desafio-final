@@ -80,7 +80,7 @@ export default function AppUserProfile() {
                         textAlign={"center"}
                     >
                         <Typography
-                            // variant="h6"
+                            variant="h6"
                             color="secondary"
                             // className=''
                             sx={{
@@ -93,6 +93,7 @@ export default function AppUserProfile() {
                             ml: "5px",
                         }} />
                         </Typography>
+
                         <AppImg
                             // src="\imgs\User_Profile_Img_00.png"
                             src={user.profileImg}

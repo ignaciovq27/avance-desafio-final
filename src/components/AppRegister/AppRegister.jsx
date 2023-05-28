@@ -28,11 +28,11 @@ export default function AppRegister() {
         setEmail,
         password,
         setPassword,
+        passwordRepeat,
+        setPasswordRepeat,
         profileImg,
         register } = useContext(ContextUser);
     const navigate = useNavigate()
-
-    const [passwordRepeat, setPasswordRepeat] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault()
