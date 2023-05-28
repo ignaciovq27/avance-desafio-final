@@ -208,6 +208,9 @@ export default function AppRegister() {
                     variant="contained"
                     size="small"
                     color="warning"
+                    disabled={
+                        (name !== "" && email !== "" && password !== "" && passwordRepeat !== "") ? false : true
+                    }
                     sx={{
                         mt: 1,
                         py: 2,

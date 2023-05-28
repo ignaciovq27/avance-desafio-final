@@ -104,7 +104,6 @@ export default function AppLogIn() {
                             id="email"
                             // label="Correo Electrónico"
                             label="CORREO ELECTRÓNICO"
-
                             type="email"
                             variant="outlined"
                             required
@@ -155,7 +154,9 @@ export default function AppLogIn() {
                     variant="contained"
                     size="small"
                     color="warning"
-                    disabled={(email !== "" && password !== "") ? false : true}
+                    disabled={
+                        (email !== "" && password !== "") ? false : true
+                    }
                     sx={{
                         mt: 1,
                         py: 2,

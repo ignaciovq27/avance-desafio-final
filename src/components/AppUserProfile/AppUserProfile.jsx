@@ -16,6 +16,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import EditIcon from '@mui/icons-material/Edit';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -25,6 +26,7 @@ import CardActions from '@mui/material/CardActions';
 export default function AppUserProfile() {
     const { user } = useContext(ContextUser);
 
+    const nameInUpperCase = user.name.toUpperCase();
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {
@@ -77,6 +79,20 @@ export default function AppUserProfile() {
                         alignItems={"center"}
                         textAlign={"center"}
                     >
+                        <Typography
+                            // variant="h6"
+                            color="secondary"
+                            // className=''
+                            sx={{
+                                pt: "20px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center"
+                            }}
+                        ><b> HOLA {nameInUpperCase}</b> <AutoAwesomeIcon sx={{
+                            ml: "5px",
+                        }} />
+                        </Typography>
                         <AppImg
                             // src="\imgs\User_Profile_Img_00.png"
                             src={user.profileImg}

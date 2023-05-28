@@ -13,7 +13,8 @@
     border: solid 4px #2e2e2e;
     /* border: solid 4px rgb(232, 234, 235); */
     overflow: hidden;
-    margin-top: 25px;
+    /* margin-top: 25px; */
+    margin-top: 10px;
     margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;
