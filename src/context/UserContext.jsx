@@ -20,6 +20,7 @@ const getUsersData = async () => {
         // console.log("JSON users data: ")
         // console.log(usersData)
         return usersData;
+
     }
     catch (error) {
         console.log(error)
@@ -27,8 +28,8 @@ const getUsersData = async () => {
 }
 
 
-// 3) Usar localStorage para guardar datos de usuario
 // ------------------------------------------------------------------
+// 3) Usar localStorage para guardar datos de usuario
 //setItem = Guardar item con "key" y "string"
 // localStorage.setItem("user", "si existe")
 
@@ -122,7 +123,7 @@ export function UserContext({ children }) {
         try {
             const usersData = await getUsersData()
             console.log(usersData)
-            const user = usersData[0]; //info de usuario[0]
+            const user = usersData[1]; //info de usuario[0]
 
             if (email !== user.email) {
                 alert("Error de datos de email.");
@@ -155,6 +156,7 @@ export function UserContext({ children }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [profileImg, setProfileImg] = useState("/imgs/User_Profile_Img_00.png");
 
     return <ContextUser.Provider value={{
         user,
@@ -164,6 +166,8 @@ export function UserContext({ children }) {
         setEmail,
         password,
         setPassword,
+        profileImg,
+        setProfileImg,
         logIn,
         logOut,
         compararInfoUsuarLogIn,

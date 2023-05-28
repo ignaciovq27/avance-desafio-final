@@ -18,26 +18,21 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import defaultProfileImg from '../../../public/imgs/User_Profile_Img_00.png';
 
 export default function AppRegister() {
 
     const {
-        user,
         name,
         setName,
         email,
         setEmail,
         password,
         setPassword,
+        profileImg,
         register } = useContext(ContextUser);
     const navigate = useNavigate()
 
-    // const [userName, setUserName] = useState("");
-    // const [userEmail, setUserEmail] = useState("");
-    // const [userPassword, setUserPassword] = useState("");
     const [passwordRepeat, setPasswordRepeat] = useState("");
-    const [profileImg, setpProfileImg] = useState(defaultProfileImg);
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -46,20 +41,12 @@ export default function AppRegister() {
             return alert("error: No coinciden las contraseñas.")
         }
 
-        // console.log("Submit")
-        console.log("userName: " + name)
-        console.log("userEmail: " + email)
-        console.log("userPassword: " + password)
-        console.log("userPasswordRepeat: " + passwordRepeat)
-        console.log("userProfileImg: " + profileImg)
-
         register({
             name,
             email,
             password,
             profileImg,
         })
-        console.log(user)
         return navigate("/login")
     }
 

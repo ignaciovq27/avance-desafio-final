@@ -24,8 +24,8 @@ export default function AppLogIn() {
     const navigate = useNavigate()
     // console.log(user)
 
-    setEmail("test@test.cl"); //resetear info de user mail
-    setPassword("test"); //resetear info de user password
+    // setEmail("test@test.cl"); //resetear info de user mail
+    // setPassword("test"); //resetear info de user password
 
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);

@@ -3,12 +3,12 @@
         "name": "test",
         "email": "test@test.cl",
         "password": "test",
-        "profileImg": "public/imgs/User_Profile_Img_00.png"
+        "profileImg": "/imgs/User_Profile_Img_00.png"
     },
     {
         "name": "ignacio",
         "email": "ignacio@test.cl",
         "password": "ignacio",
-        "profileImg": "public/imgs/User_Profile_Img_01.png"
+        "profileImg": "/imgs/User_Profile_Img_01.png"
     }
 ]
