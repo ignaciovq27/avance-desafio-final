@@ -66,12 +66,24 @@ export function UserContext({ children }) {
     // ------------------------------------------------------------------
     // Usar useEffect para guardar información del usario (todo la información del usuario)
     // 5) Usar useEffect para estar pendiente de los datos que cambien del usuario "user"
+    // useEffect(() => {
+    //     const storedUser = localStorage.getItem("user");
+    //     if (!storedUser && user) { // Comprobar si existe el user antes de guardar la variable
+    //         localStorage.setItem("user", JSON.stringify(user)); // Guardar "user" en localStorage
+    //     } else if (storedUser && !user) {
+    //         localStorage.removeItem("user"); // Eliminar el "user" del localStorage si no existe en el estado
+    //     }
+    // }, [user]);
+
+    //test crear usuario y modificar datos de eprfil
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
-        if (!storedUser && user) { // Comprobar si existe el user antes de guardar la variable
-            localStorage.setItem("user", JSON.stringify(user)); // Guardar "user" en localStorage
+        if (!storedUser && user) {
+            localStorage.setItem("user", JSON.stringify(user));
         } else if (storedUser && !user) {
-            localStorage.removeItem("user"); // Eliminar el "user" del localStorage si no existe en el estado
+            localStorage.removeItem("user");
+        } else if (storedUser && user) {
+            localStorage.setItem("user", JSON.stringify(user));
         }
     }, [user]);
     // ------------------------------------------------------------------
@@ -114,8 +126,12 @@ export function UserContext({ children }) {
 
     // 3) Funcion para logOut
     const logOut = async () => {
-        // localStorage.removeItem("user") //se quita el usuario de key "user" del localStorage
         setUser(null)  //se setea el estado "user" a null.
+        setName("")
+        setEmail("")
+        setPassword("")
+        setPasswordRepeat("")
+        setProfileImg("")
     }
 
     // 7) Funcion para comparar información ingresada en el logIn con la del JSON de usuario (se llama en AppLogIn)
@@ -153,12 +169,35 @@ export function UserContext({ children }) {
         setUser(user)
     }
 
+    const editProfile = async (user) => {
+        setUser(user)
+    }
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordRepeat, setPasswordRepeat] = useState("");
     const [profileImg, setProfileImg] = useState("/imgs/User_Profile_Img_00.png");
 
+    // setear los states del user registrado
+    const setUserStates = async (e) => {
+        if (user) {
+            setName(user.name)
+            setEmail(user.email)
+            setPassword(user.password)
+            console.log("userStates loaded")
+        }
+    }
+
+    // limpiar los states del user al realizar logout
+    const cleanUserStates = async (e) => {
+        if (user) {
+            setName("")
+            setEmail("")
+            setPassword("")
+            console.log("userStates cleaned")
+        }
+    }
 
     return <ContextUser.Provider value={{
         user,
@@ -175,6 +214,9 @@ export function UserContext({ children }) {
         logIn,
         logOut,
         compararInfoUsuarLogIn,
-        register
+        register,
+        editProfile,
+        setUserStates,
+        cleanUserStates,
     }}>{children}</ContextUser.Provider>
 }

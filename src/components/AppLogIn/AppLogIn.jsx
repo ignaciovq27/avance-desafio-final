@@ -20,7 +20,17 @@ import LoginIcon from '@mui/icons-material/Login';
 
 export default function AppLogIn() {
 
-    const { email, setEmail, password, setPassword, logIn, compararInfoUsuarLogIn } = useContext(ContextUser);
+    const {
+        user,
+        name,
+        setName,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        logIn,
+        compararInfoUsuarLogIn } = useContext(ContextUser);
+
     const navigate = useNavigate()
     // console.log(user)
 
@@ -37,6 +47,8 @@ export default function AppLogIn() {
         console.log("password ingresado: " + password)
         const user = await logIn(email, password)
         if (user) {
+            setName(user.name)
+            console.log("Ingresó usuario: " + user.name)
             // setEmail(""); //resetear info de user mail
             // setPassword(""); //resetear info de user password
             return navigate("/user-profile")

@@ -33,9 +33,15 @@ export default function AppRegister() {
         profileImg,
         register } = useContext(ContextUser);
     const navigate = useNavigate()
+    const [nameError, setNameError] = useState(false);
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (name.length > 12) {
+            return alert("error: Cantidad de caracteres sobrepasado.")
+        }
 
         if (password !== passwordRepeat) {
             return alert("error: No coinciden las contraseñas.")
@@ -114,7 +120,7 @@ export default function AppRegister() {
                         <AccountCircle
                             color="primary"
                             sx={{ my: 0.5 }} />
-                        <TextField
+                        {/* <TextField
                             id="name"
                             // label="Nombre de usuario"
                             label="NOMBRE DE USUARIO"
@@ -126,6 +132,28 @@ export default function AppRegister() {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             color="primary"
+                        /> */}
+
+                        <TextField
+                            id="name"
+                            // label="Nombre de usuario"
+                            label="NOMBRE DE USUARIO"
+                            type="text"
+                            variant="outlined"
+                            required
+                            color="primary"
+                            autoFocus
+                            // helperText="Ingresa un nombre de usuario valido."
+                            // error={false}
+                            value={name}
+                            // onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => {
+                                const value = e.target.value;
+                                setName(value);
+                                setNameError(value.length > 12);
+                            }}
+                            error={nameError}
+                            helperText={nameError ? "El nombre debe tener MAX 12 caracteres." : ""}
                         />
                     </div>
 

@@ -4,8 +4,11 @@ import "./AppUserProfileEdit.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useEffect } from 'react';
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
+
 import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -28,25 +31,73 @@ import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
 export default function AppUserProfileEdit() {
 
-    const { user,
+    const {
+        user,
+        // register,
+        editProfile,
+        name,
         setName,
+        email,
         setEmail,
+        password,
         setPassword,
         passwordRepeat,
         setPasswordRepeat,
-        setProfileImg, } = useContext(ContextUser);
+        profileImg,
+        setProfileImg,
+        setUserStates } = useContext(ContextUser);
 
-    // const [userName, setUserName] = useState('"UserName"');
-    // const [userEmail, setUserEmail] = useState('"UserMail"');
-    // const [userPassword, setUserPassword] = useState('"UserPassword"');
+    const navigate = useNavigate()
 
+    const [nameError, setNameError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        if (user) {
+            setUserStates()
+        }
+    }, [user]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // console.log("Submit")
-        console.log(userName)
-        console.log(userEmail)
-        console.log(userPassword)
+        console.log("usuario ingresado: " + name)
+        console.log("mail ingresado: " + email)
+        console.log("password ingresado: " + password)
+        console.log("profileImg ingresado: " + profileImg)
+
+        // setProfileImg(user.profileImg)
+
+        if (name.length > 12) {
+            return alert("error: Indica un nombre válido.")
+        }
+
+        if (email === "") {
+            return alert("error: Indica un mail válido.")
+        }
+
+        if (password !== passwordRepeat) {
+            return alert("error: No coinciden las contraseñas.")
+        }
+
+        // if (password !== user.password) {
+        //     setPasswordError(true);
+        //     return alert("Error de datos de contraseña.");
+        // }
+
+
+        editProfile({
+            name,
+            email,
+            password,
+            profileImg,
+        })
+
+        if (user) {
+            // setName(user.name)
+            // setEmail(user.email)
+            // setPassword(user.password)
+            return navigate("/user-profile")
+        }
     }
 
     const [showPassword, setShowPassword] = useState(false);
@@ -151,7 +202,7 @@ export default function AppUserProfileEdit() {
                                         <AccountCircle
                                             color="primary"
                                             sx={{ my: 0.5 }} />
-                                        <TextField
+                                        {/* <TextField
                                             id="name"
                                             // label="Nombre de usuario"
                                             label="NOMBRE DE USUARIO"
@@ -165,8 +216,33 @@ export default function AppUserProfileEdit() {
                                             defaultValue={user.name}
                                             onChange={(e) => setName(e.target.value)}
                                             color="primary"
+                                            autoFocus
+                                        /> */}
+
+                                        <TextField
+                                            id="name"
+                                            // label="Nombre de usuario"
+                                            label="NOMBRE DE USUARIO"
+                                            type="text"
+                                            variant="outlined"
+                                            required
+                                            // disabled
+                                            // helperText="Ingresa un nombre de usuario valido."
+                                            // error={false}
+                                            // value={user.name}
+                                            defaultValue={user.name}
+                                            color="primary"
+                                            autoFocus
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                setName(value);
+                                                setNameError(value.length > 12);
+                                            }}
+                                            error={nameError}
+                                            helperText={nameError ? "El nombre debe tener MAX 12 caracteres." : ""}
                                         />
                                     </div>
+
                                     <div className="divTextField-style">
                                         <EmailIcon
                                             color="primary"
@@ -198,9 +274,12 @@ export default function AppUserProfileEdit() {
                                             type={showPassword ? 'text' : 'password'}
                                             variant="outlined"
                                             required
-                                            // helperText="La contraseña no es correcta."
-                                            error={false}
+                                            helperText={passwordError
+                                                ? ("La contraseña no es correcta.")
+                                                : null}
+                                            error={passwordError}
                                             // value={""}
+                                            defaultValue={user.password}
                                             onChange={(e) => setPassword(e.target.value)}
                                             color="primary"
                                         />
@@ -240,6 +319,22 @@ export default function AppUserProfileEdit() {
                                             {showPasswordRepeat ? <VisibilityOff /> : <Visibility />}
                                         </IconButton>
                                     </div>
+                                    {/* <Button
+                                        // component={Link}
+                                        // to="/user-profile"
+                                        type="submit"
+                                        variant="contained"
+                                        size="small"
+                                        color="warning"
+                                        sx={{
+                                            mt: 1,
+                                            mb: 1,
+                                            py: 1.5,
+                                            mx: 3,
+                                            width: "160px",
+                                        }}
+                                        endIcon={<CheckIcon />}>CONFIRMAR
+                                    </Button> */}
                                 </div>
                             </Box>
                         </Grid>
@@ -315,11 +410,13 @@ export default function AppUserProfileEdit() {
                             startIcon={<ArrowBackIcon />}>CANCELAR
                         </Button>
                         <Button
-                            component={Link}
-                            to="/user-profile"
+                            // component={Link}
+                            // to="/user-profile"
+                            type="submit"
                             variant="contained"
                             size="small"
                             color="warning"
+                            onClick={handleSubmit}
                             sx={{
                                 mt: 1,
                                 mb: 1,
