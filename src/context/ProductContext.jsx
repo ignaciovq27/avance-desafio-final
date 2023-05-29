@@ -5,7 +5,7 @@ import { createContext } from 'react';
 
 export const ContextProduct = createContext();
 
-// 5) crear initialStateProduct para inicializar el array de productos guardados
+// 3) crear initialStateProduct para inicializar el array de productos guardados
 // ¡ SE CREA SIEMPRE FUERA DEL PRODUCTCONTEXT !
 const initialStateProduct = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products")) //si el producto de la key "product" existe, se transforma el STRINGJSON a array
@@ -43,7 +43,7 @@ export function ProductContext({ children }) {
         }
     }
 
-    // 5) utilizar useEffect para comprobar si el array de productos del local storage esta o no vacio.
+    // 4) utilizar useEffect para comprobar si el array de productos del local storage esta o no vacio.
     useEffect(() => {
         if (products.length === 0) {
             getProductsData() // si está vacio, solo llama a los productos de products.json
@@ -51,18 +51,25 @@ export function ProductContext({ children }) {
         }
     }, [])
 
-    // 6) En caso contrario, se usa useEffect para comprobar la información de productos del localStorage y usarlos como un nuevo array de productos.
+    // 5) En caso contrario, se usa useEffect para comprobar la información de productos del localStorage y usarlos como un nuevo array de productos.
     useEffect(() => {
         localStorage.setItem("products", JSON.stringify(products)) // se transforma el JSON guardado en array.
     }, [products]) // al estar pendiente de "products", cada vez que se añada un nuevo producto se guardará en el localStorage.
 
-    // 4) añadir producto desde "mis publicaciones" del usuario
+    // 6) añadir producto desde "mis publicaciones" del usuario
     const createProduct = newProduct => {
         setProducts([newProduct, ...products])
+    }
+
+    const deleteProduct = id => {
+        const newProducts = products.filter(product => product.id !== id)
+        setProducts(newProducts)
+        console.log(products)
     }
 
     return <ContextProduct.Provider value={{
         products,
         createProduct,
+        deleteProduct,
     }}>{children}</ContextProduct.Provider>
 }

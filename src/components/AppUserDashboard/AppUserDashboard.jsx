@@ -4,6 +4,7 @@ import "./AppUserDashboard.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
 import { ContextProduct } from "../../context/ProductContext";
@@ -18,6 +19,18 @@ import CardContent from '@mui/material/CardContent';
 import AppCardDashboard from "../AppCardDashboard/AppCardDashboard";
 
 export default function AppUserDashboard() {
+    const { products, deleteProduct } = useContext(ContextProduct);
+    const { user } = useContext(ContextUser);
+
+    const [userProductsCount, setuserProductsCount] = useState(0);
+
+    // Actualiza la cantidad de publicaciones cuando cambie el array de productos
+    useEffect(() => {
+        const userProducts = products.filter(product => product.user === user.name);
+        setuserProductsCount(userProducts.length);
+    }, [products, user.name]);
+
+
 
     return (
         <>
@@ -81,10 +94,75 @@ export default function AppUserDashboard() {
                             endIcon={<AutoAwesomeIcon />}> CREAR PUBLICACIÓN
                         </Button>
                     </Box>
-                    <hr />
-                    <AppCardDashboard dashboardProductImg="\imgs\products\Product_01.png" />
-                    <AppCardDashboard dashboardProductImg="\imgs\products\Product_06.png" />
+                    <>
+                        {products.filter(product => product.user === user.name).length === 0 ? (
+                            <>
+                                <Box
+                                    sx={{
+                                        width: { xs: "290px", sm: "600px", md: "750px", lg: "900px", xl: "900px" },
+                                    }}
+                                >
+                                    <hr />
+                                </Box>
 
+                                <Typography
+                                    color="secondary"
+                                    sx={{
+                                        pt: "12px",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center"
+                                    }}
+                                >
+                                    NO HAY PUBLICACIONES CREADAS.
+                                </Typography>
+                            </>
+                        ) : (
+                            <>
+                                <Box
+                                    sx={{
+                                        width: { xs: "290px", sm: "600px", md: "750px", lg: "900px", xl: "900px" },
+                                    }}
+                                >
+                                    <hr />
+                                </Box>
+
+                                <Box
+                                    sx={{
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        pt: 1,
+                                    }}
+                                >
+                                    <Typography
+                                        // variant="h6"
+                                        color="secondary"
+                                        // className=''
+                                        sx={{
+                                            px: 1
+                                        }}
+                                    >
+                                        PUBLICACIONES:
+                                    </Typography>
+                                    <Typography
+                                        color="primary"
+                                        sx={{ fontWeight: "600", fontSize: "20px" }}
+                                    >{userProductsCount}
+                                    </Typography>
+                                </Box>
+                                {products.filter(product => product.user === user.name)
+                                    .map(product => (
+                                        <AppCardDashboard
+                                            key={product.id}
+                                            dashboardProductTitle={product.title}
+                                            dashboardProductImg={product.img}
+                                            dashboardOnClickDelete={() => deleteProduct(product.id)}
+                                        />
+                                    ))}
+                            </>
+                        )}
+                    </>
                 </CardContent>
             </Card>
         </>

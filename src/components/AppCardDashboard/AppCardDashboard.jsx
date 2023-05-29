@@ -13,7 +13,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 
-export default function AppCardDashboard({ dashboardProductImg }) {
+export default function AppCardDashboard({
+    dashboardProductTitle,
+    dashboardProductImg,
+    dashboardOnClickDelete,
+}) {
 
     const pollo = "( °)> "
     const [count, setCount] = useState(0)
@@ -74,7 +78,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                     mx: "auto"
                                 }}
                                 image={dashboardProductImg}
-                                alt="Product_01.png"
+                                alt="Product_00.png"
                                 className="productDetailsImg-style"
                             />
                             <Typography
@@ -92,8 +96,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                     mx: "auto"
                                 }}
                                 className="productName-style"
-                            >
-                                "NOMBRE PRODUCTO"
+                            >{dashboardProductTitle}
                             </Typography>
                         </Box>
                         <Box
@@ -123,8 +126,8 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 endIcon={<EditIcon />}> EDITAR
                             </Button>
                             <Button
-                                component={Link}
-                                to="/user-dashboard"
+                                // component={Link}
+                                // to="/user-dashboard"
                                 variant="outlined"
                                 size="small"
                                 sx={{
@@ -134,6 +137,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                     py: 1.5,
                                     width: { xs: "160px", sm: "140px", md: "140px", lg: "140px" },
                                 }}
+                                onClick={dashboardOnClickDelete}
                                 endIcon={<DeleteIcon />}> ELIMINAR
                             </Button>
                         </Box>

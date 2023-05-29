@@ -65,7 +65,7 @@ export default function AppGalleryBoardgames() {
                                 productImg={product.img}
                                 productUser={product.user}
                                 productTitle={product.title}
-                                // productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                                 productDescription={product.description}
                             />
                         ))}

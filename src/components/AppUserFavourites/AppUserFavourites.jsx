@@ -50,8 +50,15 @@ export default function AppUserFavourites() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        <AppCardProduct productImg="\imgs\products\Product_01.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_00.png" />
+                        <AppCardProduct
+                            key="1"
+                            productId="1"
+                            productImg="\imgs\products\Product_00.png"
+                            productUser='"UserName"'
+                            productTitle='"product.title"'
+                            productPrice='"product.price"'
+                            productDescription='"product.description"'
+                        />
                     </Grid >
                 </Grid>
             </Container >

@@ -137,7 +137,7 @@ export default function AppProductDetails({
                                         textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
                                 // className=''
-                                >{productUser}
+                                >Publicado por: {productUser}
                                 </Typography>
                                 <Typography
                                     variant="h5"

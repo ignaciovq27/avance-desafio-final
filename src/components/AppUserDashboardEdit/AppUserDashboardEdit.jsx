@@ -241,7 +241,8 @@ export default function AppUserDashboardEdit() {
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
                                             value={price}
-                                            onChange={(e) => setPrice(e.target.value)}
+                                            // onChange={(e) => setPrice(e.target.value)}
+                                            onChange={(e) => setPrice(Number(e.target.value))}
                                             color="primary"
                                             placeholder="9.990"
                                             InputProps={{
@@ -265,7 +266,7 @@ export default function AppUserDashboardEdit() {
                                             error={false}
                                             value={quantity}
                                             // defaultValue={userName}
-                                            onChange={(e) => setQuantity(e.target.value)}
+                                            onChange={(e) => setQuantity(Number(e.target.value))}
                                             color="primary"
                                         // placeholder=""
                                         />
