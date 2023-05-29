@@ -15,13 +15,16 @@ export function MyContext({ children }) {
     // Logica de añadir pizzas al carrito de compra
     // 1) Se crea un estado con forma de array para guardar los datos de cada pizza añadida.
     const [cartItems, setCartItems] = useState([
-        // {
-        //     id: "",
-        //     img: "",
-        //     name: "",
-        //     price: "",
-        //     quantity: "",
-        // }
+        {
+            // id: "",
+            // user: "",
+            // title: "",
+            // category: "",
+            // price: "",
+            // img: "",
+            // description: "",
+            // quantity: "",
+        }
     ])
 
     // 2)Se crea una función para añadir los datos de la pizza al estado
@@ -68,7 +71,7 @@ export function MyContext({ children }) {
     //     }
     // }
 
-     const user =
+    const user =
     {
         name: "Azul",
         email: "azul@dado.cl",

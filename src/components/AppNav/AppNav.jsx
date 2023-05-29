@@ -373,7 +373,7 @@ export default function AppNav() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {user ? (
               <>
-                <AppButton text="PRODUCT DETAILS" to="/product-details" />
+                {/* <AppButton text="PRODUCT DETAILS" to="/product-details" /> */}
 
                 <AppButton text="DASHBOARD" to="/user-dashboard" />
 

@@ -14,10 +14,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
-export default function AppCardProduct({ productImg }) {
+export default function AppCardProduct({ productId, productImg, productTitle, productUser, productDescription, productPrice }) {
     return (
         <>
-
             <Card
                 elevation={2}
                 sx={{
@@ -38,7 +37,7 @@ export default function AppCardProduct({ productImg }) {
                     textAlign={"right"}
                 >
                     <IconButton
-                    color="primary"
+                        color="primary"
                     // color="secondary"
                     >
                         <FavoriteIcon size="large" />
@@ -47,7 +46,9 @@ export default function AppCardProduct({ productImg }) {
                 </Box>
                 <Typography
                     component={Link}
-                    to="/product-details"
+                    // to={`/product-details/${productId}`}
+                    to={`/product-details/${productId}`}
+                    // to={`/pizza/${pizza.id}`}
                     sx={{
                         textDecoration: "none"
                     }}>
@@ -59,8 +60,6 @@ export default function AppCardProduct({ productImg }) {
                             mx: "auto", px: 1,
                         }}
                         image={productImg}
-                        // image="\imgs\products\Product_01.png"
-                        // image="\imgs\User_Profile_Img_01.png"
                         alt="Product_01.png"
                     />
                     <Divider sx={{ py: 0.5 }} />
@@ -76,7 +75,7 @@ export default function AppCardProduct({ productImg }) {
                                 fontSize: "12px",
                             }}
                         // className=''
-                        >"NOMBRE PUBLICADOR"
+                        >{productUser}
                         </Typography>
                         <Typography
                             variant="h5"
@@ -87,21 +86,21 @@ export default function AppCardProduct({ productImg }) {
                                 fontSize: "22px"
                             }}
                         // className=''
-                        >"NOMBRE PRODUCTO"
+                        >{productTitle}
                         </Typography>
                         <Typography
                             disabled={false}
                             // variant="h5"
                             color="secondary"
                             sx={{
-                                textAlign: "justify",
-                                textJustify: "initial",
+                                textAlign: "center",
+                                // textJustify: "inter-word",
                                 // mt: "20px",
                                 mt: "5px",
                                 mb: "5px",
                             }}
                             className="cardProductInfo-style"
-                        >Lorem ipsum, dolor sit amet consectetur adipisicing Lorem ipsum, dolor sit amet consectetur adipisicing.
+                        >{productDescription}
                         </Typography>
                         <Typography
                             variant="h5"
@@ -113,7 +112,7 @@ export default function AppCardProduct({ productImg }) {
                                 fontSize: "30px"
                             }}
                         // className=''
-                        >$ 9.990
+                        >{productPrice}
                         </Typography>
                     </CardContent>
                 </Typography>

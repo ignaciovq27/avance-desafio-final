@@ -19,10 +19,29 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
-export default function AppProductDetails() {
+export default function AppProductDetails({
+    productId,
+    productUser,
+    productTitle,
+    productCategory,
+    productPrice,
+    productImg,
+    productDescription,
+    productQuantity,
+}) {
 
-    const pollo = "( °)> "
-    const [count, setCount] = useState(0)
+    // const pollo = "( °)> "
+
+    const [count, setCount] = useState(0);
+    const productMaxQuantity = parseInt(productQuantity) // Supongamos que tienes una variable productQuantity
+
+    const handleIncrement = () => {
+        setCount((prevCount) => Math.min(prevCount + 1, productMaxQuantity));
+    };
+
+    const handleDecrement = () => {
+        setCount((prevCount) => Math.max(prevCount - 1, 0));
+    };
 
     return (
         <>
@@ -79,8 +98,8 @@ export default function AppProductDetails() {
                             <CardMedia
                                 component="img"
                                 sx={{ width: { xs: 260, sm: 300, md: 360, lg: 400 }, mx: "auto" }}
-                                image="\imgs\products\Product_01.png"
-                                alt="Product_01.png"
+                                image={productImg}
+                                alt="Product_img.png"
                                 className="productDetailsImg-style"
                             />
                         </Grid >
@@ -117,7 +136,7 @@ export default function AppProductDetails() {
                                         textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
                                 // className=''
-                                >"NOMBRE PUBLICADOR"
+                                >{productUser}
                                 </Typography>
                                 <Typography
                                     variant="h5"
@@ -131,7 +150,7 @@ export default function AppProductDetails() {
                                         textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
                                 // className=''
-                                >"NOMBRE PRODUCTO"
+                                >{productTitle}
                                 </Typography>
                                 <hr className="hr-style3" />
                                 <Typography
@@ -160,7 +179,7 @@ export default function AppProductDetails() {
                                         mb: "15px",
                                     }}
                                 // className=''
-                                >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil beatae ipsum assumenda reprehenderit dolorem porro minus doloremque recusandae nesciunt odio cupiditate eum ullam itaque quos similique accusantium sint, nisi maxime!
+                                >{productDescription}
                                 </Typography>
                                 <Typography
                                     // variant="h6"
@@ -169,7 +188,7 @@ export default function AppProductDetails() {
                                     sx={{
                                         textAlign: { xs: "center", sm: "left", md: "left" }
                                     }}
-                                >DISPONIBLES: 0
+                                >DISPONIBLES: {productQuantity}
                                 </Typography>
 
                                 <Box
@@ -248,7 +267,9 @@ export default function AppProductDetails() {
                                         alignItems={"center"}
                                         textAlign={"center"}
                                     >
-                                        <Button variant="contained" onClick={() => setCount((count) => count - 1)}
+                                        <Button
+                                            variant="contained"
+                                            onClick={handleDecrement}
                                             sx={{
                                                 minWidth: "40px",
                                             }}
@@ -269,7 +290,8 @@ export default function AppProductDetails() {
                                         </Typography>
 
                                         <Button
-                                            variant="contained" onClick={() => setCount((count) => count + 1)}
+                                            variant="contained"
+                                            onClick={handleIncrement}
                                             sx={{
                                                 minWidth: "40px",
                                             }}
@@ -289,6 +311,7 @@ export default function AppProductDetails() {
                                                 color="white"
                                                 className="iconInfo-style" />}
                                             size="small"
+                                            disabled={count <= 0 ? true : false}
                                             // fullWidth
                                             sx={{
                                                 mt: { xs: 2, sm: 0, md: 0 },

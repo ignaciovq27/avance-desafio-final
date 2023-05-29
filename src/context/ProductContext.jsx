@@ -10,7 +10,18 @@ export const ContextProduct = createContext();
 export function ProductContext({ children }) {
 
     // 1) array para enlistar productos de json.
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([
+        // {
+        // id: "",
+        // title: "",
+        // category: "",
+        // price: "",
+        // img: "",
+        // user: "",
+        // quantity: "",
+        // description: "",
+        // }
+    ])
 
     // 2) Realizar llamada al json para obtener info de productos.
     const getProductsData = async () => {
@@ -35,6 +46,6 @@ export function ProductContext({ children }) {
 
 
     return <ContextProduct.Provider value={{
-
+        products,
     }}>{children}</ContextProduct.Provider>
 }

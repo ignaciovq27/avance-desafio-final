@@ -7,6 +7,8 @@ import { Routes, Route } from "react-router-dom";
 // import { MyContext } from "./MyContext";
 import { useContext } from "react";
 import { ContextUser } from './context/UserContext';
+import { ContextProduct } from './context/ProductContext';
+
 import { Navigate } from 'react-router-dom';
 
 import AppNav from './components/AppNav/AppNav';
@@ -86,7 +88,8 @@ function App() {
             />
 
             <Route
-              path="/product-details"
+              // path="/gallery-boardgames/product-details:id"
+              path="/product-details/:id"
               element={<ProductDetails />}
             />
 

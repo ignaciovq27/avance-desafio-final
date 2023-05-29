@@ -3,6 +3,9 @@ import "./AppGalleryBoardgames.css"
 
 //components
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextProduct } from '../../context/ProductContext';
+
 import { Typography } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -10,6 +13,7 @@ import AppCardProduct from "../AppCardProduct/AppCardProduct";
 import AppFilters from "../AppFilters/AppFilters";
 
 export default function AppGalleryBoardgames() {
+    const { products } = useContext(ContextProduct);
 
     return (
         <>
@@ -54,22 +58,20 @@ export default function AppGalleryBoardgames() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        <AppCardProduct productImg="\imgs\products\Product_01.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_02.png" />
-                        <AppCardProduct productImg="\imgs\User_Profile_Img_00.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_07.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_03.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_06.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_05.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_04.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_00.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_08.png" />
-                        <AppCardProduct productImg="\imgs\products\Product_09.png" />
-
+                        {products.map((product) => (
+                            <AppCardProduct
+                                key={product.id}
+                                productId={product.id}
+                                productImg={product.img}
+                                productUser={product.user}
+                                productTitle={product.title}
+                                productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                productDescription={product.description}
+                            />
+                        ))}
                     </Grid >
                 </Grid>
             </Container >
-
         </>
     );
 }
