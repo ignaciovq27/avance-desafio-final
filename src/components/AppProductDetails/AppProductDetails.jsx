@@ -70,6 +70,7 @@ export default function AppProductDetails({
                     maxWidth: { xs: "330px", sm: "600px", md: "940px", lg: "1040px" },
                     borderRadius: "20px",
                 }}
+                key={productId}
 
             >
                 <CardContent
@@ -222,7 +223,7 @@ export default function AppProductDetails({
                                             fontSize: "32px"
                                         }}
                                     // className=''
-                                    >$9.990
+                                    >{productPrice}
                                     </Typography>
 
                                     <Box
@@ -283,7 +284,7 @@ export default function AppProductDetails({
                                                 // mt: "20px",
                                                 mx: "10px",
                                                 fontWeight: "bold",
-                                                minWidth: "50px",
+                                                minWidth: { xs: "50px", sm: "50px", md: "50px", lg: "50px" },
                                             }}
                                         // className=''
                                         >{count}
@@ -316,7 +317,7 @@ export default function AppProductDetails({
                                             sx={{
                                                 mt: { xs: 2, sm: 0, md: 0 },
                                                 // mt: 3,
-                                                // mb: 1,
+                                                ml: { xs: 0, sm: 0, md: 1 },
                                                 // mx: 3,
                                                 py: 1.5,
                                                 width: "200px",

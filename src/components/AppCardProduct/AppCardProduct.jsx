@@ -46,9 +46,7 @@ export default function AppCardProduct({ productId, productImg, productTitle, pr
                 </Box>
                 <Typography
                     component={Link}
-                    // to={`/product-details/${productId}`}
                     to={`/product-details/${productId}`}
-                    // to={`/pizza/${pizza.id}`}
                     sx={{
                         textDecoration: "none"
                     }}>

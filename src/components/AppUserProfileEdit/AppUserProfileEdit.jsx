@@ -79,6 +79,10 @@ export default function AppUserProfileEdit() {
             return alert("error: No coinciden las contraseñas.")
         }
 
+        if (name === "" || email === "" || password === "" || profileImg === "") {
+            return alert("error: Debe completar todos los registros.")
+        }
+
         // if (password !== user.password) {
         //     setPasswordError(true);
         //     return alert("Error de datos de contraseña.");
@@ -202,22 +206,6 @@ export default function AppUserProfileEdit() {
                                         <AccountCircle
                                             color="primary"
                                             sx={{ my: 0.5 }} />
-                                        {/* <TextField
-                                            id="name"
-                                            // label="Nombre de usuario"
-                                            label="NOMBRE DE USUARIO"
-                                            type="text"
-                                            variant="outlined"
-                                            required
-                                            // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
-                                            error={false}
-                                            // value={user.name}
-                                            defaultValue={user.name}
-                                            onChange={(e) => setName(e.target.value)}
-                                            color="primary"
-                                            autoFocus
-                                        /> */}
 
                                         <TextField
                                             id="name"
@@ -239,7 +227,7 @@ export default function AppUserProfileEdit() {
                                                 setNameError(value.length > 12);
                                             }}
                                             error={nameError}
-                                            helperText={nameError ? "El nombre debe tener MAX 12 caracteres." : ""}
+                                            helperText={nameError ? "El nombre debe tener 12 caracteres MAX." : ""}
                                         />
                                     </div>
 

@@ -5,7 +5,7 @@ import { createContext } from 'react';
 
 export const ContextUser = createContext();
 
-// x) Llamar funcion para traer info de usuarios del json.
+// 0) Llamar funcion para traer info de usuarios del json.
 // useEffect(() => {
 //     getUsersData();
 // }, []);
@@ -53,17 +53,25 @@ const getUsersData = async () => {
 // ------------------------------------------------------------------
 
 
-// 3) crear initialStateUser para inicializar el usuario // ¡ SE CREA SIEMPRE FUERA DEL USERCONTEXT !
+// 3) crear initialStateUser para inicializar el usuario
+// ¡ SE CREA SIEMPRE FUERA DEL USERCONTEXT !
 const initialStateUser = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user")) //si el usuario de la key "user" existe, se transforma el STRINGJSON a array
     : null; //si no existe usuario, el estado inicial de usuario es "null"
 
 
-
 export function UserContext({ children }) {
     // const [user, setUser] = useState(null) //estado inicial del usuario = null
 
-    const [user, setUser] = useState(initialStateUser) //si el usuario existe, el estado del user pasa a ser el usuario  inicial  (initialStateUser) encontrado.
+    const [user, setUser] = useState(initialStateUser) //si el usuario existe, el estado del user pasa a ser el usuario  inicial (initialStateUser) encontrado.
+
+    // {
+    // id: "",
+    // name: "",
+    // email: "",
+    // password: "",
+    // profileImg: "",
+    // }
 
     // ------------------------------------------------------------------
     // Usar useEffect para guardar información del usario (todo la información del usuario)

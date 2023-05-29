@@ -4,6 +4,12 @@ import "./AppUserDashboardEdit.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
+import { ContextProduct } from "../../context/ProductContext";
+import { useNavigate } from 'react-router-dom';
+
 import { Box, FormControl, IconButton, Typography, MenuItem } from "@mui/material";
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
@@ -14,7 +20,6 @@ import CategoryIcon from '@mui/icons-material/Category';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DescriptionIcon from '@mui/icons-material/Description';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import AppImg from "../AppImg/AppImg";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
@@ -31,10 +36,56 @@ import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
 export default function AppUserDashboardEdit() {
 
-    const [productName, setProductName] = useState("");
-    const [productCategory, setProductCategory] = useState(["JUEGOS DE MESA", "ACCESORIOS"]);
-    const [productPrice, setProductPrice] = useState("");
-    const [productDescription, setProductDescription] = useState("");
+    const { user } = useContext(ContextUser);
+    const { createProduct } = useContext(ContextProduct);
+
+    const navigate = useNavigate()
+
+    const [title, setTitle] = useState("");
+    const [category, setCategory] = useState([]);
+    const [price, setPrice] = useState(0);
+    const [quantity, setQuantity] = useState(0);
+    const [description, setDescription] = useState("");
+    const [img, setImg] = useState("/imgs/products/Product_00.png");
+
+    const [titleError, setTitleError] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        // console.log("Submit")
+        console.log("producto ingresado: " + title)
+        console.log("categoría ingresada: " + category)
+        console.log("precio ingresado: " + price)
+        console.log("cantidad ingresada: " + quantity)
+        console.log("descripción ingresada: " + description)
+        console.log("imagen ingresada: " + img)
+
+        if (title.length > 22) {
+            return alert("error: Indica un nombre de producto válido.")
+        }
+
+        if (
+            title === ""
+            || category === ""
+            || price === ""
+            || quantity === ""
+            || description === ""
+            || img === "") {
+            return alert("error: Debe completar todos los registros.")
+        }
+
+        const newProduct = {
+            id: Date.now(),
+            user: user.name,
+            title,
+            category,
+            price,
+            img,
+            description,
+            quantity,
+        }
+        createProduct(newProduct)
+    }
 
     // const [searchOrder, setsearchOrder] = (0);
     // const [searchOrder, setsearchOrder] = useState(0);
@@ -42,15 +93,6 @@ export default function AppUserDashboardEdit() {
     // const handleChange = (event) => {
     //     setsearchOrder(event.target.value);
     // };
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        // console.log("Submit")
-        console.log(productName)
-        console.log(productCategory)
-        console.log(productPrice)
-        console.log(productDescription)
-    }
 
     return (
         <>
@@ -140,17 +182,21 @@ export default function AppUserDashboardEdit() {
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
-                                            id="productName"
+                                            id="name"
                                             label="NOMBRE DEL PRODUCTO"
                                             type="text"
                                             variant="outlined"
                                             required
                                             // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
-                                            error={false}
-                                            value={productName}
-                                            // defaultValue={userName}
-                                            onChange={(e) => setProductName(e.target.value)}
+                                            value={title}
+                                            // defaultValue={productTitle}
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                setTitle(value);
+                                                setTitleError(value.length > 22);
+                                            }}
+                                            error={titleError}
+                                            helperText={titleError ? "El nombre debe tener 22 caracteres MAX." : ""}
                                             color="primary"
                                         // placeholder=""
                                         />
@@ -162,13 +208,14 @@ export default function AppUserDashboardEdit() {
                                             sx={{ my: 0.5 }} />
                                         <TextField
                                             sx={{ minWidth: "220px" }}
-                                            value={0}
+                                            id="category"
                                             label="CATEGORÍA"
                                             required
                                             error={false}
                                             select
+                                            value={0}
                                             // onChange={handleChange}
-                                            onChange={(e) => setProductCategory(e.target.value)}
+                                            onChange={(e) => setCategory(e.target.value)}
                                         >
                                             <MenuItem value={0}>JUEGOS DE MESA</MenuItem>
                                             <MenuItem value={1} disabled>ACCESORIOS</MenuItem>
@@ -184,7 +231,7 @@ export default function AppUserDashboardEdit() {
                                             sx={{ my: 0.5 }} />
                                         <TextField
                                             sx={{ maxWidth: { xs: "220px", sm: "270px", md: "400px" } }}
-                                            id="productPrice"
+                                            id="price"
                                             label="PRECIO"
                                             type="number"
                                             variant="outlined"
@@ -192,8 +239,8 @@ export default function AppUserDashboardEdit() {
                                             // disabled
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
-                                            value={productPrice}
-                                            onChange={(e) => setProductPrice(e.target.value)}
+                                            value={price}
+                                            onChange={(e) => setPrice(e.target.value)}
                                             color="primary"
                                             placeholder="9.990"
                                             InputProps={{
@@ -207,17 +254,17 @@ export default function AppUserDashboardEdit() {
                                             color="primary"
                                             sx={{ my: 0.5 }} />
                                         <TextField
-                                            id="productName"
+                                            id="quantity"
                                             label="CANTIDAD"
                                             type="number"
                                             variant="outlined"
                                             required
                                             // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
+                                            // helperText={nameError ? "Ingresa una cantidad válida." : ""}
                                             error={false}
-                                            value={productName}
+                                            value={quantity}
                                             // defaultValue={userName}
-                                            onChange={(e) => setProductName(e.target.value)}
+                                            onChange={(e) => setQuantity(e.target.value)}
                                             color="primary"
                                         // placeholder=""
                                         />
@@ -229,7 +276,7 @@ export default function AppUserDashboardEdit() {
                                             sx={{ mb: 9, }}
                                         />
                                         <TextField
-                                            id="outlined-multiline-static"
+                                            id="description"
                                             label="DESCRIPCIÓN"
                                             type="text"
                                             variant="outlined"
@@ -237,9 +284,9 @@ export default function AppUserDashboardEdit() {
                                             // disabled
                                             // helperText="Ingresa un nombre de usuario valido."
                                             error={false}
-                                            value={productDescription}
+                                            value={description}
                                             // defaultValue={userName}
-                                            onChange={(e) => setProductDescription(e.target.value)}
+                                            onChange={(e) => setDescription(e.target.value)}
                                             color="primary"
                                             multiline
                                             rows={4}
@@ -328,8 +375,9 @@ export default function AppUserDashboardEdit() {
                             startIcon={<ArrowBackIcon />}>CANCELAR
                         </Button>
                         <Button
-                            component={Link}
-                            to="/user-dashboard"
+                            // component={Link}
+                            // to="/user-dashboard"
+                            onClick={handleSubmit}
                             variant="contained"
                             size="small"
                             color="warning"
