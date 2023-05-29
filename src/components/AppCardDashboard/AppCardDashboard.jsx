@@ -4,6 +4,7 @@ import "./AppCardDashboard.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+
 import { Box, Chip, IconButton, InputAdornment, Typography, autocompleteClasses } from "@mui/material";
 import { Button } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -16,6 +17,8 @@ import CardMedia from '@mui/material/CardMedia';
 export default function AppCardDashboard({
     dashboardProductTitle,
     dashboardProductImg,
+    to,
+    // dashboardOnClickEdit,
     dashboardOnClickDelete,
 }) {
 
@@ -114,7 +117,7 @@ export default function AppCardDashboard({
                         >
                             <Button
                                 component={Link}
-                                to="/user-dashboard"
+                                to={to}
                                 variant="contained"
                                 size="small"
                                 sx={{
@@ -123,6 +126,7 @@ export default function AppCardDashboard({
                                     py: 1.5,
                                     width: "160px",
                                 }}
+                                // onClick={dashboardOnClickEdit}
                                 endIcon={<EditIcon />}> EDITAR
                             </Button>
                             <Button

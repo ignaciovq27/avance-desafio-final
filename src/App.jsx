@@ -68,7 +68,12 @@ function App() {
             />
 
             <Route
-              path="/user-dashboard-edit"
+              path="/user-dashboard-create"
+              element={user ? <UserDashboardEdit /> : <Navigate to="/login" />}
+            />
+
+            <Route
+              path="/user-dashboard-edit/:id"
               element={user ? <UserDashboardEdit /> : <Navigate to="/login" />}
             />
 

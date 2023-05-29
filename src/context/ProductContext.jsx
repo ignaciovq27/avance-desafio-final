@@ -61,12 +61,14 @@ export function ProductContext({ children }) {
         setProducts([newProduct, ...products])
     }
 
+    // 7) borrar producto desde "mis publicaciones" del usuario
     const deleteProduct = id => {
         const newProducts = products.filter(product => product.id !== id)
         setProducts(newProducts)
         console.log(products)
     }
 
+    // 8) editar producto desde "mis publicaciones" del usuario
     const editProduct = newProduct => {
         const newProducts = products.map(product => {
             if (product.id === newProduct.id) {

@@ -30,8 +30,6 @@ export default function AppUserDashboard() {
         setuserProductsCount(userProducts.length);
     }, [products, user.name]);
 
-
-
     return (
         <>
             <Typography
@@ -40,7 +38,8 @@ export default function AppUserDashboard() {
                 color="primary"
                 sx={{
                     textAlign: "center",
-                    py: "20px",
+                    pt: "20px",
+                    pb: "15px",
                     fontSize: { xs: "28px", sm: "30px", md: "34px" }
                 }}
             // className=''
@@ -79,7 +78,7 @@ export default function AppUserDashboard() {
                     >
                         <Button
                             component={Link}
-                            to="/user-dashboard-edit"
+                            to="/user-dashboard-create"
                             variant="contained"
                             size="small"
                             color="warning"
@@ -157,6 +156,9 @@ export default function AppUserDashboard() {
                                             key={product.id}
                                             dashboardProductTitle={product.title}
                                             dashboardProductImg={product.img}
+                                            dashboardOnClickEdit={() => editProduct(product.id)}
+                                            to={`/user-dashboard-edit/${product.id}`}
+                                            // dashboardOnClickEdit={() => editProduct(product.id)}
                                             dashboardOnClickDelete={() => deleteProduct(product.id)}
                                         />
                                     ))}

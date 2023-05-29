@@ -31,11 +31,10 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
-export default function AppUserDashboardEdit() {
+export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle }) {
 
     const { user } = useContext(ContextUser);
     const { createProduct } = useContext(ContextProduct);
-
     const navigate = useNavigate()
 
     const [title, setTitle] = useState("");
@@ -103,11 +102,15 @@ export default function AppUserDashboardEdit() {
                 color="primary"
                 sx={{
                     textAlign: "center",
-                    py: "20px",
+                    pt: "20px",
+                    pb: "15px",
                     fontSize: { xs: "26px", sm: "30px", md: "34px" }
                 }}
             // className=''
-            >✧ CREAR PUBLICACIÓN ✧
+            >
+                {/* ✧ CREAR PUBLICACIÓN ✧ */}
+                {dashboardTitle}
+
             </Typography>
             <Card
                 elevation={5}
@@ -137,7 +140,8 @@ export default function AppUserDashboardEdit() {
                             pt: "30px",
                             pb: "10px",
                         }}
-                    >REGISTRA LOS DATOS DE LA PUBLICACIÓN:
+                    >
+                        {dashboardSubtitle}
                     </Typography>
 
                     <Grid container

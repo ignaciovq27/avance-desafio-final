@@ -127,7 +127,8 @@ export default function AppUserProfileEdit() {
                 color="primary"
                 sx={{
                     textAlign: "center",
-                    py: "20px",
+                    pt: "20px",
+                    pb: "15px",
                     fontSize: { xs: "28px", sm: "30px", md: "34px" }
                 }}
             // className=''
