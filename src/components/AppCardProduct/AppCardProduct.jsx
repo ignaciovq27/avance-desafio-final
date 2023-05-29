@@ -21,6 +21,8 @@ export default function AppCardProduct({ productId, productImg, productTitle, pr
                 elevation={2}
                 sx={{
                     maxWidth: 300,
+                    minHeight: 390,
+                    maxHeight: 390,
                     borderRadius: "8px",
                     transition: "0.15s",
                     "&:hover": {

@@ -67,9 +67,20 @@ export function ProductContext({ children }) {
         console.log(products)
     }
 
+    const editProduct = newProduct => {
+        const newProducts = products.map(product => {
+            if (product.id === newProduct.id) {
+                return newProduct
+            }
+            return product
+        })
+        setProducts(newProducts)
+    }
+
     return <ContextProduct.Provider value={{
         products,
         createProduct,
         deleteProduct,
+        editProduct,
     }}>{children}</ContextProduct.Provider>
 }
