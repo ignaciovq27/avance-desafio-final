@@ -23,9 +23,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AppImg from "../AppImg/AppImg";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import CheckIcon from '@mui/icons-material/Check';
-import SortIcon from '@mui/icons-material/Sort';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 
 import Card from '@mui/material/Card';
@@ -85,6 +82,10 @@ export default function AppUserDashboardEdit() {
             quantity,
         }
         createProduct(newProduct)
+
+        if (newProduct) {
+            return navigate("/user-dashboard")
+        }
     }
 
     // const [searchOrder, setsearchOrder] = (0);

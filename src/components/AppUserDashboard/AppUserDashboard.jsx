@@ -4,6 +4,11 @@ import "./AppUserDashboard.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
+import { ContextProduct } from "../../context/ProductContext";
+// import { useNavigate } from 'react-router-dom';
+
 import { Box, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
@@ -68,7 +73,7 @@ export default function AppUserDashboard() {
                             sx={{
                                 mt: 1,
                                 mb: 1,
-                                py: 1,
+                                py: 2,
                                 mx: 3,
                                 // width: "200px",
                                 // whiteSpace: "nowrap",

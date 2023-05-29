@@ -3,6 +3,9 @@ import './AppFilters.css'
 
 //components
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextProduct } from "../../context/ProductContext";
+
 // import { Link, NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import { Box, FormControl, FormHelperText, InputAdornment, MenuItem, Select } from "@mui/material";
@@ -11,6 +14,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 
 export default function AppFilters({ }) {
+    const { products } = useContext(ContextProduct);
+
     const [searchOrder, setsearchOrder] = useState(0);
 
     const handleChange = (event) => {
@@ -25,7 +30,7 @@ export default function AppFilters({ }) {
                     // my: "20px",
                     // mb: "40px",
                     gap: "14px",
-                    mx: "23px",
+                    mx: { xs: "23px", sm: "10px", md: "14px", lg: "80px", xl: "200px" },
                 }}
                 justifyContent={"space-evenly"}
                 alignItems={"center"}
@@ -50,7 +55,7 @@ export default function AppFilters({ }) {
                     <Typography
                         color="primary"
                         sx={{ fontWeight: "600", fontSize: "20px" }}
-                    >9
+                    >{products.length}
                     </Typography>
                 </Box>
                 <div className="divTextField-style">
