@@ -39,12 +39,14 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
 
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState([]);
-    const [price, setPrice] = useState(0);
-    const [quantity, setQuantity] = useState(0);
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [description, setDescription] = useState("");
     const [img, setImg] = useState("/imgs/products/Product_00.png");
 
     const [titleError, setTitleError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -56,19 +58,23 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
         console.log("descripción ingresada: " + description)
         console.log("imagen ingresada: " + img)
 
-        if (title.length > 22) {
+        if (title.length > 60) {
             return alert("error: Indica un nombre de producto válido.")
         }
 
-        if (
-            title === ""
-            || category === ""
-            || price === ""
-            || quantity === ""
-            || description === ""
-            || img === "") {
-            return alert("error: Debe completar todos los registros.")
+        if (description.length > 450) {
+            return alert("error: Indica una descripción de producto válida.")
         }
+
+        // if (
+        //     title === ""
+        //     || category === ""
+        //     || price === ""
+        //     || quantity === ""
+        //     || description === ""
+        //     || img === "") {
+        //     return alert("error: Debe completar todos los registros.")
+        // }
 
         const newProduct = {
             id: Date.now(),
@@ -169,6 +175,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                         >
                             <Box
                                 component="form"
+                                id="userDashboardEditForm"
                                 onSubmit={handleSubmit}
                                 sx={{
                                     '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
@@ -194,16 +201,17 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             required
                                             // disabled
                                             value={title}
+                                            autoFocus
                                             // defaultValue={productTitle}
                                             onChange={(e) => {
                                                 const value = e.target.value;
                                                 setTitle(value);
-                                                setTitleError(value.length > 22);
+                                                setTitleError(value.length > 60);
                                             }}
                                             error={titleError}
-                                            helperText={titleError ? "El nombre debe tener 22 caracteres MAX." : ""}
+                                            helperText={titleError ? "El nombre debe tener 60 caracteres MAX." : ""}
                                             color="primary"
-                                        // placeholder=""
+                                            placeholder="Catan: El juego"
                                         />
                                     </div>
 
@@ -215,6 +223,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             sx={{ minWidth: "220px" }}
                                             id="category"
                                             label="CATEGORÍA"
+                                            placeholder="ELIGE UNA CATEGORÍA"
                                             required
                                             error={false}
                                             select
@@ -251,6 +260,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             placeholder="9.990"
                                             InputProps={{
                                                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
+                                                inputProps: { min: 1 },
                                             }}
                                         />
                                     </div>
@@ -272,7 +282,10 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             // defaultValue={userName}
                                             onChange={(e) => setQuantity(Number(e.target.value))}
                                             color="primary"
-                                        // placeholder=""
+                                            placeholder="1"
+                                            InputProps={{
+                                                // inputProps: { min: 1 },
+                                            }}
                                         />
                                     </div>
 
@@ -288,11 +301,15 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             variant="outlined"
                                             required
                                             // disabled
-                                            // helperText="Ingresa un nombre de usuario valido."
-                                            error={false}
+                                            error={descriptionError}
+                                            helperText={descriptionError ? "La descripción debe tener 450 caracteres MAX." : ""}
                                             value={description}
                                             // defaultValue={userName}
-                                            onChange={(e) => setDescription(e.target.value)}
+                                            onChange={(e) => {
+                                                const value = e.target.value;
+                                                setDescription(value);
+                                                setDescriptionError(value.length > 450);
+                                            }}
                                             color="primary"
                                             multiline
                                             rows={4}
@@ -302,9 +319,6 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                         // defaultValue="Default Value"
                                         />
                                     </div>
-
-
-
                                 </div>
                             </Box>
                         </Grid>
@@ -383,10 +397,12 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                         <Button
                             // component={Link}
                             // to="/user-dashboard"
-                            onClick={handleSubmit}
+                            type="submit"
+                            form="userDashboardEditForm"
                             variant="contained"
                             size="small"
                             color="warning"
+                            // onClick={handleSubmit}
                             sx={{
                                 mt: 1,
                                 mb: 1,

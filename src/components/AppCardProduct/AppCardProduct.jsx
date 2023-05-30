@@ -85,7 +85,7 @@ export default function AppCardProduct({ productId, productImg, productTitle, pr
                                 textAlign: { xs: "center", sm: "center", md: "center" },
                                 fontSize: "22px"
                             }}
-                        // className=''
+                            className="cardProductTitle-style"
                         >{productTitle}
                         </Typography>
                         <Typography

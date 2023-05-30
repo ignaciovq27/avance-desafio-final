@@ -190,6 +190,7 @@ export default function AppUserProfileEdit() {
                         >
                             <Box
                                 component="form"
+                                id="userProfileEditForm"
                                 onSubmit={handleSubmit}
                                 sx={{
                                     '& .MuiTextField-root': { m: 1, width: { sx: "10ch", sm: "30ch", md: "40ch" } },
@@ -398,14 +399,16 @@ export default function AppUserProfileEdit() {
                             }}
                             startIcon={<ArrowBackIcon />}>CANCELAR
                         </Button>
+
                         <Button
                             // component={Link}
                             // to="/user-profile"
                             type="submit"
+                            form="userProfileEditForm"
                             variant="contained"
                             size="small"
                             color="warning"
-                            onClick={handleSubmit}
+                            // onClick={handleSubmit}
                             sx={{
                                 mt: 1,
                                 mb: 1,

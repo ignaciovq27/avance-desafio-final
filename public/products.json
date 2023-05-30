@@ -42,7 +42,7 @@
     {
         "id": 5,
         "user": "Devir Chile",
-        "title": "Catan: Navengantes",
+        "title": "Catan: Navengantes - EXPANSIÓN",
         "category": "Juegos de mesa",
         "price": 34990,
         "img": "/imgs/products/Product_05.png",
@@ -62,7 +62,7 @@
     {
         "id": 7,
         "user": "Fantasy Flight Games",
-        "title": "El señor de los Anillos",
+        "title": "El señor de los Anillos: Viajes por la Tierra Media",
         "category": "Juegos de mesa",
         "price": 87990,
         "img": "/imgs/products/Product_07.png",
@@ -72,7 +72,7 @@
     {
         "id": 8,
         "user": "Edge",
-        "title": "Zombicide",
+        "title": "Zombicide: Green Horde",
         "category": "Juegos de mesa",
         "price": 109990,
         "img": "/imgs/products/Product_08.png",
@@ -112,11 +112,11 @@
     {
         "id": 12,
         "user": "Next Move",
-        "title": "Azul: Vitrles de Sintra",
+        "title": "Azul: Vitrales de Sintra",
         "category": "Juegos de mesa",
         "price": 87990,
         "img": "/imgs/products/Product_12.png",
-        "description": "Después de decorar el Palacio de Évora, el rey Manuel I de Portugal quiere encargar a los más grandes artesanos de vidrieras del mundo que adornen las ventanas del Palacio Real de Sintra. Como artesano del vidrio es una ocasión única en la vida para demostrar tus exquisitas habilidades al servicio del rey y del país. ¿Serás el mejor en la creación de los vitrales más hermosos de todo Portugal? ¡Bienvenido de nuevo al mundo de Azul! Esta epansión del aclamado juego Azul no requiere el juego base para poder disfrutarlo en una partida entre 2 a 4 jugadores. Adentra a decorar con los maravillos cristales del palacio. ",
+        "description": "Después de decorar el Palacio de Évora, el rey Manuel I de Portugal quiere encargar a los más grandes artesanos de vidrieras del mundo que adornen las ventanas del Palacio Real de Sintra. Como artesano del vidrio es una ocasión única en la vida para demostrar tus exquisitas habilidades al servicio del rey y del país. ¿Serás el mejor en la creación de los vitrales más hermosos de todo Portugal? ¡Bienvenido de nuevo al mundo de Azul! Esta expansión del aclamado juego Azul no requiere el juego base para poder disfrutarlo en una partida entre 2 a 4 jugadores. ¡Entra a decorar el palacio con los maravillos colores de los vitrales! ",
         "quantity": 12
     },
     {

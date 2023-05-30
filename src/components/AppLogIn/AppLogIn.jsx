@@ -159,7 +159,6 @@ export default function AppLogIn() {
                             {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                     </div>
-
                 </div>
 
                 <Button

@@ -167,7 +167,6 @@ export default function AppProductDetails({
                                     }}
                                 // className=''
                                 >DESCRIPCIÓN:
-
                                 </Typography>
                                 <Typography
                                     disabled={false}
@@ -180,7 +179,7 @@ export default function AppProductDetails({
                                         mt: "5px",
                                         mb: "15px",
                                     }}
-                                // className=''
+                                    className="productDetailsDescription-style"
                                 >{productDescription}
                                 </Typography>
                                 <Typography
