@@ -156,9 +156,8 @@ export default function AppUserDashboard() {
                                             key={product.id}
                                             dashboardProductTitle={product.title}
                                             dashboardProductImg={product.img}
-                                            dashboardOnClickEdit={() => editProduct(product.id)}
-                                            to={`/user-dashboard-edit/${product.id}`}
                                             // dashboardOnClickEdit={() => editProduct(product.id)}
+                                            to={`/user-dashboard-edit/${product.id}`}
                                             dashboardOnClickDelete={() => deleteProduct(product.id)}
                                         />
                                     ))}
