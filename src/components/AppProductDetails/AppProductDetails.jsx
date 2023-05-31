@@ -4,6 +4,8 @@ import "./AppProductDetails.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
 
 import { Box, Chip, IconButton, InputAdornment, Typography } from "@mui/material";
 import { Button } from "@mui/material";
@@ -30,11 +32,10 @@ export default function AppProductDetails({
     productDescription,
     productQuantity,
 }) {
-
-    // const pollo = "( °)> "
-
+    const { user } = useContext(ContextUser);
     const [count, setCount] = useState(0);
-    const productMaxQuantity = parseInt(productQuantity) // Supongamos que tienes una variable productQuantity
+
+    const productMaxQuantity = parseInt(productQuantity)
 
     const handleIncrement = () => {
         setCount((prevCount) => Math.min(prevCount + 1, productMaxQuantity));
@@ -251,7 +252,7 @@ export default function AppProductDetails({
                                     >
                                         <Button
                                             className="link-style2"
-                                            disabled
+                                            disabled={!user}
                                             endIcon={<FavoriteBorderIcon color="white" className="iconInfo-style" />}>
                                             GUARDAR EN FAVORITOS
                                         </Button>
