@@ -4,11 +4,12 @@ import "./AppUserDashboardEdit.css"
 //components
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
-
+import { useEffect } from "react";
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
 import { ContextProduct } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import { Box, FormControl, IconButton, Typography, MenuItem } from "@mui/material";
 import { Container } from '@mui/material';
@@ -31,10 +32,11 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import AppButtonUpload from "../AppButtonUpload/AppButtonUpload";
 
-export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle }) {
+export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle, confirmButtonText }) {
 
     const { user } = useContext(ContextUser);
-    const { createProduct } = useContext(ContextProduct);
+    const { products, createProduct, editProduct } = useContext(ContextProduct);
+    const { id } = useParams()
     const navigate = useNavigate()
 
     const [title, setTitle] = useState("");
@@ -46,9 +48,37 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
 
     const [titleError, setTitleError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
+    const [isEditing, setIsEditing] = useState(false)
+
+    useEffect(() => {
+        if (id !== undefined) {
+            const findProduct = products.find((item) => item.id === parseInt(id))
+
+            // foundedProductUser = findProduct.item.user
+            if (findProduct && findProduct.user !== user.name) {
+                console.log("Error: Usuario no válido");
+                return navigate("/")
+            }
+            else {
+                console.log("Producto editado:")
+                console.log(findProduct)
+                setTitle(findProduct.title)
+                setCategory(findProduct.category)
+                setPrice(findProduct.price)
+                setQuantity(findProduct.quantity)
+                setDescription(findProduct.description)
+                setImg(findProduct.img)
+
+                if (findProduct) {
+                    setIsEditing(true)
+                }
+            }
+        }
+    }, [id])
 
 
     const handleSubmit = async (e) => {
+        console.log(isEditing)
         e.preventDefault()
         // console.log("Submit")
         console.log("producto ingresado: " + title)
@@ -87,8 +117,25 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
             quantity,
         }
         createProduct(newProduct)
+        console.log("new product created")
 
         if (newProduct) {
+            if (isEditing) {
+                const updatedProduct = {
+                    id: parseInt(id),
+                    user: user.name,
+                    title,
+                    category,
+                    price,
+                    img,
+                    description,
+                    quantity,
+                }
+                editProduct(updatedProduct)
+                console.log("Products updated")
+            }
+            setIsEditing(false)
+            console.log(isEditing)
             return navigate("/user-dashboard")
         }
     }
@@ -362,7 +409,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                     src="\imgs\User_Profile_Img_00.png"
                                     alt="User_Profile_Img_00.png"
                                     width="140px"
-                                    imgClass="userProfileImg2-style"
+                                    imgClass="userProductImg-style"
                                 />
                                 <AppButtonUpload />
                             </Box>
@@ -410,12 +457,11 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                 mx: 3,
                                 width: "160px",
                             }}
-                            endIcon={<CheckIcon />}>CONFIRMAR
+                            endIcon={<CheckIcon />}>{confirmButtonText}
                         </Button>
                     </Box>
                 </CardContent>
             </Card>
-
         </>
     );
 }

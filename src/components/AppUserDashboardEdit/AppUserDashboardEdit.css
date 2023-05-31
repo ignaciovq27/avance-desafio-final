@@ -5,19 +5,19 @@
     transform: scale(1.04)
 }
 
-.userProfileImg2-style {
+.userProductImg-style {
+
     background-color: white;
-    border-radius: 50%;
-    /* border: solid 4px #292829; */
-    /* border: solid 4px #545353; */
-    border: solid 4px #2e2e2e;
-    /* border: solid 4px rgb(232, 234, 235); */
+    border-radius: 14px;
+    border: solid 2px rgb(232, 234, 235);
     overflow: hidden;
     margin-top: 15px;
     margin-bottom: 5px;
     margin-left: 10px;
     margin-right: 10px;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.5); */
+
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.01);
 }
 
 /* .userCard-style {

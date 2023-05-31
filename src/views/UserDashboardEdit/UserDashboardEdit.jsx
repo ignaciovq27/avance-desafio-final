@@ -13,7 +13,7 @@ export default function UserDashboardEdit() {
   const params = useParams();
 
   const productFound = products.filter((product) => product.user === user.name).length === 0;
-  console.log(params.id);
+  // console.log(params.id);
 
   return (
     <div className="userDashboardEdit-container" id="userDashboardEdit">
@@ -23,6 +23,7 @@ export default function UserDashboardEdit() {
           key="newTitle"
           dashboardTitle="✧ CREAR PUBLICACIÓN ✧"
           dashboardSubtitle="REGISTRA LOS DATOS DE LA PUBLICACIÓN: "
+          confirmButtonText="CREAR"
         />
       ] : null}
 
@@ -32,9 +33,11 @@ export default function UserDashboardEdit() {
           product.id === parseInt(params.id) ? [
             <AppTitle key={product.id} title={`USER DASHBOARD EDIT - PRODUCT: ${product.id}`} />,
             <AppUserDashboardEdit
+              editingState="true"
               key={`editTitle-${product.id}`}
               dashboardTitle="✧ EDITAR PUBLICACIÓN ✧"
               dashboardSubtitle="ACTUALIZA LOS DATOS DE LA PUBLICACIÓN: "
+              confirmButtonText="ACTUALIZAR"
             />
           ] : null
         )}

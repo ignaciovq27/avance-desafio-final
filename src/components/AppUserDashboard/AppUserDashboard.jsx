@@ -28,6 +28,7 @@ export default function AppUserDashboard() {
     useEffect(() => {
         const userProducts = products.filter(product => product.user === user.name);
         setuserProductsCount(userProducts.length);
+        console.log(products)
     }, [products, user.name]);
 
     return (

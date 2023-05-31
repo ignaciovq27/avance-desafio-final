@@ -99,7 +99,11 @@ export default function AppProductDetails({
                         >
                             <CardMedia
                                 component="img"
-                                sx={{ width: { xs: 260, sm: 300, md: 360, lg: 400 }, mx: "auto" }}
+                                sx={{
+                                    width: { xs: 260, sm: 300, md: 360, lg: 400 }, mx: "auto",
+                                    mr: { xs: 0, sm: 0, md: 5, lg: 5 },
+                                    ml: { xs: 0, sm: 0, md: 0, lg: 0 },
+                                }}
                                 image={productImg}
                                 alt="Product_img.png"
                                 className="productDetailsImg-style"
@@ -114,9 +118,12 @@ export default function AppProductDetails({
 
                             sx={{
                                 px: { xs: 'none', sm: '0px', md: "5px" },
+                                display: "flex",
                             }}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            alignContent={"center"}
                         >
-
                             <Box
                                 sx={{
                                     display: "flex",
@@ -178,7 +185,9 @@ export default function AppProductDetails({
                                         // mt: "20px",
                                         mt: "5px",
                                         mb: "15px",
+                                        minWidth: "240px",
                                     }}
+
                                     className="productDetailsDescription-style"
                                 >{productDescription}
                                 </Typography>
@@ -317,7 +326,7 @@ export default function AppProductDetails({
                                             sx={{
                                                 mt: { xs: 2, sm: 0, md: 0 },
                                                 // mt: 3,
-                                                ml: { xs: 0, sm: 0, md: 1 },
+                                                ml: { xs: 0, sm: 1, md: 1 },
                                                 // mx: 3,
                                                 py: 1.5,
                                                 width: "200px",
