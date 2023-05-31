@@ -44,8 +44,7 @@ export default function AppUserProfileEdit() {
         passwordRepeat,
         setPasswordRepeat,
         profileImg,
-        setProfileImg,
-        setUserStates } = useContext(ContextUser);
+        setProfileImg } = useContext(ContextUser);
 
     const navigate = useNavigate()
 
@@ -54,7 +53,11 @@ export default function AppUserProfileEdit() {
 
     useEffect(() => {
         if (user) {
-            setUserStates()
+            setName(user.name)
+            setEmail(user.email)
+            setPassword(user.password)
+            setProfileImg(user.profileImg)
+            console.log("userStates loaded")
         }
     }, [user]);
 
@@ -88,18 +91,15 @@ export default function AppUserProfileEdit() {
         //     return alert("Error de datos de contraseña.");
         // }
 
-
         editProfile({
+            userId: user.userId,
             name,
             email,
             password,
-            profileImg,
+            profileImg
         })
 
         if (user) {
-            // setName(user.name)
-            // setEmail(user.email)
-            // setPassword(user.password)
             return navigate("/user-profile")
         }
     }

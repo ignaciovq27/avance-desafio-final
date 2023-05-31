@@ -1,13 +1,13 @@
 [
     {
-        "id": 1,
+        "userId": 1,
         "name": "test",
         "email": "test@test.cl",
         "password": "test",
         "profileImg": "/imgs/User_Profile_Img_00.png"
     },
     {
-        "id": 2,
+        "userId": 2,
         "name": "ignacio",
         "email": "ignacio@test.cl",
         "password": "ignacio",

@@ -12,7 +12,7 @@ export default function UserDashboardEdit() {
   const { user } = useContext(ContextUser);
   const params = useParams();
 
-  const productFound = products.filter((product) => product.user === user.name).length === 0;
+  const productFound = products.filter((product) => product.userId === user.userId).length === 0;
   // console.log(params.id);
 
   return (
@@ -28,7 +28,7 @@ export default function UserDashboardEdit() {
       ] : null}
 
       {products
-        .filter((product) => product.user === user.name)
+        .filter((product) => product.userId === user.userId)
         .map((product) =>
           product.id === parseInt(params.id) ? [
             <AppTitle key={product.id} title={`USER DASHBOARD EDIT - PRODUCT: ${product.id}`} />,

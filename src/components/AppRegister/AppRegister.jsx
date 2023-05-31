@@ -53,7 +53,7 @@ export default function AppRegister() {
             email,
             password,
             profileImg,
-            id: Date.now(),
+            userId: Date.now(),
         })
         return navigate("/login")
     }

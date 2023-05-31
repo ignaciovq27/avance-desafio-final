@@ -64,7 +64,6 @@ export function UserContext({ children }) {
     // const [user, setUser] = useState(null) //estado inicial del usuario = null
 
     const [user, setUser] = useState(initialStateUser) //si el usuario existe, el estado del user pasa a ser el usuario  inicial (initialStateUser) encontrado.
-
     // {
     // id: "",
     // name: "",
@@ -72,6 +71,14 @@ export function UserContext({ children }) {
     // password: "",
     // profileImg: "",
     // }
+
+    const [id, setId] = useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordRepeat, setPasswordRepeat] = useState("");
+    const [profileImg, setProfileImg] = useState("/imgs/User_Profile_Img_00.png");
+
 
     // ------------------------------------------------------------------
     // Usar useEffect para guardar información del usario (todo la información del usuario)
@@ -136,6 +143,7 @@ export function UserContext({ children }) {
 
     // 3) Funcion para logOut
     const logOut = async () => {
+        setId("")
         setName("")
         setEmail("")
         setPassword("")
@@ -184,23 +192,6 @@ export function UserContext({ children }) {
         setUser(user)
     }
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordRepeat, setPasswordRepeat] = useState("");
-    const [profileImg, setProfileImg] = useState("/imgs/User_Profile_Img_00.png");
-
-    // setear los states del user registrado
-    const setUserStates = async (e) => {
-        if (user) {
-            setName(user.name)
-            setEmail(user.email)
-            setPassword(user.password)
-            setProfileImg(user.profileImg)
-            console.log("userStates loaded")
-        }
-    }
-
     return <ContextUser.Provider value={{
         user,
         name,
@@ -218,6 +209,5 @@ export function UserContext({ children }) {
         compararInfoUsuarLogIn,
         register,
         editProfile,
-        setUserStates,
     }}>{children}</ContextUser.Provider>
 }

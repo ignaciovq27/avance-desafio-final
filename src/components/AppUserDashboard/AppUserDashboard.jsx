@@ -26,10 +26,15 @@ export default function AppUserDashboard() {
 
     // Actualiza la cantidad de publicaciones cuando cambie el array de productos
     useEffect(() => {
-        const userProducts = products.filter(product => product.user === user.name);
+        const userProducts = products.filter(product => product.userId === user.userId);
+        // const userProducts = products.filter(product => product.user === user.name || parseInt(product.userId) === parseInt(user.id));
+        // const userProducts = products.filter(product => product.user === user.name);
+        console.log(user.userId)
+        console.log(products[0].userId)
+
         setuserProductsCount(userProducts.length);
         console.log(products)
-    }, [products, user.name]);
+    }, [products, user.userId]);
 
     return (
         <>
@@ -95,7 +100,7 @@ export default function AppUserDashboard() {
                         </Button>
                     </Box>
                     <>
-                        {products.filter(product => product.user === user.name).length === 0 ? (
+                        {products.filter(product => product.userId === user.userId).length === 0 ? (
                             <>
                                 <Box
                                     sx={{
@@ -151,7 +156,7 @@ export default function AppUserDashboard() {
                                     >{userProductsCount}
                                     </Typography>
                                 </Box>
-                                {products.filter(product => product.user === user.name)
+                                {products.filter(product => product.userId === user.userId)
                                     .map(product => (
                                         <AppCardDashboard
                                             key={product.id}

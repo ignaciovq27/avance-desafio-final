@@ -55,7 +55,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
             const findProduct = products.find((item) => item.id === parseInt(id))
 
             // foundedProductUser = findProduct.item.user
-            if (findProduct && findProduct.user !== user.name) {
+            if (findProduct && findProduct.userId !== user.userId) {
                 console.log("Error: Usuario no válido");
                 return navigate("/")
             }
@@ -75,7 +75,6 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
             }
         }
     }, [id])
-
 
     const handleSubmit = async (e) => {
         console.log(isEditing)
@@ -107,8 +106,9 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
         // }
 
         const newProduct = {
-            id: Date.now(),
+            userId: parseInt(user.userId),
             user: user.name,
+            id: Date.now(),
             title,
             category,
             price,
@@ -122,8 +122,9 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
         if (newProduct) {
             if (isEditing) {
                 const updatedProduct = {
-                    id: parseInt(id),
+                    userId: parseInt(user.userId),
                     user: user.name,
+                    id: parseInt(id),
                     title,
                     category,
                     price,

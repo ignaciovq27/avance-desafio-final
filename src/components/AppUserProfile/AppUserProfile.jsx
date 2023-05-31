@@ -26,10 +26,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 
 export default function AppUserProfile() {
-    const { user, setName, setEmail, setPassword, } = useContext(ContextUser);
-    const navigate = useNavigate()
-
-    const nameInUpperCase = user.name.toUpperCase();
+    const { user } = useContext(ContextUser);
 
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -94,7 +91,9 @@ export default function AppUserProfile() {
                                 justifyContent: "center",
                                 alignItems: "center"
                             }}
-                        ><b> HOLA {nameInUpperCase}</b> <AutoAwesomeIcon sx={{
+                        ><b> HOLA {user.name.toUpperCase()}</b> <AutoAwesomeIcon sx={{
+
+                            // ><b> HOLA {nameInUpperCase}</b> <AutoAwesomeIcon sx={{
                             ml: "5px",
                         }} />
                         </Typography>
