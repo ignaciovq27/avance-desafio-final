@@ -15,6 +15,9 @@ import AppFilters from "../AppFilters/AppFilters";
 export default function AppGalleryBoardgames() {
     const { products } = useContext(ContextProduct);
 
+    const [searchText, setSearchText] = useState("")
+    // const filterProducts = products.filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
+
     return (
         <>
             <Typography
@@ -31,7 +34,7 @@ export default function AppGalleryBoardgames() {
             >✧ JUEGOS DE MESA ✧
             </Typography>
 
-            <AppFilters />
+            <AppFilters searchTextNav={searchText} setSearchTextNav={setSearchText} />
             <Container
                 sx={{
                     m: "auto",
@@ -59,17 +62,18 @@ export default function AppGalleryBoardgames() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        {products.map((product) => (
-                            <AppCardProduct
-                                key={product.id}
-                                productId={product.id}
-                                productImg={product.img}
-                                productUser={product.user}
-                                productTitle={product.title}
-                                productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
-                                productDescription={product.description}
-                            />
-                        ))}
+                        {products.filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
+                            .map((product) => (
+                                <AppCardProduct
+                                    key={product.id}
+                                    productId={product.id}
+                                    productImg={product.img}
+                                    productUser={product.user}
+                                    productTitle={product.title}
+                                    productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                    productDescription={product.description}
+                                />
+                            ))}
                     </Grid >
                 </Grid>
             </Container >

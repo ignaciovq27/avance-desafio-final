@@ -13,7 +13,7 @@ import { TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 
-export default function AppFilters({ }) {
+export default function AppFilters({ searchTextNav, setSearchTextNav }) {
     const { products } = useContext(ContextProduct);
 
     const [searchOrder, setsearchOrder] = useState(0);
@@ -77,7 +77,8 @@ export default function AppFilters({ }) {
                         variant="outlined"
                         placeholder="Splendor..."
                         color="primary"
-                        // onChange={(e) => setUserEmail(e.target.value)}
+                        onChange={(e) => setSearchTextNav(e.target.value.trimStart())}
+                        value={searchTextNav}
                         InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
