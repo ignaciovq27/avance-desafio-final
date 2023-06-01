@@ -170,7 +170,6 @@ export default function AppUserFavourites() {
                                                 console.log(favourites)
                                             }
                                         }}
-
                                         favouriteIconShow={likeStatus ?
                                             (<FavoriteIcon size="large" />)
                                             : (<FavoriteBorderIcon size="large" />)}

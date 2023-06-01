@@ -31,6 +31,8 @@ export default function AppProductDetails({
     productImg,
     productDescription,
     productQuantity,
+    onClickFavourite,
+    favouriteIconShow
 }) {
     const { user } = useContext(ContextUser);
     const [count, setCount] = useState(0);
@@ -253,7 +255,9 @@ export default function AppProductDetails({
                                         <Button
                                             className="link-style2"
                                             disabled={!user}
-                                            endIcon={<FavoriteBorderIcon color="white" className="iconInfo-style" />}>
+                                            onClick={onClickFavourite}
+                                            endIcon={favouriteIconShow}>
+                                            {/* endIcon={<FavoriteBorderIcon color="white" className="iconInfo-style" />}> */}
                                             GUARDAR EN FAVORITOS
                                         </Button>
                                     </Box>
