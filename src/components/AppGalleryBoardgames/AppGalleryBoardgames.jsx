@@ -14,9 +14,34 @@ import AppFilters from "../AppFilters/AppFilters";
 
 export default function AppGalleryBoardgames() {
     const { products } = useContext(ContextProduct);
-
     const [searchText, setSearchText] = useState("")
-    // const filterProducts = products.filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
+    const [sortOrder, setSortOrder] = useState(1)
+
+    const [searchOrder, setsearchOrder] = useState(0);
+
+    const handleOnChange = (event) => {
+        setsearchOrder(event.target.value);
+        if (searchOrder === 0) {
+            console.log(sortOrder)
+            console.log("sort 0")
+            setSortOrder(0)
+
+        }
+        if (searchOrder === 1) {
+            console.log(sortOrder)
+            console.log("sort 1")
+            setSortOrder(1)
+        }
+    };
+
+    function logicOrder(a, b) {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title < b.title) {
+            return 1;
+        }
+    }
 
     return (
         <>
@@ -34,7 +59,13 @@ export default function AppGalleryBoardgames() {
             >✧ JUEGOS DE MESA ✧
             </Typography>
 
-            <AppFilters searchTextNav={searchText} setSearchTextNav={setSearchText} />
+            <AppFilters
+                searchTextNav={searchText}
+                setSearchTextNav={setSearchText}
+                handleOnChangeSort={handleOnChange}
+                searchOrderSort={searchOrder}
+            />
+
             <Container
                 sx={{
                     m: "auto",
@@ -62,7 +93,9 @@ export default function AppGalleryBoardgames() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        {products.filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
+                        {products
+                            .sort((a, b) => sortOrder === 1 ? logicOrder(a, b) : logicOrder(b, a))
+                            .filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
                             .map((product) => (
                                 <AppCardProduct
                                     key={product.id}

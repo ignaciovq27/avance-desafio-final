@@ -13,14 +13,13 @@ import { TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 
-export default function AppFilters({ searchTextNav, setSearchTextNav }) {
+export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrderSort, handleOnChangeSort }) {
     const { products } = useContext(ContextProduct);
 
-    const [searchOrder, setsearchOrder] = useState(0);
-
-    const handleOnChange = (event) => {
-        setsearchOrder(event.target.value);
-    };
+    // const [searchOrder, setsearchOrder] = useState(0);
+    // const handleOnChange = (event) => {
+    //     setsearchOrder(event.target.value);
+    // };
 
     return (
         <>
@@ -89,6 +88,7 @@ export default function AppFilters({ searchTextNav, setSearchTextNav }) {
                         }}
                     />
                 </div>
+
                 <div className="divTextField-style">
                     <Typography
                         // variant="h6"
@@ -102,8 +102,8 @@ export default function AppFilters({ searchTextNav, setSearchTextNav }) {
                     </Typography>
                     <FormControl sx={{ minWidth: 220 }}>
                         <TextField
-                            value={searchOrder}
-                            onChange={handleOnChange}
+                            value={searchOrderSort}
+                            onChange={handleOnChangeSort}
                             select
                             // label="ORDENAR"
                             InputProps={{
@@ -115,10 +115,13 @@ export default function AppFilters({ searchTextNav, setSearchTextNav }) {
                             }}
                         >
                             <MenuItem value={0}>ORDEN DE A - Z</MenuItem>
+                            <MenuItem value={1}>ORDEN DE Z - A</MenuItem>
+
                         </TextField>
                         {/* <FormHelperText>Without label</FormHelperText> */}
                     </FormControl>
                 </div>
+
             </Box >
         </>
     )
