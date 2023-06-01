@@ -13,7 +13,7 @@ import { TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import SortIcon from '@mui/icons-material/Sort';
 
-export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrderSort, handleOnChangeSort }) {
+export default function AppFilters({ infoText, infoTextLength, searchTextNav, setSearchTextNav, searchOrderSort, handleOnChangeSort }) {
     const { products } = useContext(ContextProduct);
 
     // const [searchOrder, setsearchOrder] = useState(0);
@@ -50,12 +50,12 @@ export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrde
                             px: 1
                         }}
                     >
-                        PUBLICACIONES:
+                        {infoText}
                     </Typography>
                     <Typography
                         color="primary"
                         sx={{ fontWeight: "600", fontSize: "20px" }}
-                    >{products.length}
+                    >{infoTextLength}
                     </Typography>
                 </Box>
                 <div className="divTextField-style">
@@ -86,6 +86,7 @@ export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrde
                                 </InputAdornment>
                             ),
                         }}
+                        sx={{ minWidth: 212 }}
                     />
                 </div>
 
@@ -100,7 +101,7 @@ export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrde
                         }}
                     >ORDENAR POR:
                     </Typography>
-                    <FormControl sx={{ minWidth: 220 }}>
+                    <FormControl sx={{ minWidth: 225 }}>
                         <TextField
                             value={searchOrderSort}
                             onChange={handleOnChangeSort}
@@ -114,8 +115,10 @@ export default function AppFilters({ searchTextNav, setSearchTextNav, searchOrde
                                 ),
                             }}
                         >
-                            <MenuItem value={0}>ORDEN DE A - Z</MenuItem>
-                            <MenuItem value={1}>ORDEN DE Z - A</MenuItem>
+                            <MenuItem value={0}>NOMBRE DE A - Z</MenuItem>
+                            <MenuItem value={1}>NOMBRE DE Z - A</MenuItem>
+                            <MenuItem value={2}>MENOR PRECIO</MenuItem>
+                            <MenuItem value={3}>MAYOR PRECIO</MenuItem>
 
                         </TextField>
                         {/* <FormHelperText>Without label</FormHelperText> */}

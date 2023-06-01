@@ -2,8 +2,11 @@
 import "./AppUserCart.css"
 
 //components
-import { Link, NavLink } from 'react-router-dom';
 import { useState } from "react";
+import { Link, NavLink } from 'react-router-dom';
+import { useContext } from "react";
+import { ContextUser } from '../../context/UserContext';
+
 import AppProductCart from "../AppProductCart/AppProductCart";
 import { Box, Typography } from "@mui/material";
 import { Button } from "@mui/material";
@@ -13,6 +16,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 export default function AppUserCart() {
+    const { user } = useContext(ContextUser);
 
     return (
         <>
@@ -193,6 +197,7 @@ export default function AppUserCart() {
                         // to="/user-favourites"
                         variant="contained"
                         // color="primary"
+                        disabled={!user}
                         color="warning"
                         startIcon={<ShoppingCartCheckoutIcon
                             color="white"

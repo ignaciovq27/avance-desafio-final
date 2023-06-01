@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import { MyContext } from "./MyContext";
 import { UserContext } from './context/UserContext.jsx';
 import { ProductContext } from './context/ProductContext.jsx';
-
+import { FavouriteContext } from './context/FavouriteContext';
 
 //import CssBaseline
 import { CssBaseline } from "@mui/material";
@@ -47,10 +47,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
     <UserContext>
       <ProductContext>
-        <BrowserRouter>
-          <CssBaseline />
-          <App />
-        </BrowserRouter>
+        <FavouriteContext>
+          <BrowserRouter>
+            <CssBaseline />
+            <App />
+          </BrowserRouter>
+        </FavouriteContext>
       </ProductContext>
     </UserContext>
   </ThemeProvider>

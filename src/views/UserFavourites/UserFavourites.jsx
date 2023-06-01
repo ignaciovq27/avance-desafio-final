@@ -8,11 +8,11 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AppUserFavourites from "../../components/AppUserFavourites/AppUserFavourites";
 
-
 export default function UserFavourites() {
 
     return (
         <div className="userFavourites-container" id="userFavourites">
+
             <AppTitle title="USER FAVOURITES" />
             <AppUserFavourites />
             <Typography
@@ -31,7 +31,7 @@ export default function UserFavourites() {
                         my: 2,
                         mb: 6,
                     }}
-                >VER <br></br>JUEGOS DE MESA
+                >IR A <br></br>JUEGOS DE MESA
                 </Button>
             </Typography>
             <Typography
@@ -46,11 +46,11 @@ export default function UserFavourites() {
             >
                 <Button variant="contained"
                     sx={{
-                        py: 2.282,
+                        // py: 2.282,
                         my: 2,
                         mb: 6,
                     }}
-                >INICIO
+                >IR A <br></br>INICIO
                 </Button>
             </Typography>
         </div>

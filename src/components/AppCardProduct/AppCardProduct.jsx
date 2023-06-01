@@ -5,6 +5,7 @@ import './AppCardProduct.css'
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
+import { ContextFavourite } from '../../context/FavouriteContext';
 
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -23,9 +24,13 @@ export default function AppCardProduct({
     productTitle,
     productUser,
     productDescription,
-    productPrice }) {
+    productPrice,
+    onClickFavourite,
+    favouriteIconShow }) {
 
     const { user } = useContext(ContextUser);
+    const { addFavourites } = useContext(ContextFavourite);
+
 
     return (
         <>
@@ -53,10 +58,12 @@ export default function AppCardProduct({
                     <IconButton
                         color="primary"
                         disabled={!user}
+                        onClick={onClickFavourite}
                     // color="secondary"
                     >
+                        {favouriteIconShow}
                         {/* <FavoriteIcon size="large" /> */}
-                        <FavoriteBorderIcon size="large" />
+                        {/* <FavoriteBorderIcon size="large" /> */}
                     </IconButton>
                 </Box>
                 <Typography

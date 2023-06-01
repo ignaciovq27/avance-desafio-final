@@ -71,11 +71,21 @@ export function ProductContext({ children }) {
     const editProduct = newProduct => {
         const newProducts = products.map(product => {
             if (product.id === newProduct.id) {
-                return newProduct
+                return newProduct;
             }
-            return product
-        })
-        setProducts(newProducts)
+            return product;
+        });
+        newProducts.sort(sortById); // Ordenar por ID antes de actualizar los productos
+        setProducts(newProducts);
+    };
+    function sortById(a, b) {
+        if (a.id < b.id) {
+            return -1;
+        } else if (a.id > b.id) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     return <ContextProduct.Provider value={{

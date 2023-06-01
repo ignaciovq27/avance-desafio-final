@@ -5,6 +5,8 @@ import './AppNav.css'
 import * as React from 'react';
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
+import { ContextFavourite } from '../../context/FavouriteContext';
+
 import { Link, NavLink } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -84,6 +86,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // export component
 export default function AppNav() {
   const { user, logOut } = useContext(ContextUser);
+  const { favourites, addFavourites } = useContext(ContextFavourite);
+
 
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -306,7 +310,9 @@ export default function AppNav() {
               aria-controls={menuId}
               aria-haspopup="true"
               color="secondary">
-              <FavoriteIcon />
+              <Badge badgeContent={favourites.length} max={9} color="primary">
+                <FavoriteIcon />
+              </Badge>
             </IconButton>
             FAVORITOS
           </MenuItem>
@@ -377,7 +383,7 @@ export default function AppNav() {
 
                 <AppButton text="DASHBOARD" to="/user-dashboard" />
 
-                <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={0} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
+                <AppIconButton icon={<FavoriteIcon />} to="/user-favourites" count={favourites.length} component={NavLink} className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
               </>
             ) : null}
 

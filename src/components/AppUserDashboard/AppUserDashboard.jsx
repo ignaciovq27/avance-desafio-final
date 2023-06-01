@@ -26,7 +26,17 @@ export default function AppUserDashboard() {
 
     // Actualiza la cantidad de publicaciones cuando cambie el array de productos
     useEffect(() => {
-        const userProducts = products.filter(product => product.userId === user.userId);
+
+        function sortById(a, b) {
+            if (a.id < b.id) {
+                return -1;
+            } else if (a.id > b.id) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        const userProducts = products.sort(sortById).filter(product => product.userId === user.userId);
         // const userProducts = products.filter(product => product.user === user.name || parseInt(product.userId) === parseInt(user.id));
         // const userProducts = products.filter(product => product.user === user.name);
         console.log(user.userId)
@@ -113,14 +123,21 @@ export default function AppUserDashboard() {
                                 <Typography
                                     color="secondary"
                                     sx={{
-                                        pt: "12px",
+                                        py: "12px",
                                         display: "flex",
                                         justifyContent: "center",
                                         alignItems: "center"
                                     }}
                                 >
-                                    NO HAY PUBLICACIONES CREADAS.
+                                    NO HAY PUBLICACIONES CREADAS
                                 </Typography>
+                                <Box
+                                    sx={{
+                                        width: { xs: "290px", sm: "600px", md: "750px", lg: "900px", xl: "900px" },
+                                    }}
+                                >
+                                    <hr />
+                                </Box>
                             </>
                         ) : (
                             <>

@@ -7,7 +7,6 @@ import { Routes, Route } from "react-router-dom";
 // import { MyContext } from "./MyContext";
 import { useContext } from "react";
 import { ContextUser } from './context/UserContext';
-import { ContextProduct } from './context/ProductContext';
 
 import { Navigate } from 'react-router-dom';
 

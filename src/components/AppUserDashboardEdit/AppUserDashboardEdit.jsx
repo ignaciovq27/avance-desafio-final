@@ -108,7 +108,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
         const newProduct = {
             userId: parseInt(user.userId),
             user: user.name,
-            id: Date.now(),
+            id: parseInt(Date.now()),
             title,
             category,
             price,
