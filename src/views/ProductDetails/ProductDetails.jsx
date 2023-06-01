@@ -108,6 +108,7 @@ export default function ProductDetails() {
               />
             )
           }
+          favouriteInfo={product.fav ? "GUARDADO EN FAVORITOS" : "GUARDAR EN FAVORITOS"}
         />
       )}
     </div>

@@ -32,7 +32,8 @@ export default function AppProductDetails({
     productDescription,
     productQuantity,
     onClickFavourite,
-    favouriteIconShow
+    favouriteIconShow,
+    favouriteInfo
 }) {
     const { user } = useContext(ContextUser);
     const [count, setCount] = useState(0);
@@ -253,12 +254,15 @@ export default function AppProductDetails({
                                         textAlign={"center"}
                                     >
                                         <Button
+                                            sx={{
+                                                fontWeight: "600",
+                                            }}
                                             className="link-style2"
                                             disabled={!user}
                                             onClick={onClickFavourite}
                                             endIcon={favouriteIconShow}>
                                             {/* endIcon={<FavoriteBorderIcon color="white" className="iconInfo-style" />}> */}
-                                            GUARDAR EN FAVORITOS
+                                            {favouriteInfo}
                                         </Button>
                                     </Box>
                                 </Box>
