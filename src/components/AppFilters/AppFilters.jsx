@@ -18,9 +18,10 @@ export default function AppFilters({ searchTextNav, setSearchTextNav }) {
 
     const [searchOrder, setsearchOrder] = useState(0);
 
-    const handleChange = (event) => {
+    const handleOnChange = (event) => {
         setsearchOrder(event.target.value);
     };
+
     return (
         <>
             <Box
@@ -102,7 +103,7 @@ export default function AppFilters({ searchTextNav, setSearchTextNav }) {
                     <FormControl sx={{ minWidth: 220 }}>
                         <TextField
                             value={searchOrder}
-                            onChange={handleChange}
+                            onChange={handleOnChange}
                             select
                             // label="ORDENAR"
                             InputProps={{

@@ -47,7 +47,6 @@ export function ProductContext({ children }) {
     useEffect(() => {
         if (products.length === 0) {
             getProductsData() // si está vacio, solo llama a los productos de products.json
-            console.log("asdasd")
         }
     }, [])
 
