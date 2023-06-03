@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
+import { ContextProduct } from "../../context/ProductContext";
 
 import AppProductCart from "../AppProductCart/AppProductCart";
 import { Box, Typography } from "@mui/material";
@@ -17,6 +18,13 @@ import CardContent from '@mui/material/CardContent';
 
 export default function AppUserCart() {
     const { user } = useContext(ContextUser);
+    const { cartItems,
+        setCartItems,
+        cartAmount,
+        setCartAmount,
+        productsCount,
+        setProductsCount, } = useContext(ContextProduct);
+
 
     return (
         <>
@@ -57,19 +65,58 @@ export default function AppUserCart() {
                     }}
                 // className="userCard-style"
                 >
-                    <Box
+                    {/* <Box
                         sx={{
                             my: 1,
                             display: "flex",
+                            flexDirection: "column",
                             justifyContent: "center",
                             alignItems: "center",
                             alignContent: "center",
                         }}
                     >
-                    </Box>
+                    </Box> */}
                     {/* <hr /> */}
-                    <AppProductCart dashboardProductImg="\imgs\products\Product_01.png" />
-                    <AppProductCart dashboardProductImg="\imgs\products\Product_06.png" />
+                    {/* <AppProductCart dashboardProductImg="\imgs\products\Product_01.png" /> */}
+
+                    {cartItems.map((item, i) => {
+
+                        const handleOnClickAdd = (e) => {
+                            setProductsCount((cartAmount) => cartAmount + item.price)
+                            setProductsCount((productsCount) => productsCount + 1)
+
+                            const newCartItems = [...cartItems];
+                            newCartItems[i].quantity += 1;
+                            setCartItems(newCartItems);
+                            console.log(newCartItems);
+                        }
+
+                        const handleOnClickRemove = (e) => {
+                            if (item.quantity > 0) {
+                                setProductsCount((cartAmount) => cartAmount - item.price);
+                                setProductsCount((productsCount) => productsCount - 1);
+
+                                const newCartItems = cartItems.map((cartItem) => {
+                                    if (cartItem.id === item.id) {
+                                        return {
+                                            ...cartItem,
+                                            quantity: cartItem.quantity - 1,
+                                        };
+                                    }
+                                    return cartItem;
+                                }).filter((cartItem) => cartItem.quantity > 0);
+
+                                setCartItems(newCartItems);
+                                console.log(newCartItems);
+                            }
+                        };
+
+                        return (
+                            <div key={item.id}>
+                                <AppProductCart dashboardProductImg={item.img} />
+                            </div>
+                        )
+                    })}
 
 
                 </CardContent>

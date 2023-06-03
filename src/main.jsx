@@ -5,7 +5,6 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 
 //contexts
-// import { MyContext } from "./MyContext";
 import { UserContext } from './context/UserContext.jsx';
 import { ProductContext } from './context/ProductContext.jsx';
 import { FavouriteContext } from './context/FavouriteContext';

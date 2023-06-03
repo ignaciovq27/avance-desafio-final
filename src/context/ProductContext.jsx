@@ -88,10 +88,48 @@ export function ProductContext({ children }) {
         }
     }
 
+    // {
+    // id: "",
+    // title: "",
+    // category: "",
+    // price: "",
+    // img: "",
+    // user: "",
+    // quantity: "",
+    // description: "",
+    // }
+
+    const [cartAmount, setCartAmount] = useState(0)
+    const [productsCount, setProductsCount] = useState(0)
+    const [cartItems, setCartItems] = useState([])
+
+    function addProductToCart(id, img, user, title, price, quantity) {
+        const existingProduct = cartItems.find((product) => product.id === id);
+        if (existingProduct) {
+            const updatedCartItems = cartItems.map((product) => {
+                if (product.id === id) {
+                    return { ...product, quantity: product.quantity + 1 };
+                }
+                return pizza;
+            });
+            setCartItems(updatedCartItems);
+        } else {
+            const newItem = { id, img, user, title, price, quantity };
+            setCartItems([...cartItems, newItem]);
+        }
+    }
+
     return <ContextProduct.Provider value={{
         products,
         createProduct,
         deleteProduct,
         editProduct,
+        cartItems,
+        setCartItems,
+        cartAmount,
+        setCartAmount,
+        productsCount,
+        setProductsCount,
+        addProductToCart,
     }}>{children}</ContextProduct.Provider>
 }
