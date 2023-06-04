@@ -5,6 +5,7 @@ import './AppNav.css'
 import * as React from 'react';
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
+import { ContextProduct } from "../../context/ProductContext";
 import { ContextFavourite } from '../../context/FavouriteContext';
 
 import { Link, NavLink } from 'react-router-dom';
@@ -86,9 +87,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // export component
 export default function AppNav() {
   const { user, logOut } = useContext(ContextUser);
+  const { cartItems,
+    setCartItems,
+    cartAmount,
+    setCartAmount,
+    productsCount,
+    setProductsCount, } = useContext(ContextProduct);
+
   const { favourites, addFavourites } = useContext(ContextFavourite);
-
-
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -283,7 +289,10 @@ export default function AppNav() {
             aria-haspopup="true"
             // onClick={handleProfileMenuOpen}
             color="secondary"
-          ><Badge badgeContent={10} max={9} color="primary">
+          ><Badge
+            badgeContent={productsCount}
+            // max={9}
+            color="primary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
@@ -387,7 +396,9 @@ export default function AppNav() {
               </>
             ) : null}
 
-            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={10} maxCount={9} component={NavLink} />
+            <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={productsCount}
+              // maxCount={9}
+              component={NavLink} />
             <AppIconButton icon={<AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
           </Box>

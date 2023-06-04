@@ -103,18 +103,18 @@ export function ProductContext({ children }) {
     const [productsCount, setProductsCount] = useState(0)
     const [cartItems, setCartItems] = useState([])
 
-    function addProductToCart(id, img, user, title, price, quantity) {
+    function addProductToCart(id, img, user, title, price, quantity, cartQuantity) {
         const existingProduct = cartItems.find((product) => product.id === id);
         if (existingProduct) {
             const updatedCartItems = cartItems.map((product) => {
                 if (product.id === id) {
-                    return { ...product, quantity: product.quantity + 1 };
+                    return { ...product, cartQuantity };
                 }
-                return pizza;
+                return product;
             });
             setCartItems(updatedCartItems);
         } else {
-            const newItem = { id, img, user, title, price, quantity };
+            const newItem = { id, img, user, title, price, quantity, cartQuantity };
             setCartItems([...cartItems, newItem]);
         }
     }

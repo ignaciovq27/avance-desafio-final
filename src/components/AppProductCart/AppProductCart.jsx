@@ -15,7 +15,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 
-export default function AppCardDashboard({ dashboardProductImg }) {
+export default function AppCardDashboard({
+    productCartImg,
+    productCartUser,
+    productCartTitle,
+    productCartPrice,
+    productCartCount,
+    productCartQuantity,
+    productCartTotal,
+    handleCartIncrement,
+    handleCartDecrement,
+}) {
 
     const pollo = "( °)> "
     const [count, setCount] = useState(0)
@@ -79,7 +89,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                     mx: "auto",
                                     my: { xs: 1, sm: 0, md: 0, lg: 0 },
                                 }}
-                                image={dashboardProductImg}
+                                image={productCartImg}
                                 alt="Product_01.png"
                                 className="productDetailsImg-style"
                             />
@@ -100,7 +110,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                         fontSize: "14px",
                                     }}
                                 // className=''
-                                >"NOMBRE PUBLICADOR"
+                                >{productCartUser}
                                 </Typography>
                                 <Typography
                                     variant="h5"
@@ -117,7 +127,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                         mx: "auto"
                                     }}
                                     className="productName-style"
-                                >"NOMBRE PRODUCTO"
+                                >{productCartTitle}
                                 </Typography>
 
                                 <Typography
@@ -130,7 +140,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                         fontSize: "22px"
                                     }}
                                 // className=''
-                                >$ 9.990
+                                >{productCartPrice}
                                 </Typography>
                             </Box>
                         </Box>
@@ -157,7 +167,9 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                             }}
                             alignItems={"center"}
                         >
-                            <Button variant="contained" onClick={() => setCount((count) => count - 1)}
+                            <Button variant="contained"
+                                // onClick={() => setCount((count) => count - 1)}
+                                onClick={handleCartDecrement}
                                 sx={{
                                     minWidth: "40px",
                                 }}
@@ -175,11 +187,14 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                     textAlign: "center",
                                 }}
                             // className=''
-                            >{count}
+                            >{productCartCount}
                             </Typography>
 
                             <Button
-                                variant="contained" onClick={() => setCount((count) => count + 1)}
+                                variant="contained"
+                                // onClick={() => setCount((count) => count + 1)}
+                                onClick={handleCartIncrement}
+
                                 sx={{
                                     minWidth: "40px",
                                 }}
@@ -195,7 +210,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 // textAlign: { xs: "center", sm: "center", md: "center" }
                                 pt: 1,
                             }}
-                        >DISPONIBLES: 0
+                        >DISPONIBLES: {productCartQuantity}
                         </Typography>
                     </Box>
 
@@ -220,7 +235,7 @@ export default function AppCardDashboard({ dashboardProductImg }) {
                                 // pb: 1,
                             }}
                         // className=''
-                        >$ 9.990
+                        >{productCartTotal}
                         </Typography>
                     </Box>
                 </CardContent>

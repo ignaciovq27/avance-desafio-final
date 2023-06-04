@@ -1,13 +1,13 @@
 import "./AppProductDetails.css";
 
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
 import { ContextProduct } from "../../context/ProductContext";
 
 import {
-    Box, Chip, IconButton, InputAdornment, Typography,
+    Box, Typography,
     Button,
     Grid,
 } from "@mui/material";
@@ -49,8 +49,9 @@ export default function AppProductDetails({
     } = useContext(ContextProduct);
 
     const [count, setCount] = useState(0);
+    const [cartCount, setCartCount] = useState(0);
 
-    const productMaxQuantity = parseInt(productQuantity);
+    const productMaxQuantity = parseInt(productQuantity - cartCount);
 
     const handleIncrement = () => {
         setCount((prevCount) => Math.min(prevCount + 1, productMaxQuantity));
@@ -60,16 +61,19 @@ export default function AppProductDetails({
         setCount((prevCount) => Math.max(prevCount - 1, 0));
     };
 
+    useEffect(() => {
+        if (cartItems.find(item => item.id === productId)) {
+            setCartCount(cartItems.find(item => item.id === productId)?.cartQuantity);
+        }
+    }, [cartItems]);
 
     return (
         <>
             {products.map((product, i) => {
 
-                const productPrice = product.price;
-
                 const HandleOnClick = (e) => {
-                    setCartAmount((cartAmount) => cartAmount + productPrice);
-                    setProductsCount((productsCount) => productsCount + 1);
+                    setCartAmount((cartAmount) => cartAmount + (product.price * count));
+                    setProductsCount((productsCount) => productsCount + count);
                     // setShowModal(true)
                     addProductToCart(
                         product.id,
@@ -77,11 +81,14 @@ export default function AppProductDetails({
                         product.user,
                         product.title,
                         product.price,
-                        // 1
+                        product.quantity,
+                        count
                     );
                 };
-                if (product.id === productId) { // Verificar si hay una coincidencia con el productId
-                    // Código para mostrar solo el producto coincidente
+                if (product.id === productId) {
+                    // const productInCart = cartItems.find(item => item.id === productId);
+                    // const productOnCartQuantity = productInCart ? productInCart.cartQuantity : 0;
+
                     return (
                         <div key={product.id}>
                             <Typography
@@ -257,6 +264,19 @@ export default function AppProductDetails({
                                                 >
                                                     DISPONIBLES: {productQuantity}
                                                 </Typography>
+                                                <Typography
+                                                    sx={{
+                                                        textAlign: {
+                                                            xs: "center",
+                                                            sm: "left",
+                                                            md: "left",
+                                                        }, color: "#ED6C02",
+                                                        fontWeight: "bold",
+                                                        mb: 1,
+                                                    }}
+                                                >
+                                                    EN CARRITO: {cartCount}
+                                                </Typography>
 
                                                 <Box
                                                     sx={{
@@ -397,9 +417,10 @@ export default function AppProductDetails({
                                     </Grid>
                                 </CardContent>
                             </Card>
-                        </div>);
+                        </div>
+                    )
                 }
-                return null; // No se muestra el producto
+                return null
             })}
         </>
     );
