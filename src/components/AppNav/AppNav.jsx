@@ -28,6 +28,7 @@ import AppButton from '../AppButton/AppButton';
 import AppIconButton from '../AppIconButton/AppIconButton';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AppImg from '../AppImg/AppImg';
+import { Avatar } from '@mui/material';
 // import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
@@ -371,7 +372,9 @@ export default function AppNav() {
             aria-controls={menuId}
             aria-haspopup="true"
             color="primary">
-            <AccountCircle />
+            {user ? <Avatar alt="userProfileImg_00" src={user.profileImg}
+              sx={{ width: "auto", height: 25, display: "flex", p: 0, m: 0, textAlign: "center", justifyContent: "center", alignItems: "center", alignContent: "center" }} />
+              : <AccountCircle />}
           </IconButton>
           USUARIO <ArrowDropDownIcon />
         </MenuItem>
@@ -397,7 +400,7 @@ export default function AppNav() {
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="ACCESORIOS"
               to="/gallery-accessories"
-              className={({ isActive }) => (isActive ? 'active' : 'inactive')}/>
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
             <AppButton text="MINIATURAS"
               to="/gallery-miniatures"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
@@ -430,7 +433,9 @@ export default function AppNav() {
             <AppIconButton icon={<ShoppingCartIcon />} to="/user-cart" count={productsCount}
               // maxCount={9}
               component={NavLink} />
-            <AppIconButton icon={<AccountCircle />} count={0}
+            <AppIconButton icon={user ? <Avatar alt="userProfileImg_00" src={user.profileImg}
+              sx={{ width: "auto", height: 25, display: "flex", p: 0, m: 0, textAlign: "center", justifyContent: "center", alignItems: "center", alignContent: "center" }} />
+              : <AccountCircle />} count={0}
               onClick={handleProfileMenuOpen} />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

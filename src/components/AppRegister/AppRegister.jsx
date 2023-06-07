@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-import { Box, IconButton, InputAdornment, Typography } from "@mui/material";
+import { Alert, AlertTitle, Box, Collapse, IconButton, InputAdornment, Snackbar, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -33,8 +33,10 @@ export default function AppRegister() {
         profileImg,
         setProfileImg,
         register } = useContext(ContextUser);
+
     const navigate = useNavigate()
     const [nameError, setNameError] = useState(false);
+    const [showAlert, setShowAlert] = useState(true);
 
 
     const handleSubmit = (e) => {
@@ -93,6 +95,18 @@ export default function AppRegister() {
             // noValidate
             // autoComplete="off"
             >
+                <Snackbar open={showAlert}
+                    autoHideDuration={5000}
+                    onClose={() => setShowAlert(false)}
+                ><Alert
+                    severity="info"
+                    icon={<AccountCircle />}
+                    onClose={() => { setShowAlert(false) }}>
+                        <AlertTitle>BIENVENIDO</AlertTitle>
+                        This is an info alert — <strong>check it out!</strong>
+                    </Alert>
+                </Snackbar>
+
                 <AppImg
                     // to="/"
                     src="\imgs\Icon_User_02.png"
