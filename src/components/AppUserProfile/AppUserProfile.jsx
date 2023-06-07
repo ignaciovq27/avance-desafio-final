@@ -19,11 +19,14 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AppImg from "../AppImg/AppImg";
 import EditIcon from '@mui/icons-material/Edit';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { Alert, AlertTitle, Snackbar } from "@mui/material";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
+
 
 export default function AppUserProfile() {
     const { user } = useContext(ContextUser);
@@ -34,8 +37,39 @@ export default function AppUserProfile() {
         event.preventDefault();
     };
 
+    const [showAlert, setShowAlert] = useState({
+        open: true,
+        vertical: 'bottom',
+        horizontal: 'right'
+    })
+
+    const { open, vertical, horizontal } = showAlert;
+
     return (
         <>
+            {user ? (
+                vertical && horizontal && (
+                    <Snackbar
+                        anchorOrigin={{ vertical, horizontal }}
+                        open={open}
+                        autoHideDuration={10000}
+                        onClose={() => setShowAlert(false)}
+                        key={vertical + horizontal}
+                    >
+                        <Alert
+                            variant="filled"
+                            severity="info"
+                            // icon={<ThumbUpIcon />}
+                            onClose={() => { setShowAlert(false) }
+                            }
+                        >
+                            <AlertTitle><strong>¡BIENVENIDO!</strong></AlertTitle>
+                            Visita <strong>DASHBOARD</strong> para crear una nueva publicación <AutoAwesomeIcon />.
+                        </Alert>
+                    </Snackbar>
+                )
+            ) : null}
+
             <Typography
                 disabled={false}
                 variant="h4"

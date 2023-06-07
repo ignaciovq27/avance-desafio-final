@@ -53,6 +53,10 @@ export default function AppUserProfileEdit() {
 
     useEffect(() => {
         if (user) {
+            setName("")
+            // setEmail("")
+            setPassword("")
+            setPasswordRepeat("")
             setName(user.name)
             setEmail(user.email)
             setPassword(user.password)
@@ -246,6 +250,7 @@ export default function AppUserProfileEdit() {
                                             required
                                             // helperText="Ingrese un correo valido."
                                             error={false}
+                                            disabled
                                             // value={user.email}
                                             defaultValue={user.email}
                                             onChange={(e) => setEmail(e.target.value)}
@@ -408,6 +413,9 @@ export default function AppUserProfileEdit() {
                             variant="contained"
                             size="small"
                             color="warning"
+                            disabled={
+                                (name !== "" && email !== "" && password !== "" && passwordRepeat !== "") ? false : true
+                            }
                             // onClick={handleSubmit}
                             sx={{
                                 mt: 1,

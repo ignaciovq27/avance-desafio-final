@@ -2,13 +2,13 @@
 import "./AppRegister.css"
 
 //components
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { useContext } from "react";
 import { ContextUser } from '../../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-import { Alert, AlertTitle, Box, Collapse, IconButton, InputAdornment, Snackbar, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { TextField } from "@mui/material";
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -36,7 +36,7 @@ export default function AppRegister() {
 
     const navigate = useNavigate()
     const [nameError, setNameError] = useState(false);
-    const [showAlert, setShowAlert] = useState(true);
+
 
 
     const handleSubmit = (e) => {
@@ -76,6 +76,14 @@ export default function AppRegister() {
         event.preventDefault();
     };
 
+    // const [showAlert, setShowAlert] = useState({
+    //     open: true,
+    //     vertical: 'top',
+    //     horizontal: 'center'
+    // })
+
+    // const { open, vertical, horizontal } = showAlert;
+
     return (
         <>
             <Box
@@ -95,17 +103,22 @@ export default function AppRegister() {
             // noValidate
             // autoComplete="off"
             >
-                <Snackbar open={showAlert}
-                    autoHideDuration={5000}
-                    onClose={() => setShowAlert(false)}
-                ><Alert
-                    severity="info"
-                    icon={<AccountCircle />}
-                    onClose={() => { setShowAlert(false) }}>
-                        <AlertTitle>BIENVENIDO</AlertTitle>
-                        This is an info alert — <strong>check it out!</strong>
-                    </Alert>
-                </Snackbar>
+                {/* {vertical && horizontal && (
+                    <Snackbar
+                        anchorOrigin={{ vertical, horizontal }}
+                        open={open}
+                        autoHideDuration={5000}
+                        onClose={() => setShowAlert(false)}
+                        key={vertical + horizontal}
+                    ><Alert
+                        severity="info"
+                        icon={<AccountCircle />}
+                        onClose={() => { setShowAlert(false) }}>
+                            <AlertTitle>BIENVENIDO</AlertTitle>
+                            This is an info alert — <strong>check it out!</strong>
+                        </Alert>
+                    </Snackbar>
+                )} */}
 
                 <AppImg
                     // to="/"

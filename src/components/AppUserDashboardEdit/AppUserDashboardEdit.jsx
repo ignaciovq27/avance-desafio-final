@@ -59,6 +59,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                 console.log("Error: Usuario no válido");
                 return navigate("/")
             }
+
             else {
                 console.log("Producto editado:")
                 console.log(findProduct)
@@ -281,6 +282,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                         >
                                             <MenuItem value={0}>JUEGOS DE MESA</MenuItem>
                                             <MenuItem value={1} disabled>ACCESORIOS</MenuItem>
+                                            <MenuItem value={1} disabled>MINIATURAS</MenuItem>
 
                                         </TextField>
                                         {/* <FormHelperText>Without label</FormHelperText> */}
@@ -330,9 +332,9 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             // defaultValue={userName}
                                             onChange={(e) => setQuantity(Number(e.target.value))}
                                             color="primary"
-                                            placeholder="1"
+                                            placeholder="9"
                                             InputProps={{
-                                                // inputProps: { min: 1 },
+                                                inputProps: { min: 1 },
                                             }}
                                         />
                                     </div>
@@ -361,7 +363,7 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                                             color="primary"
                                             multiline
                                             rows={4}
-                                        // placeholder=""
+                                            placeholder="Este juego es sobre..."
                                         // minRows={4}
                                         // maxRows={4}
                                         // defaultValue="Default Value"
@@ -450,6 +452,9 @@ export default function AppUserDashboardEdit({ dashboardTitle, dashboardSubtitle
                             variant="contained"
                             size="small"
                             color="warning"
+                            disabled={
+                                (title !== "" && price !== "" && quantity !== "" && description !== "") ? false : true
+                            }
                             // onClick={handleSubmit}
                             sx={{
                                 mt: 1,

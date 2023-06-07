@@ -47,13 +47,13 @@ export default function AppButtonUpload() {
                     mt: { xs: 1, sm: 1, md: 1, lg: 1.5 },
                 }}
             >
-                <input
+                {/* <input
                     type="file"
                     accept="image/*"
                     style={{ display: 'none' }}
                     id="contained-button-file"
                     onChange={handleFileChange}
-                />
+                /> */}
                 <label htmlFor="contained-button-file">
                     <Button type="file"
                         variant="contained"
