@@ -12,7 +12,7 @@ import AppIconButton from "../AppIconButton/AppIconButton";
 export default function AppTitle({ title }) {
     return (
         <>
-            <Box
+            {/* <Box
                 sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -28,7 +28,7 @@ export default function AppTitle({ title }) {
                     }}
                 >VIEW: {title}
                 </Typography>
-            </Box>
+            </Box> */}
         </>
     );
 }

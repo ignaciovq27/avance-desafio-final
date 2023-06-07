@@ -131,6 +131,7 @@ export default function AppGalleryMiniatures() {
                 setSearchTextNav={setSearchText}
                 handleOnChangeSort={handleOnChange}
                 searchOrderSort={searchOrder}
+                searchPlaceholder="Set miniaturas..."
             />
 
             <Container

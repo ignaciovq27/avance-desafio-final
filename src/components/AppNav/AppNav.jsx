@@ -254,6 +254,34 @@ export default function AppNav() {
         > JUEGOS DE MESA </MenuItem>
       </Typography>
 
+      <Typography
+        color="secondary"
+        component={Link}
+        to="/gallery-accessories"
+        noWrap
+        align='center'
+        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+      >
+        <MenuItem
+          sx={{ display: 'block', py: 2, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
+        > ACCESORIOS </MenuItem>
+      </Typography>
+
+      <Typography
+        color="secondary"
+        component={Link}
+        to="/gallery-miniatures"
+        noWrap
+        align='center'
+        sx={{ display: 'block', my: 0, px: 0, textDecoration: "none", }}
+      >
+        <MenuItem
+          sx={{ display: 'block', py: 2, textDecoration: "none", }}
+          onClick={handleMobileMenuClose}
+        > MINIATURAS </MenuItem>
+      </Typography>
+
       {user ? (
         <Typography
           color="secondary"

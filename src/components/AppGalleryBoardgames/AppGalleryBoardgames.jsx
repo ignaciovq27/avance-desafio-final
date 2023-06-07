@@ -130,6 +130,7 @@ export default function AppGalleryBoardgames() {
                 setSearchTextNav={setSearchText}
                 handleOnChangeSort={handleOnChange}
                 searchOrderSort={searchOrder}
+                searchPlaceholder="Splendor..."
             />
 
             <Container

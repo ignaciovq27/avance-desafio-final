@@ -113,6 +113,8 @@ export default function AppUserFavourites() {
                 setSearchTextNav={setSearchText}
                 handleOnChangeSort={handleOnChange}
                 searchOrderSort={searchOrder}
+                searchPlaceholder="Catan..."
+
             />
 
             <Container

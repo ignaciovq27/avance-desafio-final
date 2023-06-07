@@ -131,6 +131,7 @@ export default function AppGalleryAccessories() {
                 setSearchTextNav={setSearchText}
                 handleOnChangeSort={handleOnChange}
                 searchOrderSort={searchOrder}
+                searchPlaceholder="Cartas..."
             />
 
             <Container
