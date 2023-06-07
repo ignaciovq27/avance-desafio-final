@@ -158,6 +158,7 @@ export default function AppUserFavourites() {
                                         productTitle={favourite.title}
                                         productPrice={favourite.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                                         productDescription={favourite.description}
+                                        toDetailProduct={`/product-details/${favourite.id}`}
                                         onClickFavourite={() => {
                                             const favourite = favourites[i];
                                             if (favourite.fav) {
