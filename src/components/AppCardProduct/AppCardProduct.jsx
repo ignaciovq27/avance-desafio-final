@@ -26,11 +26,11 @@ export default function AppCardProduct({
     productDescription,
     productPrice,
     onClickFavourite,
-    favouriteIconShow }) {
+    favouriteIconShow,
+    toDetailProduct }) {
 
     const { user } = useContext(ContextUser);
     const { addFavourites } = useContext(ContextFavourite);
-
 
     return (
         <>
@@ -68,7 +68,8 @@ export default function AppCardProduct({
                 </Box>
                 <Typography
                     component={Link}
-                    to={`/product-details/${productId}`}
+                    // to={`/product-details/${productId}`}
+                    to={toDetailProduct}
                     sx={{
                         textDecoration: "none"
                     }}>

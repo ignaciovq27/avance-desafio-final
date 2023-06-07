@@ -367,11 +367,14 @@ export default function AppNav() {
             <AppButton text="JUEGOS DE MESA"
               to="/gallery-boardgames"
               className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
-            {/* <AppButton text="ACCESORIOS"
+            <AppButton text="ACCESORIOS"
               to="/gallery-accessories"
-              className={({ isActive }) => (isActive ? 'active' : 'inactive')} /> */}
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')}/>
+            <AppButton text="MINIATURAS"
+              to="/gallery-miniatures"
+              className={({ isActive }) => (isActive ? 'active' : 'inactive')} />
           </Box>
-          <Search
+          {/* <Search
             sx={{ display: { xs: 'none', sm: 'flex' } }}
           >
             <SearchIconWrapper>
@@ -383,7 +386,7 @@ export default function AppNav() {
               }}
               placeholder="Buscar…"
             />
-          </Search>
+          </Search> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {user ? (

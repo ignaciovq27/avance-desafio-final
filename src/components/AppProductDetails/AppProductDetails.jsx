@@ -39,6 +39,7 @@ export default function AppProductDetails({
     const { user } = useContext(ContextUser);
     const {
         products,
+        accessories,
         cartItems,
         setCartItems,
         cartAmount,

@@ -6,7 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-export default function AppButton({ text, to, isActive }) {
+export default function AppButton({ text, to, isActive, isDisabled }) {
     return (
         <Typography
             // noWrap
@@ -24,7 +24,7 @@ export default function AppButton({ text, to, isActive }) {
         >
             <Button
                 // startIcon={<FavoriteIcon />}
-                disabled={false}
+                disabled={isDisabled}
                 // variant="outlined"
                 color="inherit"
                 size="small"

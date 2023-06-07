@@ -1,5 +1,5 @@
 //css
-import "./AppGalleryBoardgames.css"
+import "./AppGalleryAccessories.css"
 
 //components
 import { useState } from "react";
@@ -16,14 +16,15 @@ import AppFilters from "../AppFilters/AppFilters";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-export default function AppGalleryBoardgames() {
-    const { products } = useContext(ContextProduct);
+export default function AppGalleryAccessories() {
+    const { accessories } = useContext(ContextProduct);
     const { favourites, addFavourites, deleteFavourites } = useContext(ContextFavourite);
     const [searchText, setSearchText] = useState("")
 
     const [sortOrder, setSortOrder] = useState(0)
     const [searchOrder, setsearchOrder] = useState(0);
     // console.log(sortOrder)
+    console.log(accessories)
 
 
     // function handleToggleIsFavourite(product) {
@@ -120,12 +121,12 @@ export default function AppGalleryBoardgames() {
                     fontSize: { xs: "28px", sm: "30px", md: "34px" }
                 }}
             // className=''
-            >✧ JUEGOS DE MESA ✧
+            >✧ ACCESORIOS ✧
             </Typography>
 
             <AppFilters
                 infoText="PUBLICACIONES: "
-                infoTextLength={products.length}
+                infoTextLength={accessories.length}
                 searchTextNav={searchText}
                 setSearchTextNav={setSearchText}
                 handleOnChangeSort={handleOnChange}
@@ -159,36 +160,35 @@ export default function AppGalleryBoardgames() {
                         alignItems={"center"}
                         alignContent={"center"}
                     >
-                        {products
+                        {accessories
                             .sort((a, b) => logicOrder(a, b))
-                            .filter((product) => product.title.toUpperCase().includes(searchText.toUpperCase().trim()))
-                            .map((product, i) => {
-                                const likeStatus = product.fav;
+                            .filter((accessorie) => accessorie.title.toUpperCase().includes(searchText.toUpperCase().trim()))
+                            .map((accessorie, i) => {
+                                const likeStatus = accessorie.fav;
                                 return (
                                     <AppCardProduct
-                                        key={product.id}
-                                        productId={product.id}
-                                        productImg={product.img}
-                                        productUser={product.user}
-                                        productTitle={product.title}
-                                        productPrice={product.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
-                                        productDescription={product.description}
-                                        toDetailProduct={`/product-details/${product.id}`}
+                                        key={accessorie.id}
+                                        productId={accessorie.id}
+                                        productImg={accessorie.img}
+                                        productUser={accessorie.user}
+                                        productTitle={accessorie.title}
+                                        productPrice={accessorie.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                        productDescription={accessorie.description}
+                                        toDetailProduct={`/accessorie-details/${accessorie.id}`}
                                         onClickFavourite={() => {
-                                            const product = products[i];
-                                            if (product.fav) {
-                                                product.fav = false;
-                                                deleteFavourites(product.id)
+                                            const accessorie = accessories[i];
+                                            if (accessorie.fav) {
+                                                accessorie.fav = false;
+                                                deleteFavourites(accessorie.id)
                                                 console.log("Eliminado de Favoritos");
                                                 console.log(favourites)
                                             } else {
-                                                product.fav = true;
-                                                addFavourites(product);
+                                                accessorie.fav = true;
+                                                addFavourites(accessorie);
                                                 console.log("Agregado a favoritos");
                                                 console.log(favourites)
                                             }
                                         }}
-
                                         favouriteIconShow={likeStatus ?
                                             (<FavoriteIcon size="large" />)
                                             : (<FavoriteBorderIcon size="large" />)}

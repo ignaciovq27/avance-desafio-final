@@ -11,21 +11,21 @@ const initialStateProduct = localStorage.getItem("products")
     ? JSON.parse(localStorage.getItem("products")) //si el producto de la key "product" existe, se transforma el STRINGJSON a array
     : []; //si no existen productos creados, el estado inicial de producto es "null" o []
 
+const initialStateAccessories = localStorage.getItem("accessories")
+    ? JSON.parse(localStorage.getItem("accessories"))
+    : [];
+
+const initialStateMiniatures = localStorage.getItem("miniatures")
+    ? JSON.parse(localStorage.getItem("miniatures"))
+    : [];
+
 
 export function ProductContext({ children }) {
 
     // 1) array para enlistar productos de json.
     const [products, setProducts] = useState(initialStateProduct)
-    // {
-    // id: "",
-    // title: "",
-    // category: "",
-    // price: "",
-    // img: "",
-    // user: "",
-    // quantity: "",
-    // description: "",
-    // }
+    const [accessories, setAccessories] = useState(initialStateAccessories)
+    const [miniatures, setMiniatures] = useState(initialStateMiniatures)
 
     // 2) Realizar llamada al json para obtener info de productos.
     const getProductsData = async () => {
@@ -43,6 +43,36 @@ export function ProductContext({ children }) {
         }
     }
 
+    const getAccessoriesData = async () => {
+        try {
+            // Consulta a la API.
+            const url = "/accessories.json"
+            const response = await fetch(url)
+            const accessoriesData = await response.json()
+            console.log("JSON accessories data: ")
+            console.log(accessoriesData)
+            setAccessories(accessoriesData)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getMiniaturesData = async () => {
+        try {
+            // Consulta a la API.
+            const url = "/miniatures.json"
+            const response = await fetch(url)
+            const miniaturesData = await response.json()
+            console.log("JSON miniatures data: ")
+            console.log(miniaturesData)
+            setMiniatures(miniaturesData)
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
     // 4) utilizar useEffect para comprobar si el array de productos del local storage esta o no vacio.
     useEffect(() => {
         if (products.length === 0) {
@@ -50,10 +80,30 @@ export function ProductContext({ children }) {
         }
     }, [])
 
+    useEffect(() => {
+        if (accessories.length === 0) {
+            getAccessoriesData()
+        }
+    }, [])
+
+    useEffect(() => {
+        if (miniatures.length === 0) {
+            getMiniaturesData()
+        }
+    }, [])
+
     // 5) En caso contrario, se usa useEffect para comprobar la información de productos del localStorage y usarlos como un nuevo array de productos.
     useEffect(() => {
         localStorage.setItem("products", JSON.stringify(products)) // se transforma el JSON guardado en array.
     }, [products]) // al estar pendiente de "products", cada vez que se añada un nuevo producto se guardará en el localStorage.
+
+    useEffect(() => {
+        localStorage.setItem("accessories", JSON.stringify(accessories))
+    }, [accessories])
+
+    useEffect(() => {
+        localStorage.setItem("miniatures", JSON.stringify(miniatures))
+    }, [miniatures])
 
     // 6) añadir producto desde "mis publicaciones" del usuario
     const createProduct = newProduct => {
@@ -121,6 +171,8 @@ export function ProductContext({ children }) {
 
     return <ContextProduct.Provider value={{
         products,
+        accessories,
+        miniatures,
         createProduct,
         deleteProduct,
         editProduct,
